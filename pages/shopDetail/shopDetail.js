@@ -7,7 +7,9 @@ Page({
   data: {
     is_peisong:false,
     is_guige:false,
-    count:1
+    count:1,
+    current:1,
+    banner: ['/images/goodsimg.png', '/images/goodsimg.png', '/images/goodsimg.png', '/images/goodsimg.png']
   },
 
   /**
@@ -16,7 +18,12 @@ Page({
   onLoad: function (options) {
 
   },
-
+  changeSlide:function(e){
+    console.log(e.detail.current+1)
+    this.setData({
+      current: e.detail.current + 1
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
