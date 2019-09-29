@@ -1,0 +1,71 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <view class="top">
+    <view wx:for='{{top}}' class="{{currentTab == index?'active':''}}" data-index='{{index}}' bindtap="changeTab">{{item}}</view>
+  </view>
+
+  <view class="orderList">
+    <block wx:for='{{orderlist}}'>
+      <view class="order" wx:if='{{item.status==2}}'>
+        <view class="order-title">
+          <text>订单编号：E232454646454FDF34</text>
+          <text></text>
+        </view>
+        <view class="order-con">
+          <image src="/images/goodsimg.png"></image>
+          <view class="o-con">
+            <view class="o-name">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+            <view class="o-mes">
+              <view class="intro">古法秘制，补肾食疗。</view>
+              <view class="num">X1</view>
+              <view class="price">合计：
+                <text>57.30</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="func">
+          <view bindtap="addevaluation">评价</view>
+          <view bindtap="orderdetail">查看订单</view>
+          <view style="background: #909090;" bindtap="shouhou">我要退款</view>
+        </view>
+      </view>
+
+
+
+
+      <view class="order" wx:else>
+        <view class="order-title">
+          <text>1订单编号：E232454646454FDF34</text>
+          <text>等待买家付款</text>
+        </view>
+        <view class="order-con">
+
+        
+          <image src="/images/goodsimg.png"></image>
+          <view class="o-con">
+            <view class="o-name">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+            <view class="o-mes noflex">
+              <view class="intro">古法秘制，补肾食疗。</view>
+              <view class="o-bot">
+                <view class="price">合计：
+                  <text>57.30</text>
+                </view>
+                <view class="num">X1</view>
+
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="heji">合计：<text>57.30</text></view>
+        <view class="line"><image src="/images/line.png"></image></view>
+        <view class="func">
+          <view bindtap="addevaluation">评价</view>
+          <view bindtap="orderdetail">查看订单</view>
+        </view>
+      </view>
+      
+    </block>
+  </view>
+</view>

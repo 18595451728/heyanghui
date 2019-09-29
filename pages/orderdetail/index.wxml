@@ -1,0 +1,86 @@
+<view class="content">
+  <view class="wuliu">
+    <image src="/images/wuliu.png"></image>
+    <view class="wuliumsg">
+      <text>卖家已发货</text>
+      <text class="tishi">卖家已发货，点击查看物流</text>
+    </view>
+  </view>
+  <view class="kongxi">
+  </view>
+  <view class="address">
+    <image src="/images/dixian.png" class="xianxian"></image>
+    <view class="addmsg">
+      <image src="/images/add.png"></image>
+      <view class="msgcontent">
+        <view class="name">
+          <text>收货人：尹浩</text>
+          <text>18042429455</text>
+        </view>
+        <text class="addressmsg">收货地址：黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="goods">
+    <image src="/images/goodsimg.png"></image>
+    <view class="goodsmsg">
+      <text>九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+      <view class="goodsnum">
+        <text>古法秘制，补肾食疗。</text>
+        <text style="color:#3B3B3B">X1</text>
+      </view>
+    </view>
+  </view>
+  <view class="zongji">
+    商品小计：
+    <text style="color:#EA4B43">57.30</text>
+  </view>
+  <view class="kongxi">
+  </view>
+  <view class="peisong">
+    <text>配送方式</text>
+    <view class="peisongmsg">
+      <text>免运费</text>
+      <text>快递发货</text>
+    </view>
+  </view>
+  <view class="usermsg">
+    <text>买家留言</text>
+    <text class="peisongmsg">无</text>
+  </view>
+  <view class="kongxi">
+  </view>
+  <view class="total">
+    <view class="totalitem" style="margin-top:30rpx;">
+      <text>商品金额</text>
+      <text>¥ 57.30</text>
+    </view>
+    <view class="totalitem">
+      <text>优惠券</text>
+      <text style="color:#EA4B43">-¥ 7.00</text>
+    </view>
+    <view class="totalitem">
+      <text>积分</text>
+      <text style="color:#EA4B43">-¥ 0.30</text>
+    </view>
+  </view>
+  <view class="zongji" style="color:#1F1F1F">
+    实付款:
+    <text style="color:#EA4B43;margin-left:10rpx;">50.00</text>
+  </view>
+  <view class="kongxi">
+  </view>
+  <view class="ordermsg">
+     <text>订单编号：E232454646454FDF34</text>
+     <text>创建时间：2019-09-20 17:42:07</text>
+  </view>
+</view>
+<view class="caozuo">
+  <view class="caozuoitem" style="background-color:#B2AFA3">
+    我要退款
+  </view>
+  <view class="caozuoitem" style="background-color:#EB544D">
+    确认收货
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<view class="member">
+    <view class="member_one">
+        <image src="/images/member_one_banner.jpg"></image>
+        <view class="member_one_text">
+            <view class="member_one_text_line">成长值：975</view>
+            <view class="member_one_text_img"><image src="/images/member_one_text_img.png"></image></view>
+            <view class="member_one_text_tex">差343分升到V4，新特权在等你加油～</view>
+        </view>
+    </view>
+
+    <view class="member_two">
+       <view class="member_two_title">
+          <view>我的特权</view>
+          <view class="member_two_title_right"><text>全部特权</text><view class="member_two_title_img"><image src="/images/member_two_title.png"></image></view></view>
+       </view>
+
+      
+    </view>
+
+     <view class="member_three">
+           <view class="member_two_content_box">
+              <view class="member_two_content_biaoti_img"><image src="/images/member_two_content_01.png"></image></view> 
+              <view class="member_two_content_biaoti">双倍成长</view>
+               <view class="member_two_content_text">生日快速升级</view>
+           </view>
+
+           <view class="member_two_content_box">
+              <view class="member_two_content_biaoti_img"><image src="/images/member_two_content_02.png"></image></view> 
+              <view class="member_two_content_biaoti">双倍成长</view>
+               <view class="member_two_content_text">生日快速升级</view>
+           </view>
+
+           <view class="member_two_content_box">
+              <view class="member_two_content_biaoti_img"><image src="/images/member_two_content_03.png"></image></view> 
+              <view class="member_two_content_biaoti">双倍成长</view>
+               <view class="member_two_content_text">生日快速升级</view>
+           </view>
+           
+       </view>
+</view>

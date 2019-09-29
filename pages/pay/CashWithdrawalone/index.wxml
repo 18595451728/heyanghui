@@ -1,0 +1,27 @@
+<!--pages/pay/CashWithdrawal/index.wxml-->
+<view class="CashWithdrawalone">
+  <view class="CashWithdrawalone_main">
+    <image src="/images/CashWithdrawalone_beijing.png"></image>
+    <view class="CashWithdrawalone_main_one">
+      <view class="CashWithdrawalone_main_one_left">
+        <view class="CashWithdrawalone_main_one_img">
+          <image src="/images/CashWithdrawalone_01.png"></image>
+        </view>
+        <text>中国工商银行尾号3840</text>
+      </view>
+      <view class="CashWithdrawalone_main_one_fanhui">
+        <image src="/images/CashWithdrawalone_fanhui.png"></image>
+      </view>
+
+    </view>
+    
+    <view class="CashWithdrawalone_main_two">
+       <view class="CashWithdrawalone_main_two_box"><text>提现金额</text><text></text></view>
+       <view class="CashWithdrawalone_main_two_box"><text>¥ 5000</text><text>全部提现</text></view>
+       <view class="CashWithdrawalone_main_two_box"><input placeholder-class="place" placeholder="可提现金额¥ 5000"></input><text></text></view>
+    </view>
+    
+
+    <view class="CashWithdrawalone_main_three" bindtap="submit">确定提现</view>
+  </view>
+</view>

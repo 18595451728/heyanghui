@@ -1,0 +1,161 @@
+page {
+  background-color: white;
+}
+
+.header {
+  width: 750rpx;
+  height: 273rpx;
+  position: relative;
+}
+
+.header image {
+  height: 100%;
+  width: 100%;
+}
+
+.headermsg {
+  width: 654rpx;
+  height: 273rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 58rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 25rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.tixian {
+  width: 110rpx;
+  height: 41rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 5rpx;
+  font-size: 25rpx;
+  font-weight: 600;
+  color: rgba(37, 37, 37, 1);
+  line-height: 41rpx;
+  text-align: center;
+}
+
+.allmoney {
+  height: 41rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 50rpx;
+  font-weight: 600;
+  line-height: 41rpx;
+  margin-top: 23rpx;
+}
+
+.moneynum {
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.numitem {
+  height: 100%;
+  width: 230rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.goods {
+  width: 720rpx;
+  margin-left: 15rpx;
+  margin-top: 50rpx;
+}
+
+.title {
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+}
+
+.goodsitem {
+  height: 307rpx;
+  width: 684rpx;
+  padding-right: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+}
+
+.goodsimg {
+  width: 212rpx;
+  height: 212rpx;
+  position: relative;
+}
+
+.goodsimg image {
+  height: 100%;
+  width: 100%;
+  border-radius: 5rpx;
+}
+
+.remai {
+  position: absolute;
+  height: 60rpx;
+  width: 38rpx;
+  background-color: #ea4b43;
+  top: 15rpx;
+  left: 10rpx;
+  border-radius: 5rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: white;
+  line-height: 30rpx;
+  text-align: center;
+}
+
+.goodsmsg {
+  width: 400rpx;
+  height: 212rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.goodscart {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.goodsprice {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(234, 75, 67, 1);
+}
+
+.price {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  font-weight: 600;
+}
+
+.goodstitle {
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 44rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 24rpx;
+  color: #b6b6b6;
+}

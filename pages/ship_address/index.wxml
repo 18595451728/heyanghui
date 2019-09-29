@@ -1,0 +1,28 @@
+<!--pages/ship_address/index.wxml-->
+
+
+<view wx:for="{{address}}" style='position: relative;'>
+  <!-- 列表层 -->
+  <view class='list' style='{{item.txtStyle}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index='{{index}}'>
+    <!-- 收货信息 -->
+    <view class='info' bindtap='select_addr' data-id="{{item.id}}">
+      <view>
+        {{item.name}}
+        <span class="phone">{{item.phone}}</span>
+        <span wx:if="{{item.default == 1}}" class='def'>默认</span>
+      </view>
+      <view>
+
+        {{item.province}} {{item.address}}
+      </view>
+    </view>
+    <!-- 编辑图标 -->
+    <view class='edit' bindtap='edit' data-id='{{item.id}}'>
+      <image src='/images/edit.jpg'></image>
+    </view>
+  </view>
+  <!-- 删除按钮 -->
+  <view class="delete" data-id="{{item.id}}" data-index='{{index}}' bindtap="delItem">删除</view>
+</view>
+
+<view class='add' bindtap='add'>添加地址</view>

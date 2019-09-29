@@ -1,0 +1,33 @@
+<view class="header">
+  <view class="all">全部 1</view>
+  <view class="item">好评 1</view>
+</view>
+
+<view class="list">
+  <view class="listheader">
+    <image class="userlogo" src="/images/user_logo.png"></image>
+    <view class="headermsg">
+      <view class="phone">
+        <text>1*********7</text>
+        <text style="color:#868686">2018-08-24</text>
+      </view>
+      <view>
+        <image wx:for="{{scores}}" class="scores" src="/images/scores.png"></image>
+      </view>
+    </view>
+  </view>
+  <text class="usermsg">此用户没有填写评价</text>
+  <view class="foot">
+    <text class="title">九蒸九晒黑芝麻丸</text>
+    <view class="footitem">
+      <view class="itemmsg">
+        <text>1</text>
+        <image class="msgimg" src="/images/msg.png"></image>
+      </view>
+      <view class="itemmsg" style="margin-left:40rpx;">
+        <text>1</text>
+        <image class="zanimg" src="/images/zan.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

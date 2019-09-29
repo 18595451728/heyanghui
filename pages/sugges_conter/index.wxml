@@ -1,0 +1,41 @@
+<!--pages/sugges_conter/index.wxml-->
+<view class="member_page">
+
+  <view class="menmber_box">
+    <view class="list_member">
+      <view class="sugg_txt">
+        <text>投诉/建议</text>类型</view>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+    <view class="list_member">
+      <view class="sugg_txt">
+        <text>投诉/建议</text>店铺</view>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+
+  </view>
+
+
+  <view class='menmber_box'>
+    <view class="textarea_box">
+      <textarea placeholder-class='textarea-text' placeholder="您可以投诉吐槽我们或者提供一些建议与看法！">
+      </textarea>
+      <text class="num_word">0/1000</text>
+    </view>
+
+
+    <view class='picture_box'>
+      <view class='picture'>
+
+        <image src='/images/camera_pic.png' />
+
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="feedback">提交</view>
+
+
+</view>

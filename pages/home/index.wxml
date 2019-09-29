@@ -1,0 +1,26 @@
+<!--pages/home/index.wxml-->
+<view class="pages_images">
+  <view class="cirle_yuan">
+       <view class="images_icon icon01" bindtap="goshiphome">
+          <image src="/images/page_icon01.png"></image>
+          <text>商城首页</text>
+       </view>
+
+       <view class="images_icon icon02">
+          <image src="/images/page_icon01.png"></image>
+          <text>推拿针灸</text>
+       </view>
+        <view class="images_icon icon03" bindtap="gopeople">
+          <image src="/images/page_icon01.png"></image>
+          <text>個人中心</text>
+       </view>
+          <view class="images_icon icon04">
+          <image src="/images/page_icon01.png"></image>
+          <text>推拿针灸</text>
+       </view>
+        <view class="images_icon icon05">
+          <image src="/images/page_icon01.png"></image>
+          <text>推拿针灸</text>
+       </view>
+  </view>
+</view>

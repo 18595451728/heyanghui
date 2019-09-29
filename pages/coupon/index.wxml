@@ -1,0 +1,28 @@
+<view class="content">
+  <image src="/images/couponbg.png"></image>
+  <view class="userinfo">
+    <image style="width: 116rpx;height: 116rpx; border-radius: 50%;" src="/images/InvitePrizes_img.png"></image>
+    <text>180****9455</text>
+  </view>
+  <view class="title">
+    优惠劵
+  </view>
+  <view class="msg">
+    <text class="num">50</text>
+    <view class="type">
+      <text>优惠劵</text>
+      <text class="typemsg">全品类通用</text>
+    </view>
+  </view>
+  <view class="tishimsg">
+    <view class="line"></view>
+    <view class="msgcontent">
+      我从和养汇领到1张优惠券
+    </view>
+    <view class="line"></view>
+  </view>
+</view>
+<view class="tishi">优惠券使用规则</view>
+<view class="bto">
+  马上领取
+</view>

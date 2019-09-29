@@ -1,0 +1,44 @@
+<view class="header">
+  <image src="/images/moneybg.jpg"></image>
+  <view class="headermsg">
+    <text style="margin-top:30rpx;">总资产</text>
+    <view class="allmoney">
+      <text>¥46.493</text>
+      <view wx:if="{{showbto}}" bindtap="gotixian" class="tixian">提现</view>
+    </view>
+    <view class="moneynum">
+      <view class="numitem">
+        <text style="font-size:20rpx">余额</text>
+        <text style="font-size:35rpx">¥46.493</text>
+      </view>
+      <view class="numitem">
+        <text style="font-size:20rpx">积分</text>
+        <text style="font-size:35rpx">46.493</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="goods">
+  <text class="title">推荐商品</text>
+  <view wx:for="{{goodslist }}" class="goodsitem">
+    <view class="goodsimg">
+      <image src="/images/goodsimg.png"></image>
+      <view class="remai">
+        热卖
+      </view>
+    </view>
+    <view class="goodsmsg">
+      <view class="goodstitle">
+        <text>九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+        <text class="label">古法秘制，补肾食疗。</text>
+      </view>
+      <view class="goodsprice">
+        <view> ¥
+          <text class="price">57.30</text>
+        </view>
+        <image class="goodscart" src="/images/cart.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

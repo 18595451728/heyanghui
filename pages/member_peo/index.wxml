@@ -1,0 +1,32 @@
+<view class="member_page">
+  <view class="menmber_know">
+    <text>入会须知</text>
+    <view class="moive">
+      <image src="/images/video_img.jpg" class="moveius"></image>
+      <view class="swiper_zhe">
+        <image src="/images/video_play.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="menmber_box">
+    <view class="list_member">
+      <text>入会规则</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+    <view class="list_member">
+      <text>会员权益</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+    <view class="list_member">
+      <text>积分制度</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+    <view class="list_member">
+      <text>注意事项</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+
+  </view>
+</view>

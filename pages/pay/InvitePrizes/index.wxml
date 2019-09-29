@@ -1,0 +1,19 @@
+<view class="InvitePrizes">
+    <view class="InvitePrizes_main_one">
+        <image src="/images/InvitePrizes_main_one_banner.png"></image>
+    </view>
+    <view class="InvitePrizes_main_two">
+        <view class="InvitePrizes_main_two_img">
+            <image src="/images/InvitePrizes_img.png"></image>
+        </view>
+        <view class="InvitePrizes_main_two_tel">180****9455</view>
+        <view class="InvitePrizes_main_two_goods">送给好友20元优惠劵，当他首次下单成功完成维续，您将获得10元优惠劵奖励。</view>
+    </view>
+
+    <view class="InvitePrizes_main_three">
+       <view>邀请好友</view>
+       <view>发送朋友圈</view>
+    </view>
+
+    <view class="InvitePrizes_main_four">优惠券使用规则</view>
+</view>

@@ -1,0 +1,133 @@
+.content {
+  width: 750rpx;
+  height: 974rpx;
+  position: relative;
+}
+
+.content image {
+  height: 100%;
+  width: 100%;
+ 
+}
+
+.bto {
+  width: 650rpx;
+  height: 88rpx;
+  margin-left: 50rpx;
+  background: linear-gradient(-90deg, rgba(251, 119, 108, 1), rgba(229, 80, 73, 1));
+  border-radius: 5rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.tishi {
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(233, 87, 79, 1);
+  line-height: 80rpx;
+  margin-top: 40rpx;
+}
+
+.userinfo {
+  position: absolute;
+  height: 170rpx;
+  width: 100%;
+  top: 40rpx;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 35rpx;
+  font-family: HYYakuHei;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 1);
+}
+
+.title {
+  position: absolute;
+  height: 58rpx;
+  width: 400rpx;
+  top: 280rpx;
+  left: 170rpx;
+  line-height: 58rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-family: HYYakuHei;
+  font-weight: normal;
+  color: rgba(179, 99, 33, 1);
+  opacity: 0.8;
+}
+
+.msg {
+  position: absolute;
+  height: 170rpx;
+  width: 400rpx;
+  top: 340rpx;
+  left: 172rpx;
+  display: flex;
+  align-items: center;
+}
+
+.type {
+  width: 183rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  font-family: HYYakuHei;
+  font-weight: normal;
+  color: rgba(179, 99, 33, 1);
+  line-height: 45rpx;
+}
+
+.typemsg {
+  font-size: 22rpx;
+  color: #b36321;
+}
+
+.tishimsg {
+  position: absolute;
+  height: 50rpx;
+  width: 387rpx;
+  top: 630rpx;
+  left: 181rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.line {
+  width: 51rpx;
+  height: 2rpx;
+  background: rgba(181, 38, 1, 1);
+}
+
+.msgcontent {
+  width: 248rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(190, 39, 56, 1);
+  line-height: 50rpx;
+}
+
+.num {
+  width: 217rpx;
+  height: 100%;
+  font-size: 132rpx;
+  font-family: HYYakuHei;
+  font-weight: normal;
+  color: rgba(179, 99, 33, 1);
+  line-height: 170rpx;
+  text-align: center;
+}

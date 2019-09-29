@@ -1,0 +1,147 @@
+/* pages/order/order.wxss */
+page{
+  /* padding: 0 16rpx;
+  box-sizing: border-box; */
+  background: #f0f1f4;
+}
+.top{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* height: 101rpx; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 85rpx;
+  padding: 14rpx 16rpx 0;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 2rpx solid #e7e6e2;
+}
+.top>view{
+  color: #A5A5A5;
+  font-size: 26rpx;
+  border-bottom: 4rpx solid #fff;
+  box-sizing: border-box;
+}
+.top>view.active{
+  border-bottom: 4rpx solid #ea4b43;
+   box-sizing: border-box;
+   color: #1b1b1b;
+}
+
+.orderList{
+  margin-top: 130rpx;
+}
+
+.order{
+  padding: 40rpx 16rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-bottom: 25rpx;
+}
+.order-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-title>text:first-child{
+  font-size: 24rpx;
+  color: #000000;
+}
+.order-title>text:last-child{
+  font-size: 26rpx;
+  color: #ea4b43;
+}
+
+.order-con{
+  background: #f6f5f4;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.order-con>image{
+  width: 212rpx;
+  height: 212rpx;
+}
+.o-con{
+  width: 473rpx;
+  padding-right: 15rpx;
+  box-sizing: border-box;
+}
+.o-name{
+  font-size: 28rpx;
+  color: #000000;
+}
+.o-mes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+}
+.o-mes.noflex{
+  display: block;
+  margin-top: 20rpx;
+}
+.o-bot{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.o-mes text{
+  color: #ea4b43;
+}
+.o-mes view.intro{
+  color: #b6b6b6;
+}
+.o-mes view.num{
+  color: #3b3b3b;
+}
+.o-mes view.price{
+  font-size: 25rpx;
+  color: #000;
+}
+
+.func{
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+.func view{
+  float: right;
+  width: 118rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 25rpx;
+  color: white;
+  margin-left: 12rpx;
+  border-radius: 5rpx;
+}
+.func view:first-child{
+  background: #ea4b43;
+}
+
+.func view:nth-child(2){
+  background: #b8b8b8;
+}
+.heji{
+  font-size: 25rpx;
+  line-height: 65rpx;
+  text-align: right;
+}
+.heji text{
+  color: #ea4b43;
+}
+.line,.line image{
+  width: 100%;
+  height: 2rpx;
+}
+.line{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

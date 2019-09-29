@@ -1,0 +1,80 @@
+page {
+  background-color: #f0f1f4;
+}
+
+.content {
+  width: 710rpx;
+  height: 233rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10rpx 9rpx 0px rgba(97, 97, 97, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kongxi {
+  width: 100%;
+  height: 25rpx;
+}
+
+.content image {
+  width: 164rpx;
+  height: 164rpx;
+}
+
+.goodsmsg {
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 33rpx;
+  width: 500rpx;
+  height: 120rpx;
+}
+
+.item {
+  width: 710rpx;
+  padding: 0 20rpx;
+  height: 120rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+}
+
+.line {
+  width: 750rpx;
+  height: 2rpx;
+  background: rgba(178, 175, 163, 1);
+  opacity: 0.31;
+}
+
+.right {
+  width: 20rpx;
+  height: 29rpx;
+}
+
+.tuiimg {
+  width: 31rpx;
+  height: 31rpx;
+}
+
+.itemmsg {
+  display: flex;
+}
+.msgitem{
+  display: flex;
+  flex-direction: column;
+  margin-left: 28rpx;
+}
+.msgtwo{
+  color:#9F9F9F;
+  margin-top: 13rpx;
+}

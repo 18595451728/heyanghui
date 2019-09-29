@@ -1,0 +1,86 @@
+/* pages/ship_address/index.wxss */
+
+
+page{
+ background-color: #f8f8f8;
+}
+.list{
+ position: relative;
+ z-index: 2;
+ overflow: hidden;
+ background-color: white;
+ padding: 35rpx 40rpx;
+ display: flex;
+ align-items: center;
+ justify-content:space-between;
+ min-height: 160rpx;
+ margin-bottom: 20rpx;
+
+}
+.delete{
+ position: absolute;
+ top:0rpx;
+ background-color: #EB544D;
+ font-size:34rpx;
+ width: 180rpx;
+ text-align: center;
+ z-index: 1;
+ right: 0;
+ color: #fff;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.info{
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+}
+.info view:first-child{
+ text-align: center;
+font-weight:500;
+ margin-bottom: 10rpx;
+ color: #292929;
+ font-size:36rpx;
+font-family:PingFangSC;
+}
+.info view:nth-child(2){
+ font-size: 30rpx;
+ margin-bottom: 10rpx;
+ color: #ABABAB;
+ margin-top: 12rpx;
+}
+.def{
+ font-size: 30rpx;
+ border:1rpx solid red;
+ border-radius: 5rpx;
+ padding:0 10rpx;
+ color: red;
+ margin-right: 10rpx;
+}
+.phone{
+ color:gray;font-size:30rpx;margin: 0 20rpx;
+}
+.edit{
+ padding:20rpx;
+}
+.edit image{
+ width: 40rpx;
+ height: 40rpx;
+ margin-left:10rpx;
+}
+.add{
+  width:750rpx;
+height:102rpx;
+ line-height: 102rpx;
+ text-align: center;
+ font-size: 30rpx;
+ position: fixed;
+ color: #FFFFFF;
+ bottom: 0rpx;
+ left: 0rpx;
+ background-color: #EB544D;
+}
+ 
+

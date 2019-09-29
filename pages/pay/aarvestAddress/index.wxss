@@ -1,0 +1,64 @@
+page {
+  background: #f9f9f9;
+}
+.aarvestAddress {
+  width: 100%;
+}
+
+
+.aarvestAddress_main_box{
+   width:750rpx;
+    height:160rpx;
+    background:rgba(255,255,255,1);margin-top: 20rpx;display: flex;
+  justify-content: space-between;align-items: center;
+  padding-left: 46rpx;
+  box-sizing: border-box;
+}
+.aarvestAddress_main_box_left view:first-child text{
+font-size:30rpx;
+font-family:PingFangSC;
+font-weight:500;
+color:rgba(41,41,41,1);
+}
+.aarvestAddress_main_box_left view:last-child{
+
+font-size:20rpx;
+font-family:PingFangSC;
+font-weight:500;
+color:rgba(171,171,171,1);
+margin-top: 25rpx;
+}
+.aarvestAddress_main_box_right{
+  width:46rpx;
+height:56rpx;
+padding-right: 7rpx;
+}
+.aarvestAddress_main_box_right image{
+  width:100%;
+  height:100%;
+}
+
+
+.aarvestAddress_button{
+  width:750rpx;
+height:102rpx;
+line-height: 102rpx;
+background:rgba(235,84,77,1);
+border-radius:10rpx;
+font-size:30rpx;
+font-family:PingFangSC;
+font-weight:500;
+color:rgba(255,255,255,1);
+text-align: center;
+position: fixed;
+bottom: 0;
+left: 0;
+}
+
+
+
+
+
+
+
+

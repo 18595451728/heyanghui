@@ -1,0 +1,18 @@
+<!--pages/service_centre/index.wxml-->
+<view class="member_page">
+  <view class="menmber_box">
+    <view class="list_member" bindtap="goMember">
+      <text>会员手册</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+    <!-- <view class="list_member">
+      <text>个人资料</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view> -->
+    <view class="list_member" bindtap="goSugges">
+      <text>投诉与建议</text>
+      <image src="/images/prev_fangxiang.png"></image>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabbar": "../../../components/tabbarComponent/tabbar"
+  },
+  "navigationBarTitleText": "商品审核"
+}

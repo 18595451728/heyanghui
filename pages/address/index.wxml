@@ -1,0 +1,23 @@
+<view class="cont">
+  <view wx:for="{{list}}" wx:key="index" class="list">
+    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.shows}}" class="list_del txt">
+      <view class="mymsg">
+        <view class="msgcontent">
+          <view>
+            <text>尹浩</text>
+            <text style="margin-left:38rpx;">18042429455</text>
+          </view>
+          <text class="address">黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</text>
+        </view>
+        <view class="updateimg">
+          <image bindtap="create" src="/images/update.png"></image>
+        </view>
+      </view>
+    </view>
+    <view data-index="{{index}}" bindtap="delItem" class="list_del del">删除</view>
+  </view>
+</view>
+
+<view class="bto" bindtap="create">
+  新增收货地址
+</view>

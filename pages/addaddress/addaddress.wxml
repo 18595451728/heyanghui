@@ -1,0 +1,22 @@
+<!--pages/addaddress/addaddress.wxml-->
+
+<view class="forms">
+  <view class="name">
+    <text>姓名</text><input placeholder="收货人姓名" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+  </view>
+  <view class="line"><image src="/images/line.png"></image></view>
+  <view class="tel">
+    <text>电话</text><input placeholder="收货人手机号" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+  </view>
+ <view class="line"><image src="/images/line.png"></image></view>
+  <view class="diqu">
+    <text>地区</text><input placeholder="选择省/市/区" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+  </view>
+  <view class="line"><image src="/images/line.png"></image></view>
+  <view class="detail">
+    <text>详情</text><input placeholder="街道门牌、 楼层房间号等信息" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+  </view>
+</view>
+
+
+<view class="save">保存并使用</view>

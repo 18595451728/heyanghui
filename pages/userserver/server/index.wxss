@@ -1,0 +1,214 @@
+page {
+  background-color: #f0f1f4;
+  padding-bottom: 102rpx;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 710rpx;
+  height: 233rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10rpx 9rpx 0px rgba(97, 97, 97, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kongxi {
+  width: 100%;
+  height: 25rpx;
+}
+
+.content image {
+  width: 164rpx;
+  height: 164rpx;
+}
+
+.goodsmsg {
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 33rpx;
+  width: 500rpx;
+  height: 120rpx;
+}
+
+.wuliu {
+  width: 710rpx;
+  height: 80rpx;
+  padding: 0 20rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+  line-height: 80rpx;
+}
+
+.right {
+  width: 20rpx;
+  height: 29rpx;
+  margin-left: 15rpx;
+}
+
+.wuliumsg {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  width: 750rpx;
+  height: 2rpx;
+  background: rgba(178, 175, 163, 1);
+  opacity: 0.31;
+}
+
+.money {
+  width: 710rpx;
+  padding: 20rpx 20rpx;
+  height: 203rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+}
+
+.moneyitem {
+  display: flex;
+  align-items: center;
+  height: 30rpx;
+}
+.moneyitem text{
+  color: #EA4B43;
+}
+.fahuo{
+  color: #9F9F9F;
+}
+.images {
+  width: 710rpx;
+  padding: 20rpx 20rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 120rpx;
+}
+
+.bto {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 750rpx;
+  height: 102rpx;
+  background: rgba(235, 84, 77, 1);
+  /* border-radius: 10rpx; */
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 102rpx;
+}
+
+.title {
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+  line-height: 40rpx;
+}
+
+.imageslist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+
+.img {
+  width: 210rpx;
+  height: 210rpx;
+  padding: 30rpx 0 0 30rpx;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.wuliuitem {
+  width: 750rpx;
+  height: 788rpx;
+  background: rgba(255, 255, 255, 1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+}
+
+.cloose {
+  width: 750rpx;
+  height: 101rpx;
+  background: rgba(235, 84, 77, 1);
+  position: absolute;
+  bottom: 0;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 101rpx;
+}
+
+.wuliutitle {
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(42, 42, 42, 1);
+  line-height: 110rpx;
+}
+
+.itemmsg {
+  height: 88rpx;
+  width: 710rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkimg {
+  width: 30rpx;
+  height: 30rpx;
+  border: 2rpx solid rgba(178, 175, 163, 1);
+  border-radius: 50%;
+}

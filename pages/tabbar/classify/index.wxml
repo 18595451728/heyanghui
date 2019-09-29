@@ -1,0 +1,121 @@
+<tabbar tabbar="{{tabbar}}"></tabbar>
+<view class="big">
+  <view class="top">
+    <view class="">
+      <text>默认</text>
+    </view>
+    <view class="">
+      时间
+      <view class="jiantou">
+        <image class="shang_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+        <image class="xia_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+      </view>
+    </view>
+    <view class="">
+      价格
+      <view class="jiantou">
+        <image class="shang_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+        <image class="xia_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+      </view>
+    </view>
+    <view class="">
+      分类
+      <view class="jiantou">
+        <image class="shang_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+        <image class="xia_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+      </view>
+    </view>
+    <view class="">
+      销量
+      <view class="jiantou">
+        <image class="shang_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+        <image class="xia_sanjiao" src="/images/j-sanjiao-moren.png">
+        </image>
+      </view>
+    </view>
+  </view>
+  <view class="center">
+    <view class="center_item" bindtap="goodsdetail">
+      <view class="center_item_left">
+        <image class="center_item_left_img" src="/images/goodsimg.png">
+        </image>
+        <image class="hot" src="/images/remai.png">
+
+        </image>
+      </view>
+      <view class="center_item_right">
+        <view class="center_item_right_title">
+          九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。
+        </view>
+        <view class="center_item_right_title2">
+          古法秘制，补肾食疗。
+        </view>
+
+        <view class="center_item_right_price">
+          ￥
+          <text class="price">57.30</text>
+          <image class="cart" src="/images/cart.png">
+
+          </image>
+        </view>
+      </view>
+    </view>
+    <view class="center_item" bindtap="goodsdetail">
+      <view class="center_item_left">
+        <image class="center_item_left_img" src="/images/goodsimg.png">
+        </image>
+        <image class="hot" src="/images/remai.png">
+
+        </image>
+      </view>
+      <view class="center_item_right">
+        <view class="center_item_right_title">
+          九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。
+        </view>
+        <view class="center_item_right_title2">
+          古法秘制，补肾食疗。
+        </view>
+
+        <view class="center_item_right_price">
+          ￥
+          <text class="price">57.30</text>
+          <image class="cart" src="/images/cart.png">
+
+          </image>
+        </view>
+      </view>
+    </view>
+    <view class="center_item" bindtap="goodsdetail">
+      <view class="center_item_left">
+        <image class="center_item_left_img" src="/images/goodsimg.png">
+        </image>
+        <image class="hot" src="/images/remai.png">
+
+        </image>
+      </view>
+      <view class="center_item_right">
+        <view class="center_item_right_title">
+          九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。
+        </view>
+        <view class="center_item_right_title2">
+          古法秘制，补肾食疗。
+        </view>
+
+        <view class="center_item_right_price">
+          ￥
+          <text class="price">57.30</text>
+          <image class="cart" src="/images/cart.png">
+
+          </image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

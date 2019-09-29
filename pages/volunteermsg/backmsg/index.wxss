@@ -1,0 +1,36 @@
+page {
+  background-color: ffffff;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(43, 41, 41, 1);
+}
+
+image {
+  width: 640rpx;
+  height: 460rpx;
+  margin-top: 131rpx;
+}
+
+.msg {
+  margin-top: 20rpx;
+  color: #7d7d7d;
+}
+
+.bto {
+  width: 720rpx;
+  margin-top: 137rpx;
+  height: 102rpx;
+  background: rgba(235, 84, 77, 1);
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 102rpx;
+  color: white;
+}

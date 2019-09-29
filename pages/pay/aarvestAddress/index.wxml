@@ -1,0 +1,46 @@
+<!--pages/pay/CashWithdrawal/index.wxml-->
+<view class="aarvestAddress">
+  <view class="aarvestAddress_main">
+     <view class="aarvestAddress_main_box">
+        <view class="aarvestAddress_main_box_left">
+           <view><text>尹浩</text><text>18042429455</text></view>
+            <view>黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</view>
+        </view>
+        <view class="aarvestAddress_main_box_right"><image src="/images/aarvestAddress_main_box_right.png"></image></view>
+     </view>
+
+     <view class="aarvestAddress_main_box">
+        <view class="aarvestAddress_main_box_left">
+           <view><text>尹浩</text><text>18042429455</text></view>
+            <view>黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</view>
+        </view>
+        <view class="aarvestAddress_main_box_right"><image src="/images/aarvestAddress_main_box_right.png"></image></view>
+     </view>
+
+     <view class="aarvestAddress_main_box">
+        <view class="aarvestAddress_main_box_left">
+           <view><text>尹浩</text><text>18042429455</text></view>
+            <view>黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</view>
+        </view>
+        <view class="aarvestAddress_main_box_right"><image src="/images/aarvestAddress_main_box_right.png"></image></view>
+     </view>
+
+     <view class="aarvestAddress_main_box">
+        <view class="aarvestAddress_main_box_left">
+           <view><text>尹浩</text><text>18042429455</text></view>
+            <view>黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</view>
+        </view>
+        <view class="aarvestAddress_main_box_right"><image src="/images/aarvestAddress_main_box_right.png"></image></view>
+     </view>
+
+     <view class="aarvestAddress_main_box">
+        <view class="aarvestAddress_main_box_left">
+           <view><text>尹浩</text><text>18042429455</text></view>
+            <view>黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</view>
+        </view>
+        <view class="aarvestAddress_main_box_right"><image src="/images/aarvestAddress_main_box_right.png"></image></view>
+     </view>
+    
+     <view class="aarvestAddress_button">确定提现</view>
+  </view>
+</view>

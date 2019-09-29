@@ -1,0 +1,75 @@
+page {
+  background-color: #f8f8f8;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(55, 55, 55, 1);
+  background-color: white;
+}
+
+.item {
+  width: 720rpx;
+  margin-left: 15rpx;
+  height: 111rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.defaultlogo {
+  width: 89rpx;
+  height: 89rpx;
+  margin-right: 25rpx;
+  border-radius: 50%;
+}
+
+.right {
+  width: 20rpx;
+  height: 29rpx;
+}
+.itemmsg{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.title{
+  margin-left: 30rpx;
+}
+
+input{
+  text-align: right;
+  width: 400rpx;
+}
+
+.sexpick{
+  height: 100%;
+  width: 100rpx;
+  text-align: center;
+  line-height: 111rpx;
+}
+.picker{
+  margin-right: 30rpx;
+}
+.bto {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 750rpx;
+  height: 102rpx;
+  background: rgba(235, 84, 77, 1);
+  /* border-radius: 10rpx; */
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 102rpx;
+}

@@ -1,0 +1,46 @@
+/* pages/addaddress/addaddress.wxss */
+
+page {
+  background: #f0f1f4;
+}
+
+.forms {
+  background: #fff;
+}
+
+.forms>view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 88rpx;
+  padding: 0 40rpx;
+}
+.forms text{
+  font-size: 26rpx;
+  color: #373737;
+}
+.forms input {
+  color: #9c9c9c;
+  font-size: 26rpx;
+  width: 480rpx;
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+}
+.line image{
+  width: 100%;
+  height: 2rpx;
+}
+
+
+.save{
+  width: 720rpx;
+  line-height: 102rpx;
+  text-align: center;
+  background: #eb544d;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
+  margin: 52rpx auto 0;
+}

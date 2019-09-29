@@ -1,0 +1,78 @@
+<view class="content">
+  <image src="/images/goodsimg.png"></image>
+  <text class="goodsmsg">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+</view>
+<view class="kongxi">
+</view>
+<view class="wuliu" bindtap="showwuliu">
+  <text>物流状态</text>
+  <view class="wuliumsg">
+    <text>未收到货</text>
+    <image class="right" src="/images/right.png"></image>
+  </view>
+</view>
+<view class="line">
+</view>
+<view class="wuliu" bindtap="showreason">
+  <text>退款原因</text>
+  <view class="wuliumsg">
+    <text>未按约定时间发货</text>
+    <image class="right" src="/images/right.png"></image>
+  </view>
+</view>
+<view class="wuliu">
+  <text style="color:#9F9F9F">卖家未及时发货，单方面违约</text>
+</view>
+<view class="kongxi">
+</view>
+<view class="money">
+  <view class="moneyitem">
+    退款金额：
+    <text>¥ 50.00</text>
+  </view>
+  <input placeholder="最多 ¥50.00， 含发货邮费 ¥0.00" placeholder-class="fahuo"></input>
+  <view class="moneyitem">
+    退款说明：
+    <input placeholder="选填"></input>
+  </view>
+</view>
+<view class="kongxi">
+</view>
+<view class="images">
+  <text class="title">上传凭证</text>
+  <view class="imageslist">
+    <image wx:for="{{images}}" class="img" style="{{index==0||index==3?'padding-left:10rpx':''}}" src="/images/goods.png"></image>
+    <block wx:if="{{images.length<6}}">
+      <image class="img" style="{{images.length==0||images.length==3?'padding-left:10rpx':''}}" src="/images/choose_img2.png"></image>
+    </block>
+  </view>
+</view>
+<view class="bto" bindtap="submit">
+  提交
+</view>
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showmodal}}"></view>
+<view class="wuliuitem" wx:if="{{showwuliu}}" animation='{{animationData}}' catchtouchmove="preventTouchMove">
+  <text class="wuliutitle">物流状态</text>
+  <view class="itemmsg">
+    <text>未收到货</text>
+    <view class="checkimg"></view>
+  </view>
+  <view class="itemmsg">
+    <text>已收到货</text>
+    <view class="checkimg"></view>
+  </view>
+  <view class="cloose" bindtap="hideModal">
+    关闭
+  </view>
+</view>
+
+<view class="wuliuitem" wx:if="{{showreason}}" animation='{{animationData}}' catchtouchmove="preventTouchMove">
+  <text class="wuliutitle">退款原因</text>
+  <view wx:for="{{reason}}" class="itemmsg">
+    <text>{{item}}</text>
+    <view class="checkimg"></view>
+  </view>
+  <view class="cloose" bindtap="hideModal">
+    关闭
+  </view>
+</view>

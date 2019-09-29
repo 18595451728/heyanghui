@@ -1,0 +1,253 @@
+page {
+  background-color: #fff;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 102rpx;
+}
+
+.wuliu {
+  height: 157rpx;
+  width: 720rpx;
+  margin-left: 15rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(66, 66, 66, 1);
+}
+
+.wuliu image {
+  width: 56rpx;
+  height: 62rpx;
+}
+
+.wuliumsg {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.tishi {
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  text-decoration: underline;
+  color: rgba(169, 169, 169, 1);
+  margin-top: 15rpx;
+}
+
+.kongxi {
+  width: 100%;
+  height: 25rpx;
+  background: rgba(240, 241, 244, 1);
+}
+
+.address {
+  height: 159rpx;
+  width: 720rpx;
+  margin-left: 15rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: #292929;
+  position: relative;
+}
+
+.xianxian {
+  height: 100%;
+  width: 100%;
+}
+
+.addmsg {
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addmsg image {
+  width: 34rpx;
+  height: 47rpx;
+}
+
+.msgcontent {
+  width: 660rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(41, 41, 41, 1);
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods {
+  width: 720rpx;
+  height: 212rpx;
+  background: rgba(240, 241, 244, 1);
+  border-radius: 5rpx;
+  margin-top: 41rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods image {
+  width: 212rpx;
+  height: 212rpx;
+  border-radius: 5rpx;
+}
+
+.goodsmsg {
+  width: 470rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+}
+
+.goodsnum {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(182, 182, 182, 1);
+  margin-top: 30rpx;
+}
+
+.zongji {
+  width: 720rpx;
+  height: 78rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 25rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(138, 138, 138, 1);
+}
+
+.peisong {
+  width: 720rpx;
+  height: 120rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+  border-bottom: 2rpx solid #b2afa3;
+}
+
+.usermsg {
+  width: 720rpx;
+  height: 104rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+}
+
+.peisongmsg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 24rpx;
+  color: rgba(148, 148, 148, 1);
+}
+
+.addressmsg {
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(171, 171, 171, 1);
+  margin-top: 15rpx;
+}
+
+.total {
+  width: 720rpx;
+  height: 198rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 20rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(148, 148, 148, 1);
+  line-height: 50rpx;
+  border-bottom: 2rpx solid #b2afa3;
+}
+
+.totalitem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.ordermsg {
+  width: 720rpx;
+  margin: 20rpx 15rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 44rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.caozuo {
+  position: fixed;
+  height: 100rpx;
+  width: 100%;
+  bottom: 0rpx;
+  left: 0rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+}
+
+.caozuoitem {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+}

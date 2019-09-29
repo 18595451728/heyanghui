@@ -1,0 +1,87 @@
+{
+  "pages": [
+
+
+    "pages/home/index",
+     "pages/tabbar/home/index",
+     "pages/mine/mine",
+   
+    "pages/pay/InvitePrizes/index",
+    "pages/pay/member/index",
+    "pages/shopDetail/shopDetail",
+    "pages/pay/CashWithdrawal/index",
+    "pages/pay/CashWithdrawalone/index",
+    "pages/address/index",
+    "pages/sugges_conter/index",
+    "pages/suggestions/index",
+    "pages/couponlist/index",
+    "pages/member_peo/index",
+    "pages/service_centre/index",
+    "pages/money/index",
+    "pages/userserver/server/index",
+    "pages/addaddress/addaddress",
+    "pages/confirm/confirm",
+    "pages/order/order",
+    "pages/tabbar/shopcart/index",
+    "pages/tabbar/audit/index",
+    "pages/orderdetail/index",
+    "pages/volunteer/index",
+    "pages/volunteermsg/index",
+    "pages/volunteermsg/backmsg/index",
+    "pages/address/update/index",
+    "pages/addcomment/index",
+    "pages/userserver/index",
+    "pages/coupon/index",
+    "pages/evaluationlist/index",
+    "pages/tabbar/classify/index"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3b3b3b",
+    "navigationBarTitleText": "和养汇",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "backgroundColor": "#ffffff",
+    "color": "#979795",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "components/tabbarComponent/icon/home_off.png",
+        "selectedIconPath": "components/tabbarComponent/icon/home_on.png"
+      },
+      {
+        "pagePath": "pages/tabbar/classify/index",
+        "text": "分类",
+        "iconPath": "components/tabbarComponent/icon/classify_off.png",
+        "selectedIconPath": "components/tabbarComponent/icon/classify_on.png"
+      },
+      {
+        "pagePath": "pages/tabbar/shopcart/index",
+        "text": "购物车",
+        "iconPath": "components/tabbarComponent/icon/cart_off.png",
+        "selectedIconPath": "components/tabbarComponent/icon/cart_on.png"
+      },
+      {
+        "pagePath": "pages/tabbar/audit/index",
+        "text": "商品审核",
+        "iconPath": "components/tabbarComponent/icon/audit_off.png",
+        "selectedIconPath": "components/tabbarComponent/icon/audit_on.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

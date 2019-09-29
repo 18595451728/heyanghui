@@ -1,0 +1,32 @@
+<!--pages/pay/CashWithdrawal/index.wxml-->
+<view class="CashWithdrawal">
+  <view class="CashWithdrawal_main">
+    <image src="/images/CashWithdrawal_beijing.png"></image>
+    <view class="CashWithdrawal_main_one">
+      <view class="CashWithdrawal_main_one_img">
+        <image src="/images/CashWithdrawal_01.png"></image>
+      </view>
+      <text>提现申请提交成功</text>
+      <text>提现后24小时内到账，若未及时到账请联系和养汇客服人员</text>
+
+    </view>
+
+    <view class="CashWithdrawal_main_two">
+      <view class="CashWithdrawal_main_two_box">
+        <text>收款账户</text>
+        <view class="CashWithdrawal_main_two_text">
+            <view>
+                <image src="/images/CashWithdrawal_02.png" class=""></image>
+            </view>
+           <text>工商银行（0364）</text>
+        </view>
+      </view>
+      <view class="CashWithdrawal_main_two_box">
+        <text>提现金额</text>
+        <text>5000.00元</text>
+      </view>
+    </view>
+
+    <view class="CashWithdrawal_main_three" bindtap="gomoney">返回（3）</view>
+  </view>
+</view>

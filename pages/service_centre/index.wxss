@@ -1,0 +1,42 @@
+/* pages/service_centre/index.wxss */
+page {
+  background: #fff;
+}
+.member_page {
+  width: 100%;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+.menmber_box {
+  width: 700rpx;
+  box-shadow: 0 0 20rpx #e6e6e6;
+  border-radius: 20rpx;
+  margin-top: 56rpx;
+  padding: 12rpx 35rpx;
+  box-sizing: border-box;
+}
+
+.menmber_box .list_member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2rpx solid #ececec;
+  line-height: 110rpx;
+  padding: 0 22rpx;
+}
+
+.menmber_box .list_member:first-child {
+  border-top: none;
+}
+
+.menmber_box .list_member text {
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: #474747;
+}
+
+.menmber_box .list_member image {
+  width: 10rpx;
+  height: 16rpx;
+}

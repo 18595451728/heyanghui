@@ -1,0 +1,123 @@
+<!--pages/mine/mine.wxml-->
+<view class="top">
+  <image src="/images/minebg.jpg" class="minebg"></image>
+  <view class="t-con">
+    <image src="/images/headImg.png" class="headimg"></image>
+    <view class="usermes">
+      <view>你闻起来像烧焦了一样</view>
+      <view bindtap="huiyuan">会员：v2</view>
+    </view>
+  </view>
+</view>
+<view class="u-top">
+  <view data-id="0" bindtap="mymoney">
+    <text>0</text>
+    <text>积分</text>
+  </view>
+  <view data-id="1" bindtap="mymoney">
+    <text>0</text>
+    <text>钱包</text>
+  </view>
+  <view bindtap="mycoupon">
+    <text>0</text>
+    <text>优惠券</text>
+  </view>
+</view>
+
+<view class="order">
+  <view class="order-title">
+    <view>我的订单</view>
+    <view data-id='0' bindtap="myorder">
+      <text>查看全部订单</text>
+      <image src="/images/arrow-right.png" class="arrow-right"></image>
+    </view>
+  </view>
+  <image src="/images/line.png" class="line"></image>
+  <view class="status">
+    <view bindtap="myorder">
+      <image src="/images/o1.png" class="o1"></image>
+      <text>待付款</text>
+    </view>
+    <view bindtap="myorder">
+      <image src="/images/o2.png" class="o2"></image>
+      <text>待发货</text>
+    </view>
+    <view bindtap="myorder">
+      <image src="/images/o3.png" class="o3"></image>
+      <text>待收货</text>
+    </view>
+    <view bindtap="myorder">
+      <image src="/images/o4.png" class="o4"></image>
+      <text>待评价</text>
+    </view>
+    <view bindtap="myorder">
+      <image src="/images/o5.png" class="o5"></image>
+      <text>退款维权</text>
+    </view>
+  </view>
+
+
+</view>
+
+
+<view class="func">
+  <view class="u1" bindtap="address">
+    <view>
+      <view class="icon">
+        <image src="/images/u1.png" class="p1"></image>
+      </view>
+      <text>收货地址</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+  <image class="line" src="/images/line.png"></image>
+  <view class="u1" bindtap="fuwu">
+    <view>
+      <view class="icon">
+        <image src="/images/u2.png" class="p2"></image>
+      </view>
+      <text>服务中心</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+  <image class="line" src="/images/line.png"></image>
+  <view class="u1" bindtap="usermsg">
+    <view>
+      <view class="icon">
+        <image src="/images/u3.png" class="p3"></image>
+      </view>
+      <text>个人信息</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+  <image class="line" src="/images/line.png"></image>
+  <view class="u1" bindtap="myshare">
+    <view>
+      <view class="icon">
+        <image src="/images/u4.png" class="p4"></image>
+      </view>
+      <text>我的分享</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+  <image class="line" src="/images/line.png"></image>
+  <view class="u1">
+    <view>
+      <view class="icon">
+        <image src="/images/u5.png" class="p5"></image>
+      </view>
+      <text>课程管理</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+  <image class="line" src="/images/line.png"></image>
+  <view class="u1" bindtap="volunteer">
+    <view>
+      <view class="icon">
+        <image src="/images/u6.png" class="p6"></image>
+      </view>
+      <text>志愿者</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+</view>

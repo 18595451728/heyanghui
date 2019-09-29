@@ -1,0 +1,29 @@
+<view class="content">
+  <view class="goods">
+    <image src="/images/goodsimg.png"></image>
+    <text class="goodstitle">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+  </view>
+  <view class="score">
+    <text style="margin-right:20rpx;">整体评论</text>
+    <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}"></image>
+    <text class="pingyu">很好</text>
+  </view>
+  <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧"></textarea>
+  <view class="images">
+    <image src="/images/choose_img.png"></image>
+  </view>
+  <view class="xingshi">
+    <view class="checkitem">
+      <view class="niming" bindtap="checkanonymous" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;'}}">
+        <image wx:if="{{is_anonymous}}" src="/images/check_on.png"></image>
+      </view>
+      <text>匿名</text>
+    </view>
+    <text style="color:#9F9F9F">你写的评论会以匿名的形式展现</text>
+  </view>
+</view>
+<view class="kongxi">
+</view>
+<view class="bto">
+  发布
+</view>

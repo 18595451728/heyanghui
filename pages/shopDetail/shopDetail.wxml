@@ -1,0 +1,246 @@
+
+<view class="big">
+    <view class="banner">
+        <image class="" src="/images/goodsimg.png" style="width: 100%;height:100%;">  
+        </image>
+    </view>
+    <view class="detail_name_out">
+        <view class="detail_name">
+            <view class="detail_name_left">
+                <view class="detail_name_left_top">
+                    九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟 谷蜜丸。
+                </view>
+                <view class="detail_name_left_bottom">
+                    <text class="price1" >
+                        ￥
+                    </text>
+                    <text class="price2" >
+                        57.30
+                    </text>
+                </view>
+            </view>
+            <view class="detail_name_right">
+                <view class="detail_name_right_top">
+                    <image class="" src="/images/j-share.png" style="width: 100%;height:100%">       
+                    </image>
+                </view>
+                <view class="detail_name_right_bottom" >
+                    分享
+                </view>
+            </view>
+        </view>  
+    </view>
+
+    <view class="peizhi_out">
+        <view class="peizhi">
+            <view class="peizhi_item" style="padding-bottom: 15rpx;border-bottom:2rpx solid rgba(178, 175, 163, 0.31);" bindtap="guige">
+                <view style="width: 200rpx"> 选择: 规格 </view> 
+                <view class="guige_img">
+                    <image  src="/images/arrow-right.png" style="width: 100%;height:100%">
+                    
+                    </image>   
+                </view>
+            </view>
+            <view class="peizhi_item" bindtap="peisong">
+                <view style="width: 200rpx"> 配送: 快递 </view> 
+                <view class="guige_img">
+                    <image  src="/images/arrow-right.png" style="width: 100%;height:100%">
+                    
+                    </image>   
+                </view>
+            </view>
+        </view>    
+    </view>
+
+    <view class="pingjia_out">
+        <view class="pingjia">
+            <view class="pingjia_top">
+                <view class="pingjia_top_left">
+                    宝贝评价(1)
+                </view>
+                <view class="pingjia_top_right" bindtap="evaluationlist">
+                    全部评价
+                    <image  src="/images/arrow-right.png" class="pingjia_arrow">
+                    
+                    </image>  
+                </view>
+            </view>
+            <view class="pingjia_center">
+              <view class="pingjia_center_item">
+                  追评0
+              </view>  
+              <view class="pingjia_center_item">
+                差评0
+            </view>  
+            <view class="pingjia_center_item">
+                好评0
+            </view>  
+            <view class="pingjia_center_item">
+                中评0
+            </view>  
+            </view>
+            <view class="pingjia_bottom">
+              <view class="pingjia_bottom1">
+                  <view class="pingjia_bottom1_left">
+                     <image class="pingjia_bottom1_left_img" src="/images/j-touxiang.png" >
+                         
+                     </image> 
+                     1*********7
+                  </view>
+                  <view class="pingjia_bottom1_right">
+                      <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
+                          
+                      </image>
+                      <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
+                          
+                      </image>
+                      <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
+                          
+                      </image>
+                      <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
+                          
+                      </image>
+                      <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
+                          
+                      </image>
+                    </view>
+              </view>  
+              <view class="pingjia_bottom2">
+                东西特别棒，非常好喜欢！
+                </view>  
+            </view>
+        </view>
+    </view>
+
+    <view class="shop_out">
+        <view class="shop">
+            <view class="shop_title" >
+                商品详情
+            </view>
+            <view class="shop_img">
+                <view class="shop_img_item">
+                    <image class="shop_img_item_img" src="/images/goodsimg.png">
+                        
+                    </image>
+                </view>
+                <view class="shop_img_item">
+                    <image class="shop_img_item_img" src="/images/goodsimg.png">
+                        
+                    </image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="dibu">
+    <view class="dibu1">
+        <image class="dibu_logo" src="/images/j-kefu.png">
+            
+        </image>
+        <view class="dibu_text">
+            客服
+        </view>
+    </view>
+    <view class="dibu2" bindtap="shopcart">
+        <image class="dibu_logo" src="/images/che.png">
+            
+        </image>
+        <view class="dibu_text" >
+          购物车
+        </view>
+    </view>
+    <view class="dibu3">
+        加入购物车
+    </view>
+    <view class="dibu4" bindtap="gotobuy">
+        立即购买
+    </view>
+</view>
+<view class="dibu_peisong" wx:if="{{is_peisong==true}}" style="bottom:{{is_peisong==true ? '0rpx' : '-300rpx' }}">
+    
+    <view class="dibu_peisong_top">
+        <view class="dibu_peisong_top_title">
+            配送方式
+        </view>
+
+        <view class="dibu_peisong_top_list">
+            <view class="dibu_peisong_top_item">
+                快递发货（运费：¥ 0.00 ~ 20.00）
+            </view>
+        </view>
+
+    </view>
+    <view class="dibu_peisong_bottom" bindtap="peisong">
+        我知道了
+    </view>
+</view>
+
+<view class="dibu_guige" wx:if="{{is_guige==true}}" style="bottom:{{is_guige==true ? '0rpx' : '-300rpx' }}">
+    <view class="dibu_guige_top">
+        <view class="dibu_guige_top1">
+            <view class="dibu_guige_top11">
+                <image class="" src="/images/goodsimg.png">
+                    
+                </image>
+            </view>
+            <view class="dibu_guige_top12">
+                <view class="dibu_guige_top12_title">
+                    九蒸九晒黑芝麻丸 | 道家制造工艺，手...
+                </view>
+                <view class="dibu_guige_top12_price">
+                    <text class="dibu_guige_top12_price1">
+                        ￥
+                    </text>
+                    <text class="dibu_guige_top12_price2">
+                        57.30
+                    </text>
+                </view>
+            </view>
+            <view class="dibu_guige_top13">
+                <image class="close" src="/images/j-close.png" bindtap="close">
+                    
+                </image>
+            </view>
+        </view>
+        <view class="dibu_guige_top2">
+            <view class="dibu_guige_top2_title">
+                规格 :
+            </view>
+            <view class="dibu_guige_top2_title_name">
+                九蒸九晒黑芝麻丸
+            </view>
+        </view>
+        <view class="dibu_guige_top3">
+            <view class="dibu_guige_top3_left" >
+                <view class="dibu_guige_top2_title" style="margin:30rpx 0 10rpx">
+                    购买数量:
+                </view> 
+                <view class="dibu_guige_top2_shengyu">
+                    剩余44件
+                </view> 
+            </view>
+            <view class="dibu_guige_top3_right" >
+                <view class="dibu_guige_top3_right_yuansuan">
+                    <view class="" bindtap="jian">
+                        -
+                    </view>
+                    <view class="">
+                        {{count}}
+                    </view>
+                    <view class="" bindtap="jia">
+                       +
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="dibu_guige_bottom">
+        <view class="dibu_guige_bottom1">加入购物车</view>
+            
+        <view class="dibu_guige_bottom2" bindtap="gotobuy">立即购买</view>
+    </view>
+</view>
+
+<view class="zhegai" wx:if="{{is_guige==true || is_peisong==true}}">
+    
+</view>

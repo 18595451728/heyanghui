@@ -1,0 +1,108 @@
+page {
+  background-color: #f8f8f8;
+}
+
+/* 外层视图 */
+
+.cont {
+  width: 100%;
+  /* margin: 0 auto; */
+  margin-bottom: 122rpx;
+}
+
+.list {
+  position: relative;
+  /* height: 160rpx; */
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+/* 删除外层包裹视图 */
+
+.list_del {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.list_del.txt {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding: 30rpx 10rpx;
+  transition: left 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* 删除 */
+
+.list_del.del {
+  background-color: #e64340;
+  width: 120rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  color: #fff;
+  height: 100%;
+  line-height: 160rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+}
+
+.mymsg {
+  height: 100%;
+  width: 680rpx;
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.updateimg {
+  width: 46rpx;
+  height: 56rpx;
+}
+
+.updateimg image {
+  height: 100%;
+  width: 100%;
+}
+
+.msgcontent {
+  height: 100%;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(41, 41, 41, 1);
+}
+
+.address {
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(171, 171, 171, 1);
+  margin-top: 20rpx;
+}
+
+.bto {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 750rpx;
+  height: 102rpx;
+  background: rgba(235, 84, 77, 1);
+  /* border-radius: 10rpx; */
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 102rpx;
+}

@@ -1,0 +1,60 @@
+<tabbar tabbar="{{tabbar}}"></tabbar>
+<view class="shopcart">
+  <view class="head">
+    <view class="h-left">
+      <image src="{{chooseall?'/images/w-gou.png':'/images/w-nogou.png'}}" class="choose" bindtap="chooseall"></image>
+      <text>全选</text>
+    </view>
+    <view class="h-right" bindtap="edit">{{!edit?'编辑':'完成'}}</view>
+  </view>
+
+  <view class="cartlist">
+    <scroll-view scroll-x wx:for='{{cartlist}}'>
+      <view class="cart">
+        <view class="c-con">
+          <image src="{{item.check?'/images/w-gou.png':'/images/w-nogou.png'}}" class="choose" data-index='{{index}}' bindtap="choose"></image>
+          <image src="/images/goodsimg.png" class="goodsimg"></image>
+          <view class="cartmes">
+            <view class="goodsname">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+            <view class="goodsintro">古法秘制，补肾食疗。</view>
+            <view class="goodsmes">
+              <view class="goodsprice">￥
+                <text>57.30</text>
+              </view>
+              <view class="goodsnum">
+                <text data-index='{{index}}' bindtap="reduce">-</text>
+                <text>{{item.num}}</text>
+                <text data-index='{{index}}' bindtap="add">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="delete">
+          删除
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+
+
+
+
+
+
+  <view class="head jiesuan">
+    <view class="h-left">
+      <image src="{{chooseall?'/images/w-gou.png':'/images/w-nogou.png'}}" class="choose" bindtap="chooseall"></image>
+      <text>全选</text>
+    </view>
+    <view class="h-r" >
+      <view class="r-left" wx:if='{{!edit}}'>
+        <view class="price">合计：
+          <text>￥{{allprice}}</text>
+        </view>
+        <view class="nocontain">不含运费</view>
+      </view>
+      <view class="r-right" bindtap="jiesuan">{{!edit?'结算('+allnum+')':'删除'}}</view>
+    </view>
+  </view>
+</view>
