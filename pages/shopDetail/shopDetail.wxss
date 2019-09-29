@@ -4,6 +4,7 @@ page{
     box-sizing: border-box;
     position: relative;
 }
+
 .big{
     width: 100%;
     height: auto;

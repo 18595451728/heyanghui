@@ -7,8 +7,10 @@ Page({
   data: {
     is_peisong:false,
     is_guige:false,
-    count:1
+    count:1,
+  
   },
+  
 
   /**
    * 生命周期函数--监听页面加载

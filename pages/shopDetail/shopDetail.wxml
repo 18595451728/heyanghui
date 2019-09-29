@@ -1,6 +1,10 @@
 
 <view class="big">
     <view class="banner">
+
+
+
+
         <image class="" src="/images/goodsimg.png" style="width: 100%;height:100%;">  
         </image>
     </view>
