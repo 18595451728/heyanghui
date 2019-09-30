@@ -6,10 +6,14 @@ Page({
    */
   data: {
     tabbar: {},
+    tab: [false, true, true, true,true],
+    page: 1,
+    sorts: 0,
+    showpp: false
   },
   // 选项卡
   filterTab: function (e) {
-    var data = [true, true, true, true],
+    var data = [true, true, true, true,true],
       index = e.currentTarget.dataset.index;
     data[index] = false;
     this.setData({
@@ -21,12 +25,12 @@ Page({
         sorts: 0,
         showpp: false,
       })
-      this.initgoods()
+      
     }
     if (index == 1) {
       this.setData({
-        showpp: !this.data.showpp,
-        sorts: '0'
+        sorts: this.data.sorts == '1' ? '2' : '1',
+        showpp: false,
       })
     }
     if (index == 2) {
@@ -34,14 +38,21 @@ Page({
         sorts: this.data.sorts == '3' ? '4' : '3',
         showpp: false,
       })
-      this.initgoods()
+     
     }
     if (index == 3) {
       this.setData({
         sorts: this.data.sorts == '5' ? '6' : '5',
         showpp: false,
       })
-      this.initgoods()
+  
+    }
+    if (index == 4) {
+      this.setData({
+        sorts: this.data.sorts == '7' ? '8' : '7',
+        showpp: false,
+      })
+
     }
   },
 

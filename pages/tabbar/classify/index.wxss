@@ -25,13 +25,15 @@
   width: 750rpx;
   z-index: 1;
   background: #fff;
-  font-size: 15px;
+  font-size: 26rpx;
   text-align: center;
+   border-bottom: 2rpx solid rgba(178,175,163,0.31);
 }
 
 .tabTit .active {
-  color: #d2345e;
+  color: #404040;
   background: #fff;
+  border-bottom: 4rpx solid #EA4B43;
 }
 
 /* .tabTit .active image{
@@ -41,7 +43,7 @@
 
 .tabTit image {
   width: 12rpx;
-  height: 9rpx;
+  height: 17rpx;
   vertical-align: middle;
   margin-left: 5px;
 }
@@ -74,7 +76,7 @@
   flex: 1;
   overflow: hidden;
   display: block;
-  color: #666;
+  color: #9C9C9C;
 }
 
 .top>view {

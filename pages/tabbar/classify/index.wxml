@@ -7,34 +7,32 @@
 
     <view class="flex1{{!tab[1]?' active':''}}" data-id='1' data-index="1" bindtap="filterTab">
       <text>时间</text>
-       <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png" style="height:13px;width:12rpx;"></image>
+      <image wx:if="{{sorts=='1'}}" src="/images/doucb-on.png"></image>
+      <image wx:if="{{sorts=='2'}}" src="/images/doucb-off.png"></image>
+      <image wx:if="{{sorts!='1'&sorts!='2'}}" src="/images/none.png"></image>
     </view>
 
     <view class="flex1{{!tab[2]?' active':''}}" data-id='2' data-index="2" bindtap="filterTab">
       <text>价格</text>
-      <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png" style="height:13px;width:12rpx;"></image>
+      <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png"></image>
+      <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png"></image>
+      <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png"></image>
     </view>
 
-<view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
+    <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
       <text>分类</text>
-      <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png" style="height:13px;width:12rpx;"></image>
-</view>
+      <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
+      <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
+      <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
+    </view>
 
-<view class="flex1{{!tab[4]?' active':''}}" data-id='4' data-index="4" bindtap="filterTab">
+    <view class="flex1{{!tab[4]?' active':''}}" data-id='4' data-index="4" bindtap="filterTab">
       <text>销量</text>
-      <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png" style="height:25rpx;"></image>
-      <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png" style="height:13px;width:12rpx;"></image>
-</view>
+      <image wx:if="{{sorts=='7'}}" src="/images/doucb-on.png"></image>
+      <image wx:if="{{sorts=='8'}}" src="/images/doucb-off.png"></image>
+      <image wx:if="{{sorts!='7'&sorts!='8'}}" src="/images/none.png"></image>
+    </view>
 
-
-  
   </view>
   <view class="center">
     <view class="center_item" bindtap="goodsdetail">

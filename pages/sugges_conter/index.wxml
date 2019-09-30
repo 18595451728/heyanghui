@@ -25,11 +25,28 @@
 
 
     <view class='picture_box'>
+
+
+      <view class='ui_uploader_cell'>
+
+        <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="{{index}}">
+
+          <icon class='ui_uploader_item_icon' bindtap='clearImg' data-index="{{index}}" type="clear" size="20" color="red" />
+
+          <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
+        </view>
+
+        <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}">
+          <image src='/images/camera_pic.png' />
+        </view>
+      </view>
+
+      <!-- 
       <view class='picture'>
 
         <image src='/images/camera_pic.png' />
 
-      </view>
+      </view> -->
 
     </view>
   </view>

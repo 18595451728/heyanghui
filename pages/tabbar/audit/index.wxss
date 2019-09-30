@@ -4,12 +4,79 @@
   margin-bottom: 105rpx;
 }
 
-.top {
+/* .top {
   width: 100%;
   height: 100rpx;
   display: flex;
-  /* padding-bottom: 10rpx; */
+  padding-bottom: 10rpx;
   border-bottom: 2rpx solid #e7e6e2;
+} */
+
+
+.box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.tabTit {
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 750rpx;
+  z-index: 1;
+  background: #fff;
+  font-size: 26rpx;
+  text-align: center;
+   border-bottom: 2rpx solid rgba(178,175,163,0.31);
+}
+
+.tabTit .active {
+  color: #404040;
+  background: #fff;
+  border-bottom: 4rpx solid #EA4B43;
+}
+
+/* .tabTit .active image{
+  transform: rotate(180deg);
+  background: none;
+} */
+
+.tabTit image {
+  width: 12rpx;
+  height: 17rpx;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.tabLayer {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+  width: 750rpx;
+  overflow: hidden;
+  background: #fff;
+  padding-bottom: 40rpx;
+  border-bottom: solid 1px #eee;
+  border-top: 3rpx solid #f6f5f5;
+}
+
+.tabLayer text {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: left;
+  margin: 20rpx 0 0 26rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.tabLayer .active {
+  color: #d2345e;
+}
+
+.flex1 {
+  flex: 1;
+  overflow: hidden;
+  display: block;
+  color: #9C9C9C;
 }
 
 .top>view {
@@ -27,26 +94,26 @@
   justify-content: center;
 }
 
-.jiantou {
-  width: 20rpx;
-  height: 32rpx;
+/* .jiantou {
+  width:12rpx;
+  height: 17rpx;
   display: inline-block;
   margin-left: 10rpx;
 }
 
 .shang_sanjiao {
-  width: 20rpx;
-  height: 15rpx;
+  width: 12rpx;
+  height: 8rpx;
   display: block;
   margin-bottom: 2rpx;
 }
 
 .xia_sanjiao {
-  width: 22rpx;
-  height: 15rpx;
+  width: 12rpx;
+  height: 8rpx;
   display: block;
   transform: rotate(180deg);
-}
+} */
 
 .center {
   width: 90%;
