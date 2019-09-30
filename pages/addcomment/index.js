@@ -7,7 +7,8 @@ Page({
   data: {
     scores:['','','','',''],
     score:4,
-    is_anonymous:false
+    is_anonymous:false,
+    imgs:[]
   },
 
   /**
@@ -16,7 +17,31 @@ Page({
   onLoad: function (options) {
 
   },
-
+  addimg:function(){
+    var imgs = this.data.imgs,that=this
+    if(imgs.length==3){
+      wx.showToast({
+        title: '最多上传三张图片',
+        icon:'none'
+      })
+      return false;
+    }
+    wx.chooseImage({
+      count:1,
+      success: function(res) {
+        console.log(res.tempFilePaths[0])
+        imgs.push(res.tempFilePaths[0])
+        that.setData({
+          imgs:imgs
+        })
+      },
+    })
+  },
+  dafen:function(e){
+    this.setData({
+      score:e.currentTarget.dataset.index+1
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -65,9 +90,22 @@ Page({
   onShareAppMessage: function () {
 
   },
+  evaluate:function(e){
+    console.log(e.detail.value)
+    this.setData({
+      evaluate:e.detail.value
+    })
+  },
   checkanonymous(){
     this.setData({
       is_anonymous: !this.data.is_anonymous
     })
+  },
+  bto:function(){
+    var d={
+      score :this.data.score,
+      evaluate: this.data.evaluate,
+      is_anonymous: this.data.is_anonymous
+    }
   }
 })

@@ -156,8 +156,13 @@
 				},
 				{
 					"id": -1,
+<<<<<<< HEAD
 					"name": "pages/sugges_conter/index",
 					"pathName": "pages/sugges_conter/index",
+=======
+					"name": "评论",
+					"pathName": "pages/addcomment/index",
+>>>>>>> d9d3ce9391c346d646c6e84a35494d70632d162b
 					"scene": null
 				}
 			]
