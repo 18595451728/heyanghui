@@ -7,6 +7,43 @@ Page({
   data: {
     tabbar: {},
   },
+  // 选项卡
+  filterTab: function (e) {
+    var data = [true, true, true, true],
+      index = e.currentTarget.dataset.index;
+    data[index] = false;
+    this.setData({
+      tab: data,
+      page: 1,
+    })
+    if (index == 0) {
+      this.setData({
+        sorts: 0,
+        showpp: false,
+      })
+      this.initgoods()
+    }
+    if (index == 1) {
+      this.setData({
+        showpp: !this.data.showpp,
+        sorts: '0'
+      })
+    }
+    if (index == 2) {
+      this.setData({
+        sorts: this.data.sorts == '3' ? '4' : '3',
+        showpp: false,
+      })
+      this.initgoods()
+    }
+    if (index == 3) {
+      this.setData({
+        sorts: this.data.sorts == '5' ? '6' : '5',
+        showpp: false,
+      })
+      this.initgoods()
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载

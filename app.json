@@ -1,11 +1,8 @@
 {
   "pages": [
-
-
     "pages/home/index",
-     "pages/tabbar/home/index",
-     "pages/mine/mine",
-   
+    "pages/tabbar/home/index",
+    "pages/mine/mine",
     "pages/pay/InvitePrizes/index",
     "pages/pay/member/index",
     "pages/shopDetail/shopDetail",
