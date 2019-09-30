@@ -5,16 +5,17 @@
   </view>
   <view class="score">
     <text style="margin-right:20rpx;">整体评论</text>
-    <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}"></image>
+    <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen'></image>
     <text class="pingyu">很好</text>
   </view>
-  <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧"></textarea>
+  <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" bindblur='evaluate'></textarea>
   <view class="images">
-    <image src="/images/choose_img.png"></image>
+    <image src="/images/choose_img.png" bindtap='addimg'></image>
+    <image class='imgs' src='{{item}}' wx:for='{{imgs}}'></image>
   </view>
   <view class="xingshi">
     <view class="checkitem">
-      <view class="niming" bindtap="checkanonymous" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;'}}">
+      <view class="niming" bindtap="checkanonymous" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;box-sizing:border-box'}}">
         <image wx:if="{{is_anonymous}}" src="/images/check_on.png"></image>
       </view>
       <text>匿名</text>
@@ -24,6 +25,6 @@
 </view>
 <view class="kongxi">
 </view>
-<view class="bto">
+<view class="bto" bindtap='bto'>
   发布
 </view>
