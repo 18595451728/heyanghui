@@ -3,30 +3,30 @@
 <view class="big">
   <view class="banner">
     <swiper indicator-dots="true" indicator-color="rgba(0,0,0,.3)" indicator-active-color="#503F35" circular="true">
-      <block wx:for="{{banner}}">
+      <block wx:for="{{banner}}" wx:key='{{index}}'>
         <swiper-item>
-          <image src="{{item}}" class="slide-image" style="width: 100%;height:100%" />
+          <image src="{{item.banner_pic}}" class="slide-image" style="width: 100%;height:100%" />
         </swiper-item>
       </block>
     </swiper>
   </view>
   <view class="title">甄选好物</view>
   <view class="center">
-    <view class="center_item" wx:for="{{goodslist}}" bindtap="goodsdetail">
+    <view class="center_item" wx:for="{{goodslist}}" data-id='{{item.id}}'  wx:key='{{index}}' bindtap="goodsdetail">
       <view class="center_item_left">
-        <image class="center_item_left_img" src="/images/goodsimg.png">
+        <image class="center_item_left_img" src="{{item.goods_logo}}">
         </image>
         <image class="hot" src="/images/remai.png">
 
         </image>
       </view>
       <view class="center_item_right">
-        <view class="center_item_right_title">九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。</view>
-        <view class="center_item_right_title2">古法秘制，补肾食疗。</view>
+        <view class="center_item_right_title">{{item.goods_name}}</view>
+        <view class="center_item_right_title2">{{item.goods_desc}}</view>
 
         <view class="center_item_right_price">
           ￥
-          <text class="price">57.30</text>
+          <text class="price">{{item.cost_price}}</text>
           <image class="cart" src="/images/cart.png">
 
           </image>

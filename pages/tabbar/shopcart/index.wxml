@@ -12,24 +12,24 @@
     <scroll-view scroll-x wx:for='{{cartlist}}'>
       <view class="cart">
         <view class="c-con">
-          <image src="{{item.check?'/images/w-gou.png':'/images/w-nogou.png'}}" class="choose" data-index='{{index}}' bindtap="choose"></image>
+          <image src="{{item.selected?'/images/w-gou.png':'/images/w-nogou.png'}}" class="choose" data-index='{{index}}' bindtap="choose"></image>
           <image src="/images/goodsimg.png" class="goodsimg"></image>
           <view class="cartmes">
-            <view class="goodsname">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+            <view class="goodsname">{{item.goods_name}}</view>
             <view class="goodsintro">古法秘制，补肾食疗。</view>
             <view class="goodsmes">
               <view class="goodsprice">￥
-                <text>57.30</text>
+                <text>{{item.goods_price}}</text>
               </view>
               <view class="goodsnum">
                 <text data-index='{{index}}' bindtap="reduce">-</text>
-                <text>{{item.num}}</text>
+                <text>{{item.goods_num}}</text>
                 <text data-index='{{index}}' bindtap="add">+</text>
               </view>
             </view>
           </view>
         </view>
-        <view class="delete">
+        <view class="delete" data-index='{{index}}' bindtap='delete'>
           删除
         </view>
       </view>

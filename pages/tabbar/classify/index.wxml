@@ -19,12 +19,12 @@
       <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png"></image>
     </view>
 
-    <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
+    <!-- <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
       <text>分类</text>
       <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
       <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
       <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
-    </view>
+    </view> -->
 
     <view class="flex1{{!tab[4]?' active':''}}" data-id='4' data-index="4" bindtap="filterTab">
       <text>销量</text>
@@ -35,9 +35,9 @@
 
   </view>
   <view class="center">
-    <view class="center_item" bindtap="goodsdetail">
+    <view class="center_item" wx:for='{{goodslist}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="goodsdetail">
       <view class="center_item_left">
-        <image class="center_item_left_img" src="/images/goodsimg.png">
+        <image class="center_item_left_img" src="{{item.goods_logo}}">
         </image>
         <image class="hot" src="/images/remai.png">
 
@@ -45,65 +45,15 @@
       </view>
       <view class="center_item_right">
         <view class="center_item_right_title">
-          九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。
+          {{item.goods_name}}
         </view>
         <view class="center_item_right_title2">
-          古法秘制，补肾食疗。
+          {{item.goods_desc}}
         </view>
 
         <view class="center_item_right_price">
           ￥
-          <text class="price">57.30</text>
-          <image class="cart" src="/images/cart.png">
-
-          </image>
-        </view>
-      </view>
-    </view>
-    <view class="center_item" bindtap="goodsdetail">
-      <view class="center_item_left">
-        <image class="center_item_left_img" src="/images/goodsimg.png">
-        </image>
-        <image class="hot" src="/images/remai.png">
-
-        </image>
-      </view>
-      <view class="center_item_right">
-        <view class="center_item_right_title">
-          九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。
-        </view>
-        <view class="center_item_right_title2">
-          古法秘制，补肾食疗。
-        </view>
-
-        <view class="center_item_right_price">
-          ￥
-          <text class="price">57.30</text>
-          <image class="cart" src="/images/cart.png">
-
-          </image>
-        </view>
-      </view>
-    </view>
-    <view class="center_item" bindtap="goodsdetail">
-      <view class="center_item_left">
-        <image class="center_item_left_img" src="/images/goodsimg.png">
-        </image>
-        <image class="hot" src="/images/remai.png">
-
-        </image>
-      </view>
-      <view class="center_item_right">
-        <view class="center_item_right_title">
-          九蒸九晒黑芝麻丸 | 道家制造工艺， 手作辟谷蜜丸。
-        </view>
-        <view class="center_item_right_title2">
-          古法秘制，补肾食疗。
-        </view>
-
-        <view class="center_item_right_price">
-          ￥
-          <text class="price">57.30</text>
+          <text class="price">{{item.cost_price}}</text>
           <image class="cart" src="/images/cart.png">
 
           </image>

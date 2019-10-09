@@ -1,5 +1,5 @@
 const app = getApp()
-var myrequest = require('../../../utils/request.js');
+var r=require('../../../utils/request.js'),u=app.globalData.url
 Page({
 
   /**
@@ -7,19 +7,7 @@ Page({
    */
   data: {
     edit: !1,
-    cartlist: [{
-      check: !0,
-      num: 5,
-      price: '57.30'
-    }, {
-      check: !0,
-      num: 2,
-      price: '57.30'
-    }, {
-      check: !1,
-      num: 3,
-      price: '57.30'
-    }],
+    cartlist: [],
     chooseall: !1,
     allprice: '0.00',
     allnum: 0,
@@ -27,80 +15,121 @@ Page({
   },
   chooseall: function() {
     var cartlist = this.data.cartlist,
-      chooseall = !this.data.chooseall
+      chooseall = !this.data.chooseall,arr=[]
     this.setData({
       chooseall: chooseall
     })
     if (chooseall) {
       for (var i = 0; i < cartlist.length; i++) {
-        cartlist[i].check = !0
+        cartlist[i].selected = !0
+        arr.push(cartlist[i].id)
       }
     } else {
       for (var i = 0; i < cartlist.length; i++) {
-        cartlist[i].check = !1
+        cartlist[i].selected = !1
+        arr.push(cartlist[i].id)
       }
     }
-    this.setData({
-      cartlist: cartlist
+
+    r.req(u + '/api/Cart/selected', { cart_id: arr, token: wx.getStorageSync('token'), selected: chooseall ? 1 : 0, type: 1 }, 'post').then((res) => {
+      console.log(res)
+      
+      this.setData({
+        cartlist: cartlist
+      })
+      console.log(cartlist)
+      this.getAllPrice();
     })
-    this.getAllPrice();
+
+
+    
   },
   choose: function(e) {
     var index = e.currentTarget.dataset.index,
       cartlist = this.data.cartlist
-    cartlist[index].check = !cartlist[index].check
-    this.setData({
-      cartlist: cartlist
-    })
-    this.getAllPrice();
-    for (var i = 0; i < cartlist.length; i++) {
-      if (!cartlist[i].check) {
-        this.setData({
-          chooseall: !1
-        })
-        return false;
+    cartlist[index].selected = !cartlist[index].selected
+    r.req(u + '/api/Cart/selected', { cart_id: [cartlist[index].id], token: wx.getStorageSync('token'), selected: cartlist[index].selected?1:0, type:0},'post').then((res)=>{
+      console.log(res)
+      this.setData({
+        cartlist: cartlist
+      })
+      this.getAllPrice();
+      for (var i = 0; i < cartlist.length; i++) {
+        if (!cartlist[i].selected) {
+          this.setData({
+            chooseall: !1
+          })
+          return false;
+        }
       }
-    }
-    this.setData({
-      chooseall: !0
+      this.setData({
+        chooseall: !0
+      })
     })
-
   },
   reduce: function(e) {
     var index = e.currentTarget.dataset.index,
-      cartlist = this.data.cartlist
-    if (cartlist[index].num == 1) return false;
-    cartlist[index].num--;
-    this.setData({
-      cartlist: cartlist
+      cartlist = this.data.cartlist,that=this
+    if (cartlist[index].goods_num == 1) return false;
+    cartlist[index].goods_num--;
+    r.req(u + '/api/Cart/editCart', { cart_id: cartlist[index].id, goods_num: cartlist[index].goods_num, token:wx.getStorageSync('token')},'post').then((res)=>{
+      console.log(res)
+      that.setData({
+        cartlist: cartlist
+      })
+      that.getAllPrice();
     })
-    this.getAllPrice();
+    
   },
   add: function(e) {
     var index = e.currentTarget.dataset.index,
-      cartlist = this.data.cartlist
-    cartlist[index].num++;
-    this.setData({
-      cartlist: cartlist
+      cartlist = this.data.cartlist, that = this
+    cartlist[index].goods_num++;
+    r.req(u + '/api/Cart/editCart', { cart_id: cartlist[index].id, goods_num: cartlist[index].goods_num, token: wx.getStorageSync('token') }, 'post').then((res) => {
+      console.log(res)
+      that.setData({
+        cartlist: cartlist
+      })
+      that.getAllPrice();
     })
-    this.getAllPrice();
   },
+  delete:function(e){
+    var index = e.currentTarget.dataset.index, cartlist = this.data.cartlist, id = cartlist[index].id,that=this
 
+
+    r.req(u + '/api/Cart/delCart', { cart_id: [id],token:wx.getStorageSync('token')},'post').then((res)=>{
+      console.log(res)
+      cartlist.splice(index, 1)
+      that.setData({
+        cartlist: cartlist
+      })
+      that.getAllPrice();
+    })
+  },
   jiesuan: function() {
+    var that =this
     if (this.data.edit) {
-      var cartlist = this.data.cartlist
+      var cartlist = this.data.cartlist,arr=[]
       if (this.data.edit) {
         for (var i = 0; i < cartlist.length; i++) {
-          if (cartlist[i].check) {
-            console.log(i)
+          if (cartlist[i].selected) {
+            arr.push(cartlist[i].id)
+            console.log(cartlist[i])
             cartlist.splice(i, 1)
             i--;
             // delete cartlist[i]
           }
         }
-        this.setData({
-          cartlist: cartlist
+
+        r.req(u + '/api/Cart/delCart', { cart_id:arr,token:wx.getStorageSync('token')},'post').then((res)=>{
+          console.log(res)
+          that.setData({
+            cartlist: cartlist,
+            edit:!1
+          })
+          that.getAllPrice();
         })
+        
       }
     } else {
       wx.navigateTo({
@@ -114,9 +143,9 @@ Page({
       allprice = 0,
       allnum = 0
     for (var i = 0; i < cartlist.length; i++) {
-      if (cartlist[i].check) {
-        allprice += cartlist[i].num * cartlist[i].price
-        allnum += cartlist[i].num
+      if (cartlist[i].selected) {
+        allprice += cartlist[i].goods_num * cartlist[i].goods_price
+        allnum += cartlist[i].goods_num
       }
     }
     this.setData({
@@ -128,7 +157,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getAllPrice();
+
   },
   edit: function() {
     this.setData({
@@ -140,6 +169,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+
+    var that = this
+    this.setData({
+      chooseall:!1
+    })
+    r.req(u + '/api/Cart/cartList', { token: wx.getStorageSync('token') }, 'post').then((res) => {
+      console.log(res)
+      that.setData({
+        cartlist: res.data.cartList
+      })
+      this.chooseall();
+    })
+
+
     app.editTabbar();
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {

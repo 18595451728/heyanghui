@@ -1,4 +1,4 @@
-const app = getApp()
+const app = getApp(), r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -60,7 +60,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that =this
+    r.req(u + '/api/Goods/goodsList', { list_row: 10, page: 1, sorts:0}, 'post').then(res => {
+      console.log(res)
+      that.setData({
+        goodslist: res.data.list
+      })
+    })
   },
 
   /**
@@ -115,8 +121,9 @@ Page({
 
   },
   goodsdetail: function (e) {
+    var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/shopDetail/shopDetail',
+      url: '/pages/shopDetail/shopDetail?id='+id
     })
   }
 })

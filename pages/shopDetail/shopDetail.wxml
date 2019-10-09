@@ -4,24 +4,24 @@
     <!-- <image class="" src="/images/goods.png" style="width: 100%;height:100%;">  
         </image> -->
     <swiper autoplay='true' bindchange='changeSlide'>
-      <swiper-item wx:for='{{banner}}'>
-        <image src='{{item}}'></image>
+      <swiper-item wx:for='{{list.goods_big_banner}}'>
+        <image src='{{item.pic}}'></image>
       </swiper-item>
     </swiper>
-    <view class="jiaobiao">{{current}}/{{banner.length}}</view>
+    <view class="jiaobiao">{{current}}/{{list.goods_big_banner.length}}</view>
   </view>
   <view class="detail_name_out">
     <view class="detail_name">
       <view class="detail_name_left">
         <view class="detail_name_left_top">
-          九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟 谷蜜丸。
+          {{list.goods_name}}
         </view>
         <view class="detail_name_left_bottom">
           <text class="price1">
                         ￥
                     </text>
           <text class="price2">
-                        57.30
+                        {{list.price}}
                     </text>
         </view>
       </view>
@@ -72,47 +72,35 @@
         </view>
       </view>
       <view class="pingjia_center">
-        <view class="pingjia_center_item">
+        <!-- <view class="pingjia_center_item">
           追评0
+        </view> -->
+        <view class="pingjia_center_item">
+          差评{{commentStatistics.rate3}}
         </view>
         <view class="pingjia_center_item">
-          差评0
+          好评{{commentStatistics.rate1}}
         </view>
         <view class="pingjia_center_item">
-          好评0
-        </view>
-        <view class="pingjia_center_item">
-          中评0
+          中评{{commentStatistics.rate2}}
         </view>
       </view>
-      <view class="pingjia_bottom">
+      <view wx:for='{{comment}}' class="pingjia_bottom">
         <view class="pingjia_bottom1">
           <view class="pingjia_bottom1_left">
-            <image class="pingjia_bottom1_left_img" src="/images/j-touxiang.png">
+            <image class="pingjia_bottom1_left_img" src="{{item.user_logo}}">
 
             </image>
-            1*********7
+            {{item.user_name}}
           </view>
           <view class="pingjia_bottom1_right">
-            <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
-
-            </image>
-            <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
-
-            </image>
-            <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
-
-            </image>
-            <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
-
-            </image>
-            <image class="pingjia_bottom1_right_img" src="/images/j-star.png">
+            <image wx:for='{{5}}' wx:for-item='items' class="pingjia_bottom1_right_img" src="{{index<item.desc_star?'/images/j-star.png':'/images/j-star1.png'}}">
 
             </image>
           </view>
         </view>
         <view class="pingjia_bottom2">
-          东西特别棒，非常好喜欢！
+          {{item.content}}
         </view>
       </view>
     </view>
@@ -124,13 +112,8 @@
         商品详情
       </view>
       <view class="shop_img">
-        <view class="shop_img_item">
-          <image class="shop_img_item_img" src="/images/goodsimg.png">
-
-          </image>
-        </view>
-        <view class="shop_img_item">
-          <image class="shop_img_item_img" src="/images/goodsimg.png">
+        <view class="shop_img_item" wx:for='{{list.goods_detail_pic}}' wx:key='{{index}}'>
+          <image class="shop_img_item_img" src="{{item.pic}}">
 
           </image>
         </view>
@@ -155,7 +138,7 @@
       购物车
     </view>
   </view>
-  <view class="dibu3">
+  <view class="dibu3" bindtap='guige'>
     加入购物车
   </view>
   <view class="dibu4" bindtap="gotobuy">
@@ -185,20 +168,20 @@
   <view class="dibu_guige_top">
     <view class="dibu_guige_top1">
       <view class="dibu_guige_top11">
-        <image class="" src="/images/goodsimg.png">
+        <image class="" src="{{thumbpic  || '/images/zanwu.jpg'}}">
 
         </image>
       </view>
       <view class="dibu_guige_top12">
         <view class="dibu_guige_top12_title">
-          九蒸九晒黑芝麻丸 | 道家制造工艺，手...
+          {{list.goods_name}}
         </view>
         <view class="dibu_guige_top12_price">
           <text class="dibu_guige_top12_price1">
                         ￥
                     </text>
           <text class="dibu_guige_top12_price2">
-                        57.30
+                       {{list.price}}
                     </text>
         </view>
       </view>
@@ -208,12 +191,14 @@
         </image>
       </view>
     </view>
-    <view class="dibu_guige_top2">
+    <view class="dibu_guige_top2" wx:for='{{spec}}' wx:key='{{index}}'>
       <view class="dibu_guige_top2_title">
-        规格 :
+        {{item.name}} :
       </view>
-      <view class="dibu_guige_top2_title_name">
-        九蒸九晒黑芝麻丸
+      <view class='guige'>
+        <view class="dibu_guige_top2_title_name {{idx==item.cid?'active':''}}" data-index='{{index}}' wx:for='{{item.list}}' wx:for-item='items'  wx:for-index='idx' data-idx='{{idx}}' data-ids='{{items.item_id}}' bindtap='chooseguige'>
+        {{items.item}}
+      </view>
       </view>
     </view>
     <view class="dibu_guige_top3">
@@ -222,7 +207,7 @@
           购买数量:
         </view>
         <view class="dibu_guige_top2_shengyu">
-          剩余44件
+          剩余{{list.stores}}件
         </view>
       </view>
       <view class="dibu_guige_top3_right">
@@ -241,7 +226,7 @@
     </view>
   </view>
   <view class="dibu_guige_bottom">
-    <view class="dibu_guige_bottom1">加入购物车</view>
+    <view class="dibu_guige_bottom1" bindtap='addcart'>加入购物车</view>
 
     <view class="dibu_guige_bottom2" bindtap="gotobuy">立即购买</view>
   </view>

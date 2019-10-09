@@ -18,7 +18,7 @@ function req(url,data,method){
       fail:((res)=>{
         wx.hideLoading();
         reject(res);
-        a.toast('网络错误或服务器繁忙!')
+        a.toast('网络错误或服务器繁忙1!')
       })
     })
   })

@@ -1,4 +1,5 @@
 // pages/shopDetail/shopDetail.js
+const app = getApp(), r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -18,12 +19,83 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this,id=options.id
+    console.log(options,id)
+      that.setData({
+        goodsid:id
+      })
+    r.req(u + '/api/Goods/goodsDetail', { goods_id: id, token: wx.getStorageSync('token')}, 'post').then(res => {
+      console.log(res)
+      var spec = res.data.filter_spec
+      if(spec.length!=0){
+        for(var i=0;i<spec.length;i++){
+          spec[i].cid=0
+        }
+      }
+      that.setData({
+        commentStatistics: res.data.commentStatistics,
+        list: res.data.list,
+        spec: spec,
+      })
+      if(res.data.filter_spec.length != 0){
+        that.setData({
+          thumbpic: res.data.filter_spec[0].list[0].src
+        })
+      }
+    })
 
+    r.req(u + '/api/Goods/goodsComment', { list_row: 1, page: 1, is_pic: 0, goods_id: id, rate:0},'post').then((res)=>{
+      console.log(res)
+      that.setData({
+        comment:res.data.list
+      })
+    })
   },
   changeSlide:function(e){
-    console.log(e.detail.current+1)
     this.setData({
       current: e.detail.current + 1
+    })
+  },
+
+  chooseguige:function(e){
+    var index = e.currentTarget.dataset.index,idx= e.currentTarget.dataset.idx,spec=this.data.spec
+    console.log(index,idx)
+    spec[index].cid=idx
+    this.setData({
+      spec:spec
+    })
+  },
+  sort: function (arr) {
+    for (var i = 0; i < arr.length - 1; i++) {
+      for (var j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          var hand = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = hand;
+        }
+      }
+    }
+    return arr;
+  },
+  addcart:function(){
+    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid,a=new Array();
+    for(var i in s){
+      a.push(s[i].list[s[i].cid].item_id)
+    }
+    console.log(a)
+    var arr = t.sort(a)
+    r.req(u +'/api/Cart/addCart',{
+      goods_id:g,
+      goods_num:c,
+      cart_type:0,
+      token:wx.getStorageSync('token'),
+      sku_id:arr.join('_')
+    },'post').then((res)=>{
+      console.log(res)
+      wx.showToast({
+        title: res.msg,
+        icon:'none'
+      })
     })
   },
   /**
