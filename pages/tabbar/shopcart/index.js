@@ -1,5 +1,5 @@
 const app = getApp()
-var myrequest = require('../../../untils/request.js');
+var myrequest = require('../../../utils/request.js');
 Page({
 
   /**

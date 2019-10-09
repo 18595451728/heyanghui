@@ -10,18 +10,17 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
 	"appid": "wx611085d8ee18d2bf",
 	"projectname": "heyanghui",
+	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,133 +35,170 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/orderdetail/index",
-					"pathName": "pages/orderdetail/index",
+					"name": "商城首页",
+					"pathName": "pages/tabbar/home/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/volunteer/index",
-					"pathName": "pages/volunteer/index",
+					"name": "分类",
+					"pathName": "pages/tabbar/classify/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/volunteermsg/index",
-					"pathName": "pages/volunteermsg/index",
+					"name": "购物车",
+					"pathName": "pages/tabbar/shopcart/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/volunteermsg/backmsg/index",
-					"pathName": "pages/volunteermsg/backmsg/index",
+					"name": "审核",
+					"pathName": "pages/tabbar/audit/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/address/index",
-					"pathName": "pages/address/index",
+					"name": "商品详情",
+					"pathName": "pages/shopDetail/shopDetail",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/address/update/index",
-					"pathName": "pages/address/update/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/addcomment/index",
-					"pathName": "pages/addcomment/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/userserver/index",
-					"pathName": "pages/userserver/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/order/order",
-					"pathName": "pages/order/order",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/confirm/confirm",
+					"name": "确认订单",
 					"pathName": "pages/confirm/confirm",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/addaddress/addaddress",
+					"name": "收货地址",
+					"pathName": "pages/address/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增地址",
 					"pathName": "pages/addaddress/addaddress",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/userserver/server/index",
-					"pathName": "pages/userserver/server/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/money/index",
+					"name": "钱包",
 					"pathName": "pages/money/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/coupon/index",
-					"pathName": "pages/coupon/index",
+					"name": "提现申请",
+					"pathName": "pages/pay/CashWithdrawalone/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/evaluationlist/index",
-					"pathName": "pages/evaluationlist/index",
+					"name": "提现成功",
+					"pathName": "pages/pay/CashWithdrawal/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-<<<<<<< HEAD
-					"name": "pages/sugges_conter/index",
-					"pathName": "pages/sugges_conter/index",
-=======
+					"name": "个人中心",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderdetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
 					"name": "评论",
 					"pathName": "pages/addcomment/index",
->>>>>>> d9d3ce9391c346d646c6e84a35494d70632d162b
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "退款页面",
+					"pathName": "pages/userserver/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请退款",
+					"pathName": "pages/userserver/server/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务中心",
+					"pathName": "pages/service_centre/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员手册",
+					"pathName": "pages/member_peo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投诉建议",
+					"pathName": "pages/suggestions/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人信息",
+					"pathName": "pages/address/update/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请有奖",
+					"pathName": "pages/pay/InvitePrizes/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "志愿者",
+					"pathName": "pages/volunteer/index",
+					"query": "",
 					"scene": null
 				}
 			]
