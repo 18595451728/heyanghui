@@ -141,7 +141,7 @@
   <view class="dibu3" bindtap='guige'>
     加入购物车
   </view>
-  <view class="dibu4" bindtap="gotobuy">
+  <view class="dibu4" bindtap="guige">
     立即购买
   </view>
 </view>
@@ -226,9 +226,9 @@
     </view>
   </view>
   <view class="dibu_guige_bottom">
-    <view class="dibu_guige_bottom1" bindtap='addcart'>加入购物车</view>
+    <view class="dibu_guige_bottom1" bindtap='addcart' data-type='0'>加入购物车</view>
 
-    <view class="dibu_guige_bottom2" bindtap="gotobuy">立即购买</view>
+    <view class="dibu_guige_bottom2" bindtap="addcart" data-type='1'>立即购买</view>
   </view>
 </view>
 

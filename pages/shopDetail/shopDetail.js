@@ -77,8 +77,8 @@ Page({
     }
     return arr;
   },
-  addcart:function(){
-    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid,a=new Array();
+  addcart:function(e){
+    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid,a=new Array(),type=e.currentTarget.dataset.type;
     for(var i in s){
       a.push(s[i].list[s[i].cid].item_id)
     }
@@ -87,15 +87,25 @@ Page({
     r.req(u +'/api/Cart/addCart',{
       goods_id:g,
       goods_num:c,
-      cart_type:0,
+      cart_type:type,
       token:wx.getStorageSync('token'),
       sku_id:arr.join('_')
     },'post').then((res)=>{
       console.log(res)
-      wx.showToast({
-        title: res.msg,
-        icon:'none'
+      t.setData({
+        is_guige: !this.data.is_guige
       })
+      if(type==0){
+        wx.showToast({
+          title: res.msg,
+          icon: 'none'
+        })
+      }else{
+        wx.navigateTo({
+          url: '/pages/confirm/confirm?cart_type=1',
+        })
+      }
+      
     })
   },
   /**
@@ -181,7 +191,7 @@ Page({
   },
   gotobuy:function(){
     wx.navigateTo({
-      url: '/pages/confirm/confirm',
+      url: '/pages/confirm/confirm?cart_type=1',
     })
   },
   shopcart:function(){
