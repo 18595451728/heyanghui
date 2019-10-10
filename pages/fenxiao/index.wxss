@@ -1,0 +1,137 @@
+.header {
+  width: 705rpx;
+  height: 321rpx;
+  border-radius: 10rpx;
+  margin-top: 60rpx;
+  margin-bottom: 42rpx;
+  margin-left: 22.5rpx;
+  box-shadow: 0px 6rpx 16rpx 2rpx rgba(182, 182, 182, 1);
+  position: relative;
+}
+
+.bg {
+  height: 100%;
+  width: 100%;
+}
+
+.item1 {
+  width: 94rpx;
+  height: 41rpx;
+  background: rgba(252, 252, 252, 1);
+  box-shadow: 0px 4rpx 5rpx 0px rgba(0, 0, 0, 0.14);
+  border-radius: 5rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 33rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(235, 84, 77, 1);
+  line-height: 41rpx;
+  text-align: center;
+}
+
+.item2 {
+  height: 180rpx;
+  width: 180rpx;
+  position: absolute;
+  top: 45rpx;
+  left: 265.5rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 25rpx;
+}
+
+.allmoney {
+  margin-top: 15rpx;
+  display: flex;
+}
+
+.item3 {
+  height: 50rpx;
+  width: 675rpx;
+  position: absolute;
+  bottom: 15rpx;
+  left: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 25rpx;
+  font-family: PingFangSC;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  line-height: 50rpx;
+}
+
+.kongxi {
+  width: 750rpx;
+  height: 8rpx;
+  background: rgba(240, 241, 244, 1);
+}
+
+.title {
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 600;
+  color: rgba(55, 55, 55, 1);
+  padding: 50rpx 0 40rpx 25rpx;
+}
+
+.type {
+  width: 700rpx;
+  height: 100rpx;
+  margin-left: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.typeitem {
+  width: 227rpx;
+  height: 102rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+}
+
+.active {
+  box-shadow: 0px 0px 10rpx 0px rgba(0, 0, 0, 0.19);
+  border-radius: 10rpx;
+}
+
+.msg {
+  width: 664rpx;
+  height: 90rpx;
+  margin-left: 43rpx;
+  border-bottom: 4rpx solid #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  font-family: HYYakuHei;
+  font-weight: normal;
+  color: rgba(97, 97, 97, 1);
+  line-height: 35rpx;
+}
+
+.msgdata {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.time{
+  font-size: 20rpx;
+}

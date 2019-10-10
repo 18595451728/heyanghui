@@ -1,5 +1,8 @@
 {
   "pages": [
+        "pages/wuliu/index",
+    "pages/fenxiao/index",
+
     "pages/home/index",
     "pages/tabbar/home/index",
     "pages/mine/mine",
