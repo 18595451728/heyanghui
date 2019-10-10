@@ -133,7 +133,7 @@ Page({
       }
     } else {
       wx.navigateTo({
-        url: '/pages/confirm/confirm'
+        url: '/pages/confirm/confirm?cart_type=0'
       })
     }
   },

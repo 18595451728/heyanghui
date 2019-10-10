@@ -1,6 +1,8 @@
 /* pages/confirm/confirm.wxss */
 page{
   background: #f0f1f4;
+  padding-bottom: 150rpx;
+  box-sizing: border-box;
 }
 .address{
   background: #fff;

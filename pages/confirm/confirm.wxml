@@ -5,10 +5,10 @@
     <image src="/images/w-dingwei.png"></image>
     <view class="a-mes">
       <view class="a-top">
-        <text class="a-name">尹浩</text>
-        <text class="a-tel">18042429455</text>
+        <text class="a-name">{{address.consignee}}</text>
+        <text class="a-tel">{{address.telephone}}</text>
       </view>
-      <view class="a-bottom">黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</view>
+      <view class="a-bottom">{{address.province}}{{address.city}}{{address.district}}{{address.address}}</view>
     </view>
   </view>
   <view class="noaddress" wx:else bindtap="address">
@@ -22,17 +22,17 @@
 </view>
 
 
-<view class="order-con">
+<view class="order-con" wx:for='{{cartList}}' wx:key='{{index}}'>
   <image src="/images/goodsimg.png"></image>
   <view class="o-con">
-    <view class="o-name">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+    <view class="o-name">{{item.goods_name}}</view>
     <view class="o-mes noflex">
-      <view class="intro">古法秘制，补肾食疗。</view>
+      <view class="intro">{{item.goods_desc}}</view>
       <view class="o-bot">
         <view class="price">合计：
-          <text>57.30</text>
+          <text>{{item.goods_fee}}</text>
         </view>
-        <view class="num">X1</view>
+        <view class="num">X{{item.goods_num}}</view>
 
       </view>
     </view>
@@ -44,13 +44,13 @@
 </view>
 
 <view class="message">
-  <text>买家留言</text><input placeholder="选填，建议事先与客服或门店导购沟通确认" placeholder-style="color:#c8c8c8;font-size:25rpx;"></input>
+  <text>买家留言</text><input bindblur='remark' placeholder="选填，建议事先与客服或门店导购沟通确认" placeholder-style="color:#c8c8c8;font-size:25rpx;"></input>
 </view>
 
 <view class="ordermoney">
   <view class="c-top">
     <view>
-      <text>商品金额</text><text>￥57.30</text>
+      <text>商品金额</text><text>￥{{allprice}}</text>
     </view>
     <view>
       <text>优惠券</text><text>-￥7.00</text>
@@ -68,8 +68,15 @@
 
 <view class="jiesuan">
   <view class="j-left">
-    <view>共一件商品</view>
+    <view>共{{total_num}}件商品</view>
     <view>合计：<text>￥120.00</text></view>
   </view>
-  <view class="j-right">提交订单</view>
+  <view class="j-right" bindtap='sendOrder'>提交订单</view>
 </view>
+
+
+
+<!-- <view class='zz' wx:if='{{pay}}'>
+  <view class='zzbg'></view>
+  <view class=''></view>
+</view> -->
