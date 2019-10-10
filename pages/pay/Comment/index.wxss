@@ -1,0 +1,197 @@
+page{
+
+}
+.comment{
+  width:750rpx;background:rgba(255,255,255,1);
+}
+.comment_main{
+   width:710rpx;margin: 0 auto;
+}
+.comment_main_one{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 45rpx;
+}
+.comment_main_one_img{
+width: 112rpx;
+height: 112rpx;
+}
+.comment_main_one_img image{
+width: 100%;height:100%;
+}
+.comment_main_one_text{
+font-size:25rpx;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(0,0,0,1);
+line-height:33rpx;width:470rpx;margin-left: 28rpx;
+}
+
+.comment_main_two{
+  margin-top: 18rpx;
+  border-bottom: 2px solid rgba(178,175,163,.31);
+  padding-bottom: 50rpx;
+
+}
+.comment_main_two_box{
+ width: 593rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 31rpx;
+line-height: 31rpx;
+margin-top: 36rpx;
+padding-left: 7rpx;
+box-sizing: border-box;
+
+}
+.comment_main_two_box_zhishu{
+  
+font-size:22rpx;
+font-family:PingFang SC;
+font-weight:500;
+color:rgba(55,55,55,1);
+}
+.comment_main_two_box_pinjia{
+ 
+font-size:26rpx;
+font-family:PingFang SC;
+font-weight:500;
+color:rgba(157,157,157,1);
+}
+
+.comment_main_two_box_xx{
+    display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 259rpx;
+}
+.comment_main_two_box_xxmum{
+  width:31rpx;
+height:31rpx;
+}
+.comment_main_two_box_xxmum image{
+  width:100%;
+height:100%;
+}
+
+
+.comment_main_three_input{
+font-size:24rpx;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(194,194,194,1);
+line-height:44rpx;
+margin-top: 30rpx;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 8;
+-webkit-box-orient: vertical;} 
+.comment_main_three_input textarea {width: 100%;height: 220rpx;display: block;position: relative;}
+.comment_main_four{
+width: 100%;padding-bottom: 20rpx;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.up-pic{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.ap-box{
+   position: relative;
+   
+}
+.add-pic{
+  width: 182rpx;
+  height: 182rpx;
+  position: relative;
+}
+.add-pic image{
+  width: 100%;
+  height: 100%;
+}
+.tianja{
+position: absolute;
+bottom: 30rpx;
+left: 0;
+width:100%;
+text-align: center;
+font-size:24rpx;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(194,194,194,1);
+line-height:44rpx;
+}
+
+
+
+.comment_main_five{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; border-top: 2px solid rgba(178,175,163,.31);
+  padding: 29rpx 0;
+  box-sizing: border-box;
+}
+.comment_main_five_left{
+  display: flex;
+}
+.comment_main_five_img{
+width:36rpx;
+height:36rpx;
+}
+.comment_main_five_img image{
+  width: 100%;
+  height: 100%;
+}
+.comment_main_five_img_ninming{
+font-size:26rpx;
+font-family:PingFang SC;
+font-weight:500;
+color:rgba(55,55,55,1);
+padding-left: 30rpx;
+box-sizing: border-box;
+}
+
+.comment_main_five_img_xisnhi{
+  width:363 rpx;
+font-size:26rpx;
+font-family:PingFang SC;
+font-weight:500;
+color:rgba(159,159,159,1);
+}
+
+.comment_main_six{
+  width:750rpx;
+height:25rpx;
+background:rgba(240,241,244,1);
+}
+.comment_main_seven{
+width: 750rpx;
+height: 80rpx;
+background: rgba(255,255,255,1);
+padding-bottom: 50px;
+
+}
+
+
+
+
+
+.CashWithdrawal_main_three{
+  width:750rpx; 
+ height:100rpx;
+background:rgba(235,84,77,1);
+  line-height: 100rpx;
+  background:rgba(235,84,77,1);
+  
+  color: #ffffff;
+  text-align: center;position: fixed;bottom: 0;
+  left: 0;
+  
+}

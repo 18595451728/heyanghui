@@ -1,7 +1,9 @@
 {
   "pages": [
+      "pages/pay/Comment/index",
         "pages/wuliu/index",
     "pages/fenxiao/index",
+
 
     "pages/home/index",
     "pages/tabbar/home/index",

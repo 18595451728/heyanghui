@@ -1,0 +1,111 @@
+<view class="comment">
+  <view class="comment_main">
+    <view class="comment_main_one">
+      <view class="comment_main_one_img">
+        <image src="/images/comment_main_one_img.png"></image>
+      </view>
+      <view class="comment_main_one_text">
+        <text>九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+      </view>
+    </view>
+
+    <view class="comment_main_two">
+      <view class="comment_main_two_box">
+        <text class="comment_main_two_box_zhishu">效果指数</text>
+        <view class="comment_main_two_box_xx">
+          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
+            <image src="{{index<one?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
+          </view>
+         
+        </view>
+        <text class="comment_main_two_box_pinjia">良好</text>
+      </view>
+
+      <view class="comment_main_two_box">
+        <text class="comment_main_two_box_zhishu">安全指数</text>
+        <view class="comment_main_two_box_xx">
+          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
+            <image src="{{index<two?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
+          </view>
+         
+        </view>
+        <text class="comment_main_two_box_pinjia">及格</text>
+      </view>
+
+      <view class="comment_main_two_box">
+        <text class="comment_main_two_box_zhishu">外观指数</text>
+        <view class="comment_main_two_box_xx">
+          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
+            <image src="{{index<three?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
+          </view>
+         
+        </view>
+        <text class="comment_main_two_box_pinjia">很好</text>
+      </view>
+
+      <view class="comment_main_two_box">
+        <text class="comment_main_two_box_zhishu">使用方便</text>
+        <view class="comment_main_two_box_xx">
+          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
+            <image src="{{index<four?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
+          </view>
+         
+        </view>
+        <text class="comment_main_two_box_pinjia">优秀</text>
+      </view>
+
+      <view class="comment_main_two_box">
+        <text class="comment_main_two_box_zhishu">描述相符</text>
+        <view class="comment_main_two_box_xx">
+          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
+            <image src="{{index<five?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
+          </view>
+         
+        </view>
+        <text class="comment_main_two_box_pinjia">中等</text>
+      </view>
+    </view>
+
+    <view class="comment_main_three_input">
+       <textarea placeholder-class="place-holder"  placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" name="introduction"  bindinput='limit' value="{{text}}"/>
+    </view>
+
+
+
+    <view class="comment_main_four">
+       <view class='up-pic'>
+          <view class='flex pic-box'>
+            <block wx:key="imgbox" wx:for="{{imgbox}}">
+              <view class='ap-box'>
+                <view class='add-pic'>
+                  <image class='add-pic' src='{{item}}'></image>
+                 
+                </view>
+              </view>
+            </block>
+            <view class='add-pic' bindtap='addPic1' wx:if="{{imgbox.length<9}}">
+              <image class='img' src='/images/up-pic.png'></image>  
+                <text class="tianja">添加照片</text>
+            </view>
+          </view>
+         </view>
+
+    </view>
+
+    <view class="comment_main_five">
+       <view class="comment_main_five_left">
+          <view class="comment_main_five_img">
+              <image src="/images/comment_main_five_img.png"></image>
+          </view>
+          <text class="comment_main_five_img_ninming">匿名</text>
+       </view>
+       <text class="comment_main_five_img_xisnhi">你写的评论会以匿名的形式展现</text>
+    </view>
+
+
+  </view>
+  <view class="comment_main_six"></view>
+  <view class="comment_main_seven"></view>
+  
+  <view class="CashWithdrawal_main_three">发布</view>
+</view>
