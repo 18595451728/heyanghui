@@ -1,22 +1,40 @@
 <!--pages/addaddress/addaddress.wxml-->
-
+<import src="../model/model.wxml"/>
+<form bindsubmit="bindSave">
 <view class="forms">
+  <view class="line"><image src="/images/line.png"></image></view>
   <view class="name">
-    <text>姓名</text><input placeholder="收货人姓名" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+    <text>姓名</text>
+    <input type="text" name="consignee" placeholder="收货人姓名" value="{{addressData.consignee}}"   />
   </view>
   <view class="line"><image src="/images/line.png"></image></view>
   <view class="tel">
-    <text>电话</text><input placeholder="收货人手机号" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+    <text>电话</text>
+        <input type="text" name="telephone" placeholder="收货人手机号" value="{{addressData.telephone}}"   />
   </view>
  <view class="line"><image src="/images/line.png"></image></view>
-  <view class="diqu">
-    <text>地区</text><input placeholder="选择省/市/区" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+  <view class="diqu" bindtap="translate">
+    <text>地区</text>
+    <!-- <input placeholder="选择省/市/区" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input> -->
+     <block wx:if="{{province.length>0}}">
+            {{province}} {{city}} {{district}}
+          </block>
+<block wx:else>
+           选择省/市/区
+          </block>
+
+
   </view>
   <view class="line"><image src="/images/line.png"></image></view>
   <view class="detail">
-    <text>详情</text><input placeholder="街道门牌、 楼层房间号等信息" placeholder-style="color:#9c9c9c;font-size:26rpx;"></input>
+    <text>详情</text>
+    <!-- <input placeholder="街道门牌、 楼层房间号等信息" placeholder-style="color:#9c9c9c;font-size:26rpx;" value="{{addressData.address}}"></input> -->
+    <input name="address" type="text" placeholder="街道门牌、 楼层房间号等信息"  placeholder-class="placeholder" value="{{addressData.address}}" />
   </view>
 </view>
 
 
-<view class="save">保存并使用</view>
+<!-- <view class="save" formType="submit">保存并使用</view> -->
+ <button type="warn" class="save" formType="submit">保存并使用</button>
+</form>
+ <template is="areaData" data="{{...item}}"/>

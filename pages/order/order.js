@@ -5,32 +5,72 @@ Page({
    * 页面的初始数据
    */
   data: {
-    top:['全部','待付款','待收货','待评价','退款维权'],
-    currentTab:0,
-    orderlist:[{
-      status:0
-    },
+    current_nav: 0,
+    control: 0,
+    ordernav: [
       {
+        name: "全部",
+        status: 0
+      },
+      {
+        name: "待付款",
         status: 1
       },
       {
+        name: "待收货",
         status: 2
-      }, {
+      },
+      {
+        name: "待评价",
         status: 3
-      }]
+      },
+      {
+        name: "退款维权",
+        status: 4
+      },
+
+    ],
+    orderList: [],
+    orderPriceList: []
   },
-  changeTab:function(e){
-    var index = e.currentTarget.dataset.index
-    this.setData({
-      currentTab:index
-    })
-  },
+
+  // changeTab:function(e){
+  //   var index = e.currentTarget.dataset.index
+  //   this.setData({
+  //     currentTab:index
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
 
+  onLoad: function (options) {
+    var that = this
+    console.log(options)
+  
+    if (options.status != null) {
+      that.setData({
+        current_nav: options.status
+      })
+    }
+    if (parseInt(options.status) > 4) {
+      this.next();
+      this.data.ordernav2.forEach(function (item, index) {
+        if (item.status == options.status) {
+          that.setData({
+            current_nav: index
+          })
+
+        }
+      })
+
+    }
   },
+
+
+  // onLoad: function (options) {
+
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

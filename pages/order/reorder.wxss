@@ -1,10 +1,11 @@
+/* pages/order/reorder.wxss */
 /* pages/order/order.wxss */
 page{
   /* padding: 0 16rpx;
   box-sizing: border-box; */
   background: #f0f1f4;
 }
-.order_nav{
+.top{
   position: fixed;
   left: 0;
   top: 0;
@@ -19,23 +20,23 @@ page{
   background: #fff;
   border-bottom: 2rpx solid #e7e6e2;
 }
-.order_nav>view{
+.top>view{
   color: #A5A5A5;
   font-size: 26rpx;
   border-bottom: 4rpx solid #fff;
   box-sizing: border-box;
 }
-.order_nav>view.active{
+.top>view.active{
   border-bottom: 4rpx solid #ea4b43;
    box-sizing: border-box;
    color: #1b1b1b;
 }
 
-.order_content{
+.orderList{
   margin-top: 130rpx;
 }
 
-.orderlist{
+.order{
   padding: 40rpx 16rpx 20rpx;
   box-sizing: border-box;
   background: #fff;

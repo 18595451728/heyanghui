@@ -1,5 +1,5 @@
 /* pages/addaddress/addaddress.wxss */
-
+@import '../model/model.wxss';
 page {
   background: #f0f1f4;
 }
@@ -44,3 +44,4 @@ page {
   color: white;
   margin: 52rpx auto 0;
 }
+

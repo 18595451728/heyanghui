@@ -1,19 +1,12 @@
 <!--pages/order/order.wxml-->
 <view class="container">
+  <view class="top">
+    <view wx:for='{{top}}' class="{{currentTab == index?'active':''}}" data-index='{{index}}' bindtap="changeTab">{{item}}</view>
+  </view>
 
-<view class="order_nav">
- 
-
-    <view wx:for="{{ordernav}}" wx:key="{{index}}" class="{{current_nav==index ? 'active' : ''}}" bindtap="changeNav" data-index="{{index}}">
-                        {{item.name}}
-                 </view>
-
-  
-</view>
-
-  <view class="order_content">
-  
-      <view class="orderlist" wx:if="{{orderList.length>0}}">
+  <view class="orderList">
+    <block wx:for='{{orderlist}}'>
+      <view class="order" wx:if='{{item.status==2}}'>
         <view class="order-title">
           <text>订单编号：E232454646454FDF34</text>
           <text></text>
@@ -41,7 +34,7 @@
 
 
 
-      <view class="orderlist" wx:else>
+      <view class="order" wx:else>
         <view class="order-title">
           <text>1订单编号：E232454646454FDF34</text>
           <text>等待买家付款</text>
@@ -73,6 +66,6 @@
         </view>
       </view>
       
-
+    </block>
   </view>
 </view>

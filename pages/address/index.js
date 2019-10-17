@@ -1,29 +1,26 @@
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
   data: {
     delBtnWidth: 120, //删除按钮宽度单位（rpx） 
     // 列表数据
-    list: [{
-        // 删除状态
-        shows: "",
-      },
-      {
-        shows: "",
-      },
-      {
-        shows: "",
-      },
-      {
-        shows: "",
-      },
-      {
-        shows: "",
-      }
-    ],
+    list: [],
+    is_default:'',
 
   },
 
   onLoad: function(options) {
     this.initEleWidth();
+    var that = this;
+    r.req(u + '/api/User/addressList', { token: wx.getStorageSync('token') }, 'post').then((res) => {
+      console.log(res)
+      that.setData({
+        list: res.data.list,
+      });
+      console.log(res.data.list);
+    })
+ 
+  
   },
 
   // 开始滑动事件
@@ -101,23 +98,47 @@ Page({
       delBtnWidth: delBtnWidth
     });
   },
-  //点击删除按钮事件 
-  delItem: function(e) {
+
+  // 删除地址
+  delAddress: function (e) {
+
     var that = this;
-    // 打印出当前选中的index
-    console.log(e.currentTarget.dataset.index);
-    // 获取到列表数据
-    var list = that.data.list;
-    // 删除
-    list.splice(e.currentTarget.dataset.index, 1);
-    // 重新渲染
-    that.setData({
-      list: list
+    console.log(e)
+    var address_id = e.currentTarget.dataset.id
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除该收货地址吗？',
+      
+      success: function (res) {
+        if (res.confirm) {
+          r.req(u + '/api/User/addressDel', { address_id: address_id, token: wx.getStorageSync('token') }, 'post').then((res) => {
+            that.onLoad();
+           })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
+
+  editAddress: function (e) {
+    var id = e.currentTarget.dataset.id
+   
+    wx.navigateTo({
+      url: '/pages/addaddress/addaddress?id='+id
+    })
+  },
+  // // 编辑地址
+  // editAddress: function (e) {
+  //   wx.navigateTo({
+  //     url: "/pages/addaddress/addaddress?id=" + e.currentTarget.dataset.id
+  //   })
+  // },
+
   create:function(){
     wx.navigateTo({
       url: '/pages/addaddress/addaddress',
     })
   }
+
 })

@@ -1,0 +1,25 @@
+<!--pages/supplier/backmsg_success/index.wxml-->
+<view class="content">
+  <image src="/images/back_logo.jpg"></image>
+  <text class="mgs_lin">提交成功</text>
+  <!-- <text class="msg">等待审核通过</text> -->
+
+
+<view class="form_tab">
+  <view class="list_input">
+    <label>账户 :</label>
+    <input type="text" placeholder="请输入账户名"></input>
+  </view>
+   <view class="list_input">
+    <label>密码:</label>
+    <input type="text" placeholder="请输入密码"></input>
+  </view>
+   <view class="list_input">
+    <label>网址:</label>
+    <input type="text" placeholder="请输入网址"></input>
+  </view>
+   <view class="bto" bindtap="gotohome">返回首页</view>
+</view>
+
+ 
+</view>

@@ -1,0 +1,79 @@
+/* pages/supplier/backmsg_success/index.wxss */
+
+page {
+  background-color: ffffff;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(43, 41, 41, 1);
+}
+
+image {
+  width: 640rpx;
+  height: 460rpx;
+  margin-top: 131rpx;
+}
+
+.mgs_lin {
+  margin-bottom: 55rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  font-size: 32rpx;
+}
+
+.form_tab {
+  width: 695rpx;
+  height: 496rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 3rpx 63rpx 4rpx rgba(16, 16, 16, 0.13);
+  border-radius: 19rpx;
+  padding: 10rpx 0;
+}
+
+.list_input {
+  border-top: 2rpx solid rgba(178, 175, 163, 0.31);
+  padding: 0 36rpx;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+
+.list_input:first-child {
+  border-top: none;
+}
+
+.list_input label {
+  float: left;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 500;
+  color: rgba(41, 41, 41, 1);
+}
+
+.list_input input {
+  width: 500rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(156, 156, 156, 1);
+}
+
+.bto {
+  width: 620rpx;
+  margin-top: 81rpx;
+  height: 102rpx;
+  background: rgba(235, 84, 77, 1);
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 102rpx;
+  color: white;
+  margin: 40rpx auto 0;
+}
