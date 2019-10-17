@@ -14,7 +14,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
-	"appid": "wx611085d8ee18d2bf",
+	"appid": "wx5d1012f22fb0f6bf",
 	"projectname": "heyanghui",
 	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
@@ -74,7 +74,7 @@
 					"id": 4,
 					"name": "商品详情",
 					"pathName": "pages/shopDetail/shopDetail",
-					"query": "id=1064",
+					"query": "",
 					"scene": null
 				},
 				{

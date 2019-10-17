@@ -27,7 +27,9 @@ Page({
         cartList: res.data.cartList,
         allprice: allprice.toFixed(2),
         total_num: res.data.total_num,
-        cart_type: cart_type
+        cart_type: cart_type,
+        coupon_list: res.data.coupon_list,
+        integral_exchange: res.data.integral_exchange
       })
     })
   },
@@ -39,13 +41,45 @@ Page({
   },
   sendOrder: function () {
     var t = this
+    console.log(this.data.address)
+    if(!this.data.address){
+      wx.showToast({
+        title: '请先选择收货地址',
+        icon:'none'
+      })
+      return false;
+    }
     r.req(u + '/api/Order/addOrder', { cart_type: this.data.cart_type, address_id: this.data.address.id, token: wx.getStorageSync('token'), source: 0, remark: this.data.remark }, 'post').then((res) => {
       console.log(res)
       var order_no = res.data.order_no
       r.req(u + '/api/pay/toPay', { order_no: order_no,token:wx.getStorageSync('token')},'post').then((rs)=>{
         console.log(rs)
+        if(rs.msg=='订单号不存在'){
+          wx.showToast({
+            title: '订单已提交，请前往订单页面支付',
+            icon:'none'
+          })
+          setTimeout(function(){
+            wx.navigateTo({
+              url: '/pages/order/order',
+            })
+            return false;
+          },1500)
+        }
         r.req(u + '/api/Pay/wxPay', { order_no:rs.data.order_no,token:wx.getStorageSync('token')},'post').then((r)=>{
           console.log(r)
+          if(r.status==1){
+            wx.requestPayment({
+              timeStamp: r.data.timeStamp.toString(),
+              nonceStr: r.data.nonceStr,
+              package: r.data.package,
+              signType: r.data.signType,
+              paySign: r.data.paySign,
+              success:function(cc){
+                console.log(cc)
+              }
+            })
+          }
         })
       })
       t.setData({
@@ -64,7 +98,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var address = wx.getStorageSync('address')
+    if(address){
+      console.log(111111)
+      this.setData({
+        address:address
+      })
+      wx.setStorageSync('address', '')
+    }
   },
 
   /**
@@ -102,6 +143,7 @@ Page({
 
   },
   address: function () {
+    wx.setStorageSync('chooseaddress', !0)
     wx.navigateTo({
       url: '/pages/address/index',
     })

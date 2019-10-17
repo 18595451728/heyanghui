@@ -2,7 +2,7 @@
   <view wx:for="{{list}}" wx:key="index" class="list">
     <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.shows}}" class="list_del txt">
       <view class="mymsg">
-        <view class="msgcontent">
+        <view class="msgcontent" data-index='{{index}}' bindtap='chooseaddress'>
           <view>
             <text>{{item.consignee}}</text>
             <text style="margin-left:38rpx;">{{item.telephone}}</text>

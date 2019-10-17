@@ -21,19 +21,25 @@
                         ￥
                     </text>
           <text class="price2">
-                        {{list.price}}
+                        {{price || list.price}}
                     </text>
         </view>
       </view>
-      <view class="detail_name_right">
-        <view class="detail_name_right_top">
+      <!-- <view class="detail_name_right">
+        <button class='shares'>
+          <view class="detail_name_right_top">
           <image class="" src="/images/j-share.png" style="width: 100%;height:100%">
           </image>
         </view>
         <view class="detail_name_right_bottom">
           分享
         </view>
-      </view>
+        </button>
+      </view> -->
+      <button open-type='share'>
+        <image src='/images/j-share.png'></image>
+        <text>分享</text>
+      </button>
     </view>
   </view>
 
@@ -181,7 +187,7 @@
                         ￥
                     </text>
           <text class="dibu_guige_top12_price2">
-                       {{list.price}}
+                       {{gg.price||list.price}}
                     </text>
         </view>
       </view>
@@ -207,7 +213,7 @@
           购买数量:
         </view>
         <view class="dibu_guige_top2_shengyu">
-          剩余{{list.stores}}件
+          剩余{{gg.stores||list.stores}}件
         </view>
       </view>
       <view class="dibu_guige_top3_right">

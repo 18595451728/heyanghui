@@ -26,11 +26,11 @@
       <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
     </view> -->
 
-    <view class="flex1{{!tab[4]?' active':''}}" data-id='4' data-index="4" bindtap="filterTab">
+    <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
       <text>销量</text>
-      <image wx:if="{{sorts=='7'}}" src="/images/doucb-on.png"></image>
-      <image wx:if="{{sorts=='8'}}" src="/images/doucb-off.png"></image>
-      <image wx:if="{{sorts!='7'&sorts!='8'}}" src="/images/none.png"></image>
+      <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
+      <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
+      <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
     </view>
 
   </view>

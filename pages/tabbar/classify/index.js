@@ -40,20 +40,22 @@ Page({
       })
      
     }
+    // if (index == 3) {
+    //   this.setData({
+    //     sorts: this.data.sorts == '5' ? '6' : '5',
+    //     showpp: false,
+    //   })
+  
+    // }
     if (index == 3) {
       this.setData({
         sorts: this.data.sorts == '5' ? '6' : '5',
         showpp: false,
       })
-  
-    }
-    if (index == 4) {
-      this.setData({
-        sorts: this.data.sorts == '7' ? '8' : '7',
-        showpp: false,
-      })
 
     }
+
+    this.getgoodlist();
   },
 
   /**
@@ -69,6 +71,19 @@ Page({
     })
   },
 
+getgoodlist:function(){
+  var that=this
+  r.req(u +'/api/Goods/goodsList',{
+    list_row: 10,
+    page: 1,
+    sorts: this.data.sorts
+  },'post').then(function(res){
+    console.log(res)
+    that.setData({
+      goodslist: res.data.list
+    })
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

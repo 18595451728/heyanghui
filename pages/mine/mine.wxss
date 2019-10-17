@@ -31,6 +31,7 @@ page {
   width: 156rpx;
   height: 156rpx;
   margin-right: 68rpx;
+  border-radius: 50%;
 }
 
 .usermes view:first-child {

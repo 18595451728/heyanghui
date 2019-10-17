@@ -22,7 +22,19 @@ Page({
  
   
   },
-
+  chooseaddress:function(e){
+    var c = wx.getStorageSync('chooseaddress')
+    if(c){
+      var index=e.currentTarget.dataset.index,list=this.data.list
+      console.log(list[index])
+      wx.setStorageSync('chooseaddress', !1)
+      wx.setStorageSync('address', list[index])
+      wx.navigateBack({
+        
+      })
+      
+    }
+  },
   // 开始滑动事件
   touchS: function(e) {
     if (e.touches.length == 1) {
@@ -139,6 +151,15 @@ Page({
     wx.navigateTo({
       url: '/pages/addaddress/addaddress',
     })
+  },
+  onShow:function(){
+    var that = this;
+    r.req(u + '/api/User/addressList', { token: wx.getStorageSync('token') }, 'post').then((res) => {
+      console.log(res)
+      that.setData({
+        list: res.data.list,
+      });
+      console.log(res.data.list);
+    })
   }
-
 })

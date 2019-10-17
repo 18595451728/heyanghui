@@ -41,8 +41,28 @@ swiper, swiper image {
   width: 90%;
   margin: 30rpx auto;
   height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-
+.detail_name button{
+  width: 66rpx;
+  padding: 0;
+  background: #fff;
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+.detail_name button::after{
+  border: none;
+}
+.detail_name button image{
+  width: 66rpx;
+  height: 50rpx;
+}
+.detail_name button text{
+  font-size: 24rpx;
+}
 .detail_name_out {
   width: 100%;
   height: 200rpx;
@@ -51,9 +71,6 @@ swiper, swiper image {
   box-sizing: border-box;
 }
 
-.detail_name>view {
-  float: left;
-}
 
 .detail_name_right {
   width: 20%;

@@ -1,25 +1,29 @@
 <!--pages/mine/mine.wxml-->
 <view class="top">
   <image src="/images/minebg.jpg" class="minebg"></image>
-  <view class="t-con">
-    <image src="/images/headImg.png" class="headimg"></image>
-    <view class="usermes">
-      <view>你闻起来像烧焦了一样</view>
-      <view bindtap="huiyuan">会员：v2</view>
+  <view class="t-con" wx:if='{{haslogin}}'>
+    <image src="{{user.head_img}}" class="headimg"></image>
+    <view class="usermes" >
+      <view>{{user.nickname}}</view>
+      <view bindtap="huiyuan">会员：{{user.user_level||0}}</view>
     </view>
+    
   </view>
+  <view class="t-con" wx:else>
+      <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button>
+    </view>
 </view>
 <view class="u-top">
   <view data-id="0" bindtap="mymoney">
-    <text>0</text>
+    <text>{{0}}</text>
     <text>积分</text>
   </view>
   <view data-id="1" bindtap="mymoney">
-    <text>0</text>
+    <text>{{countList.wallet||0}}</text>
     <text>钱包</text>
   </view>
   <view bindtap="mycoupon">
-    <text>0</text>
+    <text>{{countList.coupon_num||0}}</text>
     <text>优惠券</text>
   </view>
 </view>

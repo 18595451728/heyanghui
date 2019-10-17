@@ -1,7 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    wx.setStorageSync('token', '034f91a45b8e3b205f994d249c212079')
     const updateManager = wx.getUpdateManager()
     updateManager.onCheckForUpdate(function (res) {
       // 请求完新版本信息的回调
@@ -94,7 +93,7 @@ App({
   globalData: {
     systemInfo: null, //客户端设备信息
     userInfo: null,
-    url: 'http://192.168.1.4',
+    url: 'http://www.heyanghui.com',
     token: '',
     is_login: false,
     tabBar: {

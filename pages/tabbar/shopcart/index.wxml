@@ -13,7 +13,7 @@
       <view class="cart">
         <view class="c-con">
           <image src="{{item.selected?'/images/w-gou.png':'/images/w-nogou.png'}}" class="choose" data-index='{{index}}' bindtap="choose"></image>
-          <image src="/images/goodsimg.png" class="goodsimg"></image>
+          <image src="{{item.goods_logo}}" class="goodsimg"></image>
           <view class="cartmes">
             <view class="goodsname">{{item.goods_name}}</view>
             <view class="goodsintro">古法秘制，补肾食疗。</view>

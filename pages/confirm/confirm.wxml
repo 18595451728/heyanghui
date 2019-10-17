@@ -23,7 +23,7 @@
 
 
 <view class="order-con" wx:for='{{cartList}}' wx:key='{{index}}'>
-  <image src="/images/goodsimg.png"></image>
+  <image src="{{item.goods_pic}}"></image>
   <view class="o-con">
     <view class="o-name">{{item.goods_name}}</view>
     <view class="o-mes noflex">
@@ -53,7 +53,7 @@
       <text>商品金额</text><text>￥{{allprice}}</text>
     </view>
     <view>
-      <text>优惠券</text><text>-￥7.00</text>
+      <text>优惠券</text><text>{{coupon_list.length==0?'暂无可用':'选择优惠券 >'}}</text>
     </view>
     <view>
       <text>积分</text><text>-￥0.30</text>

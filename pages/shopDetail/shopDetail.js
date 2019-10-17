@@ -35,8 +35,20 @@ Page({
       that.setData({
         commentStatistics: res.data.commentStatistics,
         list: res.data.list,
+        sku_data: res.data.sku_data,
         spec: spec,
       })
+      if(res.data.sku_data.length!=0){
+        var arr = [];
+        for(var i=0;i<spec.length;i++){
+          arr.push(spec[i].list[spec[i].cid].item_id)
+        }
+        arr = arr.join('_')
+        console.log(arr)
+        that.setData({
+          gg:res.data.sku_data[arr]
+        })
+      }
       if(res.data.filter_spec.length != 0){
         that.setData({
           thumbpic: res.data.filter_spec[0].list[0].src
@@ -63,6 +75,16 @@ Page({
     spec[index].cid=idx
     this.setData({
       spec:spec
+    })
+    console.log(spec)
+    var arr = []
+    for(var i=0;i<spec.length;i++){
+      console.log(spec[i].list[spec[i].cid].item_id)
+      arr.push(spec[i].list[spec[i].cid].item_id)
+    }
+    arr= arr.join('_')
+    this.setData({
+      gg:this.data.sku_data[arr]
     })
   },
   sort: function (arr) {
@@ -92,19 +114,29 @@ Page({
       sku_id:arr.join('_')
     },'post').then((res)=>{
       console.log(res)
-      t.setData({
-        is_guige: !this.data.is_guige
-      })
-      if(type==0){
+      if(res.status==1){
+        t.setData({
+          is_guige: !this.data.is_guige
+        })
+        if (type == 0) {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
+        } else {
+          wx.navigateTo({
+            url: '/pages/confirm/confirm?cart_type=1',
+          })
+        }
+      }else{
         wx.showToast({
           title: res.msg,
           icon: 'none'
         })
-      }else{
-        wx.navigateTo({
-          url: '/pages/confirm/confirm?cart_type=1',
-        })
+        return false;
       }
+      
+      
       
     })
   },
@@ -119,7 +151,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(this.shared){
+      this.shared = !1
+      wx.showToast({
+        title: '分享成功',
+        icon:'none'
+      })
+    }
   },
 
   /**
@@ -154,7 +192,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    var t = this,l=t.data.list
+    console.log(l)
+    this.shared=!0;
+    return {
+      title: l.goods_name,
+      path:'pages/shopDetail/shopDetail?id='+l.id,
+      imageUrl:l.goods_logo
+    }
   },
   jia(){
     let c=this.data.count+1
