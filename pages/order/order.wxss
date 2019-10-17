@@ -121,7 +121,7 @@ page{
   margin-left: 12rpx;
   border-radius: 5rpx;
 }
-.func view:first-child{
+.func view{
   background: #ea4b43;
 }
 
@@ -144,4 +144,37 @@ page{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.konglist {
+  margin-top: 45%;
+}
+
+.konglist>image {
+  width: 85rpx;
+  height: 102rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.zanwu {
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  margin: 25rpx 0;
+}
+
+.looklook {
+  display: block;
+  margin: 0 auto;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  padding: 5rpx 15rpx;
+  background: #ea4b43;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 26rpx;
 }

@@ -1,4 +1,6 @@
 // pages/order/order.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -18,15 +20,15 @@ Page({
       },
       {
         name: "待收货",
-        status: 2
-      },
-      {
-        name: "待评价",
         status: 3
       },
       {
-        name: "退款维权",
+        name: "待评价",
         status: 4
+      },
+      {
+        name: "退款维权",
+        status: 6
       },
 
     ],
@@ -76,7 +78,46 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.setData({
+      orderPriceList: []
+    })
+    var that = this;
+    r.req(u + '/api/Order/orderLIst', {
+      status: that.data.ordernav[that.data.current_nav].status, 
+      list_row: 10,
+      page: 1,token: wx.getStorageSync('token') }, 'post').then((res) => {
+      console.log(res)
+        wx.hideLoading();
+        that.setData({
+          orderList: res.data.list
+        })
+      console.log(res.data.list);
 
+    })
+
+
+
+
+   
+  
+    // myrequest.post(url, data, 'POST').then(function (data) {
+    //   wx.hideLoading();
+    //   console.log(data.data)
+    //   that.setData({
+    //     orderList: data.data.list
+    //   })
+
+    //   data.data.list.forEach(function (item, index) {
+    //     let sum = 0;
+    //     item.goods_list.forEach(function (item2, index) {
+    //       sum = sum + item2.goods_price * item2.goods_num
+    //     })
+    //     that.data.orderPriceList.push(sum)
+    //     that.setData({
+    //       orderPriceList: that.data.orderPriceList
+    //     })
+    //   })
+    // })
   },
 
   /**
@@ -120,19 +161,86 @@ Page({
   onShareAppMessage: function () {
 
   },
-  orderdetail:function(){
-    wx.navigateTo({
-      url: '/pages/orderdetail/index',
+
+  changeNav: function (e) {
+    this.setData({
+      current_nav: e.currentTarget.dataset.index
+    })
+    this.onReady();
+  },
+  // 取消订单
+  cancelOrder: function (e) {
+    var that = this
+    r.req(u + '/api/Order/cancelOrder', {
+      order_no: e.currentTarget.dataset.orderno,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      wx.showModal({
+        title: '取消成功',
+        icon: 'success',
+        duration: 1000
+      })
+      that.onReady();
+      console.log(data)
+    })
+
+  },
+// 查看订单
+  lookDetail: function (e) {
+     wx.navigateTo({
+        url: "/pages/orderdetail/index?orderno=" + e.currentTarget.dataset.orderno
+      })
+  },
+  // 确认收货
+  sureOrder: function (e) {
+    var that = this
+    r.req(u + '/api/Order/confirmOrder', {
+      order_no: e.currentTarget.dataset.orderno,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      that.onReady();
     })
   },
+  // 去退款
+  refund: function (e) {
+    app.globalData.refundNo = e.currentTarget.dataset.ordergoodsid;
+    wx.navigateTo({
+      url: '/pages/userserver/index',
+    })
+  },
+
+// 去付款
+  payOrder: function (e) {
+    wx.navigateTo({
+      url: '/pages/confirm/confirm?orderid=' + e.currentTarget.dataset.orderno,
+    })
+  },
+
+// 删除订单
+  delOrder: function (e) {
+    var that = this;
+    r.req(u + '/api/Order/delOrder', {
+      order_no: e.currentTarget.dataset.orderno,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      wx.showModal({
+        title: '删除成功',
+        icon: 'success',
+        duration: 1000
+      })
+      that.onReady();
+    })
+  },
+// 添加评论
   addevaluation:function(){
+    app.globalData.commentNo = e.currentTarget.dataset.orderno,
+    app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
     wx.navigateTo({
       url: '/pages/addcomment/index',
     })
   },
-  shouhou:function(){
-    wx.navigateTo({
-      url: '/pages/userserver/index',
-    })
-  }
+ 
 })

@@ -250,4 +250,5 @@ page {
   height: 100%;
   text-align: center;
   line-height: 100rpx;
+  background: #EA4B43;
 }

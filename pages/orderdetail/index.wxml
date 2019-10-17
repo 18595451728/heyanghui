@@ -1,5 +1,5 @@
 <view class="content">
-  <view class="wuliu">
+  <view class="wuliu" bindtap="goLogistics" data-orderno="{{order.order_no}}" wx:if="{{order.order_btn.cancel_btn!=0}}">
     <image src="/images/wuliu.png"></image>
     <view class="wuliumsg">
       <text>卖家已发货</text>
@@ -14,73 +14,86 @@
       <image src="/images/add.png"></image>
       <view class="msgcontent">
         <view class="name">
-          <text>收货人：尹浩</text>
-          <text>18042429455</text>
+          <text>收货人：{{orderDetail.consignee}}</text>
+          <text>{{orderDetail.telephone}}</text>
         </view>
-        <text class="addressmsg">收货地址：黑龙江省牡丹江市香坊区愿以后的似乎都似乎第四电视剧看看</text>
+        <text class="addressmsg">收货地址：{{orderDetail.province}} {{orderDetail.city}} {{orderDetail.district}} {{orderDetail.place}}</text>
       </view>
     </view>
   </view>
 
-  <view class="goods">
-    <image src="/images/goodsimg.png"></image>
+  <view class="goods" wx:for="{{goodsList}}" wx:key="{{index}}" wx:for-item="item2" >
+    <image src="{{item2.goods_pic}}"></image>
     <view class="goodsmsg">
-      <text>九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+      <text>{{item2.goods_name}}</text>
       <view class="goodsnum">
         <text>古法秘制，补肾食疗。</text>
-        <text style="color:#3B3B3B">X1</text>
+        <text style="color:#3B3B3B">X{{item2.goods_num}}</text>
       </view>
     </view>
   </view>
   <view class="zongji">
     商品小计：
-    <text style="color:#EA4B43">57.30</text>
+    <text style="color:#EA4B43">{{order.total_price}}</text>
   </view>
   <view class="kongxi">
   </view>
   <view class="peisong">
     <text>配送方式</text>
     <view class="peisongmsg">
-      <text>免运费</text>
-      <text>快递发货</text>
+      <!-- <text>免运费</text>
+      <text>快递发货</text> -->
+       {{order.express_fee}}
     </view>
+   
   </view>
   <view class="usermsg">
     <text>买家留言</text>
-    <text class="peisongmsg">无</text>
+    <text class="peisongmsg">{{order.remark}}</text>
   </view>
   <view class="kongxi">
   </view>
   <view class="total">
     <view class="totalitem" style="margin-top:30rpx;">
       <text>商品金额</text>
-      <text>¥ 57.30</text>
+      <text>¥ {{order.total_price}}</text>
     </view>
     <view class="totalitem">
       <text>优惠券</text>
-      <text style="color:#EA4B43">-¥ 7.00</text>
+      <text style="color:#EA4B43">-¥ {{order.coupon_money}}</text>
     </view>
     <view class="totalitem">
       <text>积分</text>
-      <text style="color:#EA4B43">-¥ 0.30</text>
+      <text style="color:#EA4B43">-¥{{order.integral_money}}</text>
     </view>
   </view>
   <view class="zongji" style="color:#1F1F1F">
     实付款:
-    <text style="color:#EA4B43;margin-left:10rpx;">50.00</text>
+    <text style="color:#EA4B43;margin-left:10rpx;">{{order.total_fee}}</text>
   </view>
   <view class="kongxi">
   </view>
   <view class="ordermsg">
-     <text>订单编号：E232454646454FDF34</text>
-     <text>创建时间：2019-09-20 17:42:07</text>
+     <text>订单编号：{{order.order_no}}</text>
+     <text>创建时间：{{order.order_time}}</text>
   </view>
 </view>
 <view class="caozuo">
-  <view class="caozuoitem" style="background-color:#B2AFA3">
-    我要退款
-  </view>
-  <view class="caozuoitem" style="background-color:#EB544D">
+  
+  <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="sureOrder"  wx:if="{{order.order_btn.receive_btn==1}}">
     确认收货
+  </view>
+  <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="cancelOrder"  wx:if="{{order.order_btn.cancel_btn==1}}">
+    取消订单  
+  </view>
+
+  <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="addevaluation"  wx:if="{{order.order_btn.comment_btn==1}}">
+    去评价
+  </view>
+  <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="payOrder"  wx:if="{{order.order_btn.pay_btn==1}}">
+    去支付
+  </view>
+<view class="caozuoitem" style="background-color:#B2AFA3" data-orderno="{{order.order_no}}" catchtap="refund"  wx:if="{{order.order_btn.return_btn==1}}">
+    我要退款
   </view>
 </view>

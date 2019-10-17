@@ -1,78 +1,108 @@
 <!--pages/order/order.wxml-->
 <view class="container">
 
-<view class="order_nav">
- 
-
+  <view class="order_nav">
     <view wx:for="{{ordernav}}" wx:key="{{index}}" class="{{current_nav==index ? 'active' : ''}}" bindtap="changeNav" data-index="{{index}}">
-                        {{item.name}}
-                 </view>
-
-  
-</view>
+      {{item.name}}
+    </view>
+  </view>
 
   <view class="order_content">
-  
-      <view class="orderlist" wx:if="{{orderList.length>0}}">
+    <view class="orderlist" wx:if="{{orderList.length>0}}">
+      <view class="order_item" wx:for="{{orderList}}">
+         <view wx:key="{{index}}" bindtap="lookDetail" data-orderno="{{item.order_no}}" data-status="{{item.order_status_desc}}">
         <view class="order-title">
-          <text>订单编号：E232454646454FDF34</text>
-          <text></text>
+          <text>订单编号：{{item.order_no}}</text>
+          <text> {{item.order_status_desc}}</text>
         </view>
-        <view class="order-con">
-          <image src="/images/goodsimg.png"></image>
+        
+        <view class="order-con" wx:for="{{item.goods_list}}" wx:key="{{index2}}" wx:for-item="item2" wx:for-index="index2">
+          <image src="{{item2.goods_pic}}" lazy-load="true"></image>
           <view class="o-con">
-            <view class="o-name">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+            <view class="o-name">{{item2.goods_name}}</view>
             <view class="o-mes">
               <view class="intro">古法秘制，补肾食疗。</view>
-              <view class="num">X1</view>
+              <view class="num">X{{item2.goods_num}}</view>
+              <view class="price">合计：
+                <text>{{item2.goods_price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+</view>
+        <view class="func">
+          <view bindtap="addevaluation" wx:if="{{item.order_btn.comment_btn==1}}" data-orderGoodsid="{{item2.order_goods_id}}" data-orderno="{{item.order_no}}">评价</view>
+          <!-- <view bindtap="lookDetail">查看订单</view> -->
+          <view bindtap="see_wuliu" wx:if="{{item.order_btn.shipping_btn==1}}">查看物流</view>
+          <view bindtap="cancelOrder" wx:if="{{item.order_btn.cancel_btn==1}}" data-orderno="{{item.order_no}}">取消订单</view>
+          <view bindtap="payOrder" wx:if="{{item.order_btn.pay_btn==1}}" data-orderno="{{item.order_no}}">去付款</view>
+          <view bindtap="sureOrder" wx:if="{{item.order_btn.receive_btn==1}}" data-orderno="{{item.order_no}}">确认收货</view>
+          <view style="background: #909090;" bindtap="refund" data-orderGoodsid="{{item2.order_goods_id}}" wx:if="{{item.order_btn.return_btn==1}}">我要退款</view>
+          <view bindtap="delOrder" wx:if="{{item.order_status_desc=='已取消' || '已评价' || '订单完成'}}" data-orderno="{{item.order_no}}">删除订单</view>
+        </view>
+      </view>
+
+    </view>
+
+
+
+    <view class="order_list" wx:if="{{orderList.length==0}}">
+      <view class="konglist">
+        <image class="" src="/images/kongdd.png" lazy-load="true">
+
+        </image>
+        <view class="zanwu">
+          暂无相关订单
+        </view>
+
+        <view class="looklook">
+          <navigator class="" target="" url="../tabbar/classify/index">
+            去逛逛
+          </navigator>
+
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- <view class="orderlist">
+      <view class="order-title">
+        <text>1订单编号：E232454646454FDF34</text>
+        <text>等待买家付款</text>
+      </view>
+      <view class="order-con">
+
+
+        <image src="/images/goodsimg.png"></image>
+        <view class="o-con">
+          <view class="o-name">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
+          <view class="o-mes noflex">
+            <view class="intro">古法秘制，补肾食疗。</view>
+            <view class="o-bot">
               <view class="price">合计：
                 <text>57.30</text>
               </view>
+              <view class="num">X1</view>
+
             </view>
           </view>
         </view>
-        <view class="func">
-          <view bindtap="addevaluation">评价</view>
-          <view bindtap="orderdetail">查看订单</view>
-          <view style="background: #909090;" bindtap="shouhou">我要退款</view>
-        </view>
       </view>
 
+      <view class="heji">合计：
+        <text>57.30</text>
 
-
-
-      <view class="orderlist" wx:else>
-        <view class="order-title">
-          <text>1订单编号：E232454646454FDF34</text>
-          <text>等待买家付款</text>
-        </view>
-        <view class="order-con">
-
-        
-          <image src="/images/goodsimg.png"></image>
-          <view class="o-con">
-            <view class="o-name">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</view>
-            <view class="o-mes noflex">
-              <view class="intro">古法秘制，补肾食疗。</view>
-              <view class="o-bot">
-                <view class="price">合计：
-                  <text>57.30</text>
-                </view>
-                <view class="num">X1</view>
-
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class="heji">合计：<text>57.30</text></view>
-        <view class="line"><image src="/images/line.png"></image></view>
-        <view class="func">
-          <view bindtap="addevaluation">评价</view>
-          <view bindtap="orderdetail">查看订单</view>
-        </view>
       </view>
-      
+      <view class="line">
+        <image src="/images/line.png"></image>
+      </view>
+      <view class="func">
+        <view bindtap="addevaluation">评价</view>
+        <view bindtap="orderdetail">查看订单</view>
+      </view>
+    </view> -->
+
 
   </view>
 </view>
