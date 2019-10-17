@@ -124,14 +124,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
 
   /**
@@ -213,8 +211,31 @@ Page({
 
 // 去付款
   payOrder: function (e) {
-    wx.navigateTo({
-      url: '/pages/confirm/confirm?orderid=' + e.currentTarget.dataset.orderno,
+    // wx.navigateTo({
+    //   url: '/pages/confirm/confirm?cart_type=1'
+    // })
+    var order = e.currentTarget.dataset.no
+    r.req(u +'/api/pay/toPay',{
+      token:wx.getStorageSync('token'),
+      order_no:order
+    },'post').then(function(res){
+      console.log(res)
+      r.req(u +'/api/Pay/wxPay',{
+        order_no: order,
+        token: wx.getStorageSync('token')
+      },'post').then(re=>{
+        console.log(re)
+        wx.requestPayment({
+          timeStamp: re.data.timeStamp.toString(),
+          nonceStr: re.data.nonceStr,
+          package: re.data.package,
+          signType:re.data.signType,
+          paySign: re.data.paySign,
+          success:function(cc){
+            console.log(cc)
+          }
+        })
+      })
     })
   },
 

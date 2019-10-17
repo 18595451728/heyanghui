@@ -46,12 +46,8 @@ Page({
         arr = arr.join('_')
         console.log(arr)
         that.setData({
-          gg:res.data.sku_data[arr]
-        })
-      }
-      if(res.data.filter_spec.length != 0){
-        that.setData({
-          thumbpic: res.data.filter_spec[0].list[0].src
+          gg:res.data.sku_data[arr],
+          thumbpic: res.data.sku_data[arr].sku_logo
         })
       }
     })
@@ -84,7 +80,8 @@ Page({
     }
     arr= arr.join('_')
     this.setData({
-      gg:this.data.sku_data[arr]
+      gg:this.data.sku_data[arr],
+      thumbpic: this.data.sku_data[arr].sku_logo
     })
   },
   sort: function (arr) {

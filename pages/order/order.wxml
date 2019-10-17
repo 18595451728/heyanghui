@@ -35,7 +35,7 @@
           <!-- <view bindtap="lookDetail">查看订单</view> -->
           <view bindtap="see_wuliu" wx:if="{{item.order_btn.shipping_btn==1}}">查看物流</view>
           <view bindtap="cancelOrder" wx:if="{{item.order_btn.cancel_btn==1}}" data-orderno="{{item.order_no}}">取消订单</view>
-          <view bindtap="payOrder" wx:if="{{item.order_btn.pay_btn==1}}" data-orderno="{{item.order_no}}">去付款</view>
+          <view bindtap="payOrder" data-no='{{item.order_no}}' wx:if="{{item.order_btn.pay_btn==1}}" data-orderno="{{item.order_no}}">去付款</view>
           <view bindtap="sureOrder" wx:if="{{item.order_btn.receive_btn==1}}" data-orderno="{{item.order_no}}">确认收货</view>
           <view style="background: #909090;" bindtap="refund" data-orderGoodsid="{{item2.order_goods_id}}" wx:if="{{item.order_btn.return_btn==1}}">我要退款</view>
           <view bindtap="delOrder" wx:if="{{item.order_status_desc=='已取消' || '已评价' || '订单完成'}}" data-orderno="{{item.order_no}}">删除订单</view>

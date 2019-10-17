@@ -1,4 +1,6 @@
 // pages/address/update/index.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -15,7 +17,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that =this
+    r.req(u + '/api/User/userInfo', { token:wx.getStorageSync('token')},'post').then(res=>{
+      console.log(res)
+    })
   },
 
   /**
