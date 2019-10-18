@@ -19,12 +19,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this,id=options.id
+    var that = this,id=options.id,share=options.share,sharetoken=options.token,token=wx.getStorageSync('token')
+    if(share){
+      wx.setStorageSync('sharetoken', sharetoken)
+    }
+    var d = { goods_id: id, token: wx.getStorageSync('token') }
+    share ? token ? d = { goods_id: id, token: wx.getStorageSync('token'), c_token: sharetoken}:'':''
     console.log(options,id)
       that.setData({
         goodsid:id
       })
-    r.req(u + '/api/Goods/goodsDetail', { goods_id: id, token: wx.getStorageSync('token')}, 'post').then(res => {
+    r.req(u + '/api/Goods/goodsDetail', d, 'post').then(res => {
       console.log(res)
       var spec = res.data.filter_spec
       if(spec.length!=0){
@@ -194,7 +199,7 @@ Page({
     this.shared=!0;
     return {
       title: l.goods_name,
-      path:'pages/shopDetail/shopDetail?id='+l.id,
+      path:'pages/shopDetail/shopDetail?id='+l.id+'&token='+wx.getStorageSync('token')+'&share=!0',
       imageUrl:l.goods_logo
     }
   },

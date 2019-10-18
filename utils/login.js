@@ -18,6 +18,7 @@ function login(callback){
             code: res.code,
             encryptedData: re.encryptedData,
             iv: re.iv,
+            c_token:wx.getStorageSync('sharetoken')
           }
           r.req(u + '/api/Login/wxLogin', data, 'post').then(function (e) {
             console.log(e)

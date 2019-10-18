@@ -2,20 +2,20 @@
   <view class="item">
     <text class="title">头像</text>
     <view class="itemmsg">
-      <image class="defaultlogo" src="/images/default_logo.png"></image>
+      <image class="defaultlogo" src="{{user.head_img}}"></image>
       <image class="right" src="/images/right.png"></image>
     </view>
   </view>
   <view class="item">
     <text class="title">姓名</text>
     <view class="itemmsg">
-      <input placeholder="请填写姓名"></input>
+      <input placeholder="{{user.realname}}"></input>
     </view>
   </view>
   <view class="item">
     <text class="title">手机号</text>
     <view class="itemmsg">
-      <input type="number" placeholder="请填写手机号"></input>
+      <input type="number" placeholder="{{user.telephone}}"></input>
     </view>
   </view>
   <view class="item">

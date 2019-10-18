@@ -11,6 +11,7 @@ Page({
     sexindex:0,
     region: [],
     date: '',
+    user:''
   },
 
   /**
@@ -20,6 +21,9 @@ Page({
     var that =this
     r.req(u + '/api/User/userInfo', { token:wx.getStorageSync('token')},'post').then(res=>{
       console.log(res)
+      that.setData({
+        user:res.data.user
+      })
     })
   },
 
@@ -29,7 +33,23 @@ Page({
   onReady: function() {
 
   },
-
+  bto:function(){
+    r.req(u +'/api/User/setInfo',{
+      token:wx.getStorageSync('token'),
+      nickname:'',
+      telephone:'',
+      sex:'',
+      email:'',
+      head_img:'',
+      birth:'',
+      province_id:'',
+      city_id:'',
+      district_id:'',
+      detail:''
+    },'post').then(res=>{
+      console.log(res)
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
