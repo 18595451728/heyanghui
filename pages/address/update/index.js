@@ -1,6 +1,6 @@
 // pages/address/update/index.js
 const app = getApp()
-var r = require('../../utils/request.js'), u = app.globalData.url
+var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
