@@ -1,4 +1,6 @@
 // pages/suggestions/index.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
   goFeedback: function(event) {
     wx.navigateTo({
@@ -9,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list:[]
   },
 
   /**
@@ -30,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.init();
   },
 
   /**
@@ -66,5 +68,18 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  init(){
+    let that=this;
+    r.req(u + '/api/User/suggestList', { 
+      token:wx.getStorageSync('token'),
+      list_row:10,
+      page:1
+    },'post').then(res=>{
+    that.setData({
+      list:res.data.list
+    })
+
+    })
   }
 })

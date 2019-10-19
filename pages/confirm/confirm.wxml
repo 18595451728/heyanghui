@@ -58,7 +58,8 @@
       <text bindtap="chooseCoupon" wx:if="{{currenCoupon!=''}}">已选择 {{currenCoupon.title}}</text>
     </view>
     <view>
-      <text>积分</text><text>-￥{{integral_exchange}}</text>
+      <text>{{integral_one_buy}}积分抵扣 {{integral_one_buy*integral_exchange}}元</text>
+      <switch  class="jifen" bindchange="changeChoose"></switch>
     </view>
   </view>
   <view class="c-bot">

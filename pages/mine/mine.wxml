@@ -15,7 +15,7 @@
 </view>
 <view class="u-top">
   <view data-id="0" bindtap="myintegral">
-    <text>{{0}}</text>
+    <text>{{user.integral}}</text>
     <text>积分</text>
   </view>
   <view data-id="1" bindtap="mymoney">

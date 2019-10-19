@@ -1,5 +1,6 @@
 // pages/sugges_conter/index.js
-const app = getApp()
+var app =new getApp();
+
 Page({
 
   /**
@@ -8,7 +9,10 @@ Page({
   data: {
     uploaderList: [],
     uploaderNum: 0,
-    showUpload: true
+    showUpload: true,
+    content:'',
+    imgbase:'',
+    imgArr:[]
   },
   // 删除图片
   clearImg: function (e) {
@@ -48,6 +52,8 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         let tempFilePaths = res.tempFilePaths;
         let uploaderList = that.data.uploaderList.concat(tempFilePaths);
+
+
         if (uploaderList.length == 9) {
           that.setData({
             showUpload: false
@@ -57,6 +63,11 @@ Page({
           uploaderList: uploaderList,
           uploaderNum: uploaderList.length,
         })
+
+        that.setData({
+          imgbase:'data:image/png;base64,'+wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
+        })
+        that.uploadImg();
       }
     })
   },
@@ -114,5 +125,72 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  uploadImg(){
+    let that=this;
+    var arr=this.data.imgArr;
+    wx.request({
+      url: app.globalData.url+'/api/Index/uploadImg',
+      data: {
+        token: wx.getStorageSync('token') ,
+        img_str:that.data.imgbase,
+        path:'/headimg'
+      },
+      method: 'POST', 
+      success: function(res){
+        arr.push(app.globalData.url+''+res.data.pic)
+        that.setData({
+          'imgArr':arr
+        })
+      },
+
+    })
+  },
+  suggest(e){
+    this.setData({
+      content:e.detail.value
+    })
+  },
+  submit(){
+    let that=this;
+    if(this.data.content=='' || this.data.img_arr==''){
+      wx.showModal({
+        title:'提示',
+        content:'请完整填写信息',
+        showCancel:false
+      })
+    }else{
+      wx.request({
+        url: app.globalData.url+'/api/User/suggestAdd',
+        data: {
+          token:wx.getStorageSync('token'),
+          msg:that.data.content,
+          img_arr:that.data.imgArr
+        },
+        method: 'POST', 
+        success: function(res){
+          console.log(res)
+   
+  
+          if(res.data.status==1){
+            wx.showToast({
+              title:'提交成功',
+              icon:'none',
+              duration:1500
+            })
+            setTimeout(function(){
+              wx.navigateBack({
+                delta: 1, 
+    
+              })
+            },1500)
+  
+          }
+        },
+  
+      })
+    }
+
   }
+  
 })
