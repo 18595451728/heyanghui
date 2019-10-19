@@ -129,7 +129,7 @@ page {
   line-height: 40rpx;
 }
 
-.imageslist {
+.images {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

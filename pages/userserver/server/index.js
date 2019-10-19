@@ -2,7 +2,6 @@
 const app = getApp()
 var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -11,13 +10,13 @@ Page({
     checkServer: "请选择",
     checkReceive: "请选择",
     isReceive: false,
-
+    imagelist:'',
     images: ["", '', '', '', ''],
     showmodal: false,
    
     showwuliu: false,
     showreason: false,
-
+    imageshowlist: [],
     options1: [
       {
         value: "多拍/拍错/不想要",
@@ -240,36 +239,6 @@ Page({
   cc: function () {
     console.log("失去焦点")
   },
-  submit: function (e) {
-    r.req(u + '/api/Order/applyAfterSales', {
-      refund_type: this.data.refund_type,
-      refund_hw_status: this.data.receiveIndex,
-      refund_tkyy: this.data.checkReason,
-      price: this.data.price,
-      refund_tksm: this.data.number,
-      order_goods_id: this.data.order_goods_id,
-      token: wx.getStorageSync('token')
-    }, 'post').then((res) => {
-      wx.hideLoading();
-      if (res.status == 1) {
-        wx.showToast({
-          title: '退款成功',
-          icon: 'success',
-          duration: 1000
-        })
-        setTimeout(() => {
-          wx.navigateTo({
-            url: '../orderer/order',
-          })
-        }, 1000)
-
-      }
-     
-    
-    })
-
-  },
-
 
   addPhoto: function () {
     let that = this;
@@ -301,5 +270,39 @@ Page({
       }
     })
   },
+
+
+  submit: function (e) {
+    r.req(u + '/api/Order/applyAfterSales', {
+      refund_type: this.data.refund_type,
+      refund_hw_status: this.data.receiveIndex,
+      refund_tkyy: this.data.checkReason,
+      price: this.data.price,
+      refund_tksm: this.data.number,
+      order_goods_id: this.data.order_goods_id,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      if (res.status == 1) {
+        wx.showToast({
+          title: '退款成功',
+          icon: 'success',
+          duration: 1000
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '../orderer/order',
+          })
+        }, 1000)
+
+      }
+     
+    
+    })
+
+  },
+
+
+ 
 
 })

@@ -43,7 +43,7 @@
 </view>
 <view class="images">
   <text class="title">上传凭证</text>
-  <view class="imageslist">
+  <view class="images">
 
     <view bindtap="addPhoto" class="img">
       <image class="" src="/images/choose_img.png" class="img">
