@@ -139,7 +139,7 @@ page {
 .img {
   width: 210rpx;
   height: 210rpx;
-  padding: 30rpx 0 0 30rpx;
+  padding: 30rpx 0 0 0;
 }
 
 .modal-mask {
@@ -209,6 +209,6 @@ page {
 .checkimg {
   width: 30rpx;
   height: 30rpx;
-  border: 2rpx solid rgba(178, 175, 163, 1);
-  border-radius: 50%;
+  /* border: 2rpx solid rgba(178, 175, 163, 1);
+  border-radius: 50%; */
 }

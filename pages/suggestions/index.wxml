@@ -10,7 +10,7 @@
       <text class="des_content">{{item.msg}}</text>
       <view class="button_solue">{{item.reply==null ? '商家暂未回复' : item.reply}}</view>
     </view>
-
+    <view class="more">{{tip}}</view>
 
   </view>
   <view class="feedback" bindtap="goFeedback">立即反馈</view>

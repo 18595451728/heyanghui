@@ -269,4 +269,37 @@ Page({
     })
 
   },
+
+
+  addPhoto: function () {
+    let that = this;
+    wx.chooseImage({
+      count: 3,
+      sizeType: ['original'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        that.setData({
+          imgbase: wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
+        })
+        var url = u + '/api/Index/uploadImg'
+        var data = {
+          img_str: 'data:image/png;base64,' + that.data.imgbase + '',
+          path: 'comment'
+        }
+        r.req(url, data, 'POST').then(function (res) {
+          if (that.data.imagelist.length < 3) {
+            that.data.imagelist.push(
+              res.data.pic
+            )
+            that.data.imageshowlist.push('http://www.heyanghui.com' + res.data.pic)
+            that.setData({
+              imagelist: that.data.imagelist,
+              imageshowlist: that.data.imageshowlist
+            })
+          }
+        })
+      }
+    })
+  },
+
 })

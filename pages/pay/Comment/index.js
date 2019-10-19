@@ -12,10 +12,12 @@ Page({
     imagelist: [],
     imageshowlist: [],
     imgbase: "",
-    starSrc: "../../images/score.png",
+    starSrc: "../../../images/score.png",
     isFlag: 0,
     isFlag2: 0,
     isFlag3: 0,
+    isFlag4: 0,
+    isFlag5: 0,
     commentLength: 0,
     isNiming: 0,
     commentContent: '',
@@ -49,7 +51,6 @@ Page({
       wx.hideLoading();
       that.setData({
         commentOrder: res.data,
-
       })
       console.log(res.data)
     })
@@ -118,8 +119,16 @@ Page({
       isFlag3: e.currentTarget.dataset.index
     })
   },
-
-
+  changeStar4: function (e) {
+    this.setData({
+      isFlag4: e.currentTarget.dataset.index
+    })
+  },
+  changeStar5: function (e) {
+    this.setData({
+      isFlag5: e.currentTarget.dataset.index
+    })
+  },
 
   textareaInput: function (e) {
     this.setData({
@@ -153,16 +162,17 @@ Page({
         that.setData({
           imgbase: wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
         })
-        var url = app.globalData.url + '/api/Index/uploadImg'
+        var url = u + '/api/Index/uploadImg'
         var data = {
           img_str: 'data:image/png;base64,' + that.data.imgbase + '',
           path: 'comment'
         }
-        myrequest.post(url, data, 'POST').then(function (res) {
+        r.req(url, data, 'POST').then(function (res) {
           if (that.data.imagelist.length < 3) {
             that.data.imagelist.push(
               res.data.pic
             )
+
             that.data.imageshowlist.push(u + res.data.pic)
             that.setData({
               imagelist: that.data.imagelist,
@@ -178,13 +188,16 @@ Page({
     r.req(u + '/api/Order/commentOrder', {
       order_goods_id: that.data.order_goods_id,
       order_no: that.data.order_no,
-      desc_star: parseInt(this.data.isFlag) + 1,
+      desc_star: parseInt(this.data.isFlag5) + 1,    //描述
       content: this.data.commentContent,
       slide_img: this.data.imagelist,
       is_name: this.data.isNiming,
-      quality_star: parseInt(this.data.isFlag2) + 1,
-      service_star: parseInt(this.data.isFlag3) + 1,
+      quality_star: parseInt(this.data.isFlag) + 1,    //效果
+      service_star: parseInt(this.data.isFlag3) + 1,    //外观
+      safe_star: parseInt(this.data.isFlag2) + 1,      //安全
 
+      use_star: parseInt(this.data.isFlag4) + 1,      //使用
+   
       token: wx.getStorageSync('token')
     }, 'post').then((res) => {
       console.log(res)
@@ -202,4 +215,10 @@ Page({
       }
     })
   }
+<<<<<<< HEAD
 })
+=======
+
+
+})
+>>>>>>> e6f8049aafa22871b95bae54ad59caf750235c4b

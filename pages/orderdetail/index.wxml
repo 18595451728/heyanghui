@@ -38,6 +38,16 @@
     <view class="caozuoitem" style="background-color:#B2AFA3" data-orderno="{{order.order_no}}" data-ordergoodsid="{{item2.order_goods_id}}" catchtap="refund"  wx:if="{{order.order_btn.return_btn==1}}">
     我要退款
   </view>
+
+
+  <view class="caozuoitem" style="background-color:#EB544D"  catchtap="addevaluation"  wx:if="{{order.order_btn.comment_btn==1}}" data-orderGoodsid="{{item2.order_goods_id}}" data-orderno="{{order.order_no}}" data-type="{{item2.volunteer_type}}">
+
+
+
+    去评价
+  </view>
+
+
   </view>
   <view class="zongji">
     商品小计：
@@ -94,9 +104,7 @@
     取消订单  
   </view>
 
-  <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="addevaluation"  wx:if="{{order.order_btn.comment_btn==1}}">
-    去评价
-  </view>
+
   <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="payOrder"  wx:if="{{order.order_btn.pay_btn==1}}">
     去支付
   </view>

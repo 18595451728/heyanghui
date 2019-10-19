@@ -19,7 +19,7 @@ page {
 }
 
 .content {
-  height: 783rpx;
+  height: auto;
   width: 720rpx;
   margin-left: 15rpx;
 }
@@ -39,18 +39,20 @@ page {
   justify-content: space-between;
   margin-top: 20rpx;
 }
-
+.score_box{
+  border-bottom: 1rpx solid #eee;
+  padding: 10rpx 0 40rpx;
+}
 .score {
   width: 700rpx;
-  margin: 0 10rpx;
-  height: 100rpx;
-  border-bottom: 1rpx solid #eee;
+  margin: 0 5rpx;
+  height: 70rpx;
   display: flex;
   align-items: center;
   font-size: 26rpx;
   font-family: PingFangSC;
   font-weight: 500;
-  color: rgba(55, 55, 55, 1);
+  color: #373737;
 }
 
 .pingyu {
@@ -61,7 +63,7 @@ page {
 textarea {
   height: 200rpx;
   width: 700rpx;
-  padding: 20rpx 10rpx;
+  padding: 40rpx 10rpx 20rpx;
   font-size: 24rpx;
   font-family: PingFangSC;
   font-weight: 400;
@@ -103,6 +105,29 @@ textarea {
   width: 182rpx;
   height: 181rpx;
 }
+
+.addImage{
+    width: 100rpx;
+    height: 100rpx;
+    border:2rpx solid #C3C3C3;
+    margin:0 20rpx 0rpx 20rpx;
+    display:block;
+    float: left;
+}
+.addImage>image{
+    width: 40rpx ;
+    height:40rpx;
+    display:block;
+    margin: 10rpx auto 0;
+}
+.addImage>view{
+    width: 100%;
+    font-size: 20rpx;
+    text-align: center;
+    display: inline-block;
+    line-height: 20rpx;
+}
+
 .images image.imgs{
   width: 150rpx;
   height: 150rpx;

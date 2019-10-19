@@ -1,4 +1,9 @@
 /* pages/edit_people/index.wxss */
+.noyouhui{
+  text-align: center;
+  margin:300rpx 0 0;
+  height: auto
+}
 .tab{
   height: 7vh;
   display: flex;
@@ -20,7 +25,7 @@
   padding-bottom:1.8vh;
 }
 .list{
-  height: 93vh;
+  height: auto;
 }
 
 .item{
