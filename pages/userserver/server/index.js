@@ -1,22 +1,84 @@
 // pages/userserver/server/index.js
+const app = getApp()
+var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    checkReason: "请选择",
+    checkServer: "请选择",
+    checkReceive: "请选择",
+    isReceive: false,
+
     images: ["", '', '', '', ''],
     showmodal: false,
+   
     showwuliu: false,
     showreason: false,
-    reason: ['多拍/拍错/不想要', '快递一直没送达', '未按约定时间发货', '快递无追踪记录', '空包裹/少货', '其他']
+
+    options1: [
+      {
+        value: "多拍/拍错/不想要",
+        index: 0
+      },
+      {
+        value: "快递一直没送达",
+        index: 1
+      },
+      {
+        value: "未按约定时间发货",
+        index: 2
+      },
+      {
+        value: "快递无追踪记录",
+        index: 3
+      },
+      {
+        value: "空包裹/少货",
+        index: 4
+      },
+      {
+        value: "其他",
+        index: 5
+      },
+    ],
+
+
+    options3: [
+      {
+        value: "未收到",
+        index: 0
+      },
+      {
+        value: "已收到",
+        index: 1
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    this.setData({
+      refund_type: options.fundtype,
+      order_goods_id: options.ordergoodid,
+    })
+    // console.log(options.fundtype)
+    r.req(u + '/api/Order/refundGoods', {
+      // order_goods_id: app.globalData.order_goods_id,
+      order_goods_id: options.ordergoodid,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      that.setData({
+        refundGoods: res.data,
+      })
+      console.log(res.data)
+    })
   },
 
   /**
@@ -109,7 +171,7 @@ Page({
       })
     }, 10)
   },
-  showwuliu: function(e) {
+  receive: function(e) {
     // 用that取代this，防止不必要的情况发生
     var that = this;
     // 创建一个动画实例
@@ -130,6 +192,7 @@ Page({
       // 改变view里面的Wx：if
       showwuliu: true,
       showmodal: true,
+      isReceive: !this.data.isReceive
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动 滑动时间
     setTimeout(function() {
@@ -140,7 +203,70 @@ Page({
       })
     }, 10)
   },
-  submit:function(){
+
+  // receive: function () {
+  //   this.setData({
+  //     isReceive: !this.data.isReceive
+  //   })
+  // },
+
+
+  tklyChoose: function (e) {
+    this.setData({
+      showreason: true,
+      checkReason: this.data.options1[e.currentTarget.dataset.index].value
+    })
+  },
+
+  receiveChoose: function (e) {
+    this.setData({
+      isReceive: !this.data.isReceive,
+      checkReceive: this.data.options3[e.currentTarget.dataset.index].value,
+      receiveIndex: e.currentTarget.dataset.index
+    })
+
+  },
+
+  tksm: function (e) {
+    this.setData({
+      number: e.detail.value
+    })
+  },
+  tkprice: function (e) {
+    this.setData({
+      price: e.detail.value
+    })
+  },
+  cc: function () {
+    console.log("失去焦点")
+  },
+  submit: function (e) {
+    r.req(u + '/api/Order/applyAfterSales', {
+      refund_type: this.data.refund_type,
+      refund_hw_status: this.data.receiveIndex,
+      refund_tkyy: this.data.checkReason,
+      price: this.data.price,
+      refund_tksm: this.data.number,
+      order_goods_id: this.data.order_goods_id,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      if (res.status == 1) {
+        wx.showToast({
+          title: '退款成功',
+          icon: 'success',
+          duration: 1000
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '../orderer/order',
+          })
+        }, 1000)
+
+      }
+     
     
-  }
+    })
+
+  },
 })

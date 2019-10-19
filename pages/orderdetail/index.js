@@ -140,9 +140,8 @@ Page({
 
   // 去退款
   refund: function (e) {
-    app.globalData.refundNo = e.currentTarget.dataset.ordergoodsid;
     wx.navigateTo({
-      url: '/pages/userserver/index',
+      url: '/pages/userserver/index?ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
     })
   },
 

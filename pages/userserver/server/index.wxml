@@ -1,13 +1,13 @@
 <view class="content">
-  <image src="/images/goodsimg.png"></image>
-  <text class="goodsmsg">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+  <image src="{{refundGoods.goods_pic}}"></image>
+  <text class="goodsmsg">{{refundGoods.goods_name}}</text>
 </view>
 <view class="kongxi">
 </view>
-<view class="wuliu" bindtap="showwuliu">
+<view class="wuliu" bindtap="receive">
   <text>物流状态</text>
   <view class="wuliumsg">
-    <text>未收到货</text>
+    <text>{{checkReceive}}</text>
     <image class="right" src="/images/right.png"></image>
   </view>
 </view>
@@ -16,7 +16,7 @@
 <view class="wuliu" bindtap="showreason">
   <text>退款原因</text>
   <view class="wuliumsg">
-    <text>未按约定时间发货</text>
+    <text>{{checkReason}}</text>
     <image class="right" src="/images/right.png"></image>
   </view>
 </view>
@@ -28,12 +28,15 @@
 <view class="money">
   <view class="moneyitem">
     退款金额：
-    <text>¥ 50.00</text>
+    <text>¥ {{refundGoods.goods_price* refundGoods.goods_num}}</text>
   </view>
-  <input placeholder="最多 ¥50.00， 含发货邮费 ¥0.00" placeholder-class="fahuo"></input>
+
+  <input type="number" class="ipt" placeholder="最多 ¥{{refundGoods.goods_price* refundGoods.goods_num}}" placeholder-class="fahuo" bindinput="tkprice"></input>
+
+  <!-- <input placeholder="最多 ¥50.00， 含发货邮费 ¥0.00" placeholder-class="fahuo"></input> -->
   <view class="moneyitem">
     退款说明：
-    <input placeholder="选填"></input>
+    <input placeholder="选填" bindinput="tksm"></input>
   </view>
 </view>
 <view class="kongxi">
@@ -53,14 +56,19 @@
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showmodal}}"></view>
 <view class="wuliuitem" wx:if="{{showwuliu}}" animation='{{animationData}}' catchtouchmove="preventTouchMove">
   <text class="wuliutitle">物流状态</text>
-  <view class="itemmsg">
-    <text>未收到货</text>
-    <view class="checkimg"></view>
+
+  <view class="itemmsg" wx:for="{{options3}}" bindtap="receiveChoose" data-index="{{index}}" wx:key="{{index}}">
+    <text> {{item.value}}</text>
+    <view class="checkimg">
+      <image class="" src="{{isReceive==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}' style="width: 100%;height:100%">
+
+      </image>
+    </view>
+
+
+
   </view>
-  <view class="itemmsg">
-    <text>已收到货</text>
-    <view class="checkimg"></view>
-  </view>
+
   <view class="cloose" bindtap="hideModal">
     关闭
   </view>
@@ -68,9 +76,12 @@
 
 <view class="wuliuitem" wx:if="{{showreason}}" animation='{{animationData}}' catchtouchmove="preventTouchMove">
   <text class="wuliutitle">退款原因</text>
-  <view wx:for="{{reason}}" class="itemmsg">
-    <text>{{item}}</text>
-    <view class="checkimg"></view>
+  <view class="itemmsg" wx:for="{{options1}}" bindtap="tklyChoose" data-index="{{index}}" wx:key="{{index}}" blur="cc">
+    <text> {{item.value}}</text>
+    <view class="checkimg">
+      <image class="" src="{{isReceive==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}' style="width: 100%;height:100%"></image>
+
+    </view>
   </view>
   <view class="cloose" bindtap="hideModal">
     关闭

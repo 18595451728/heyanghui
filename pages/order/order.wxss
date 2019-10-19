@@ -36,11 +36,12 @@ page{
 }
 
 .orderlist{
-  padding: 40rpx 16rpx 20rpx;
+  
   box-sizing: border-box;
-  background: #fff;
+  
   margin-bottom: 25rpx;
 }
+.order_item{background: #fff;margin-bottom: 20rpx;padding: 40rpx 16rpx 20rpx;}
 .order-title{
   display: flex;
   justify-content: space-between;
@@ -56,14 +57,20 @@ page{
 }
 
 .order-con{
-  background: #f6f5f4;
-  border-radius: 10rpx;
-  display: flex;
+  border-bottom: 1rpx solid #f0f1f4;
+}
+
+.list_two{
+ display: flex;
   justify-content: space-between;
   align-items: center;
+   background: #f6f5f4;
+  border-radius: 10rpx;
+ 
   margin-top: 30rpx;
 }
-.order-con>image{
+
+.list_two>image{
   width: 212rpx;
   height: 212rpx;
 }
@@ -72,6 +79,7 @@ page{
   padding-right: 15rpx;
   box-sizing: border-box;
 }
+.order-con .func{margin-bottom: 30rpx;}
 .o-name{
   font-size: 28rpx;
   color: #000000;

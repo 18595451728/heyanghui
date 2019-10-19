@@ -1,17 +1,28 @@
 // pages/pay/Comment/index.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     list:['','','','',''],
-     one:4,
-     two: 2,
-     three: 4,
-     four: 5,
-     five: 3,
-    imgbox: ''//上传图片
+    commentOrder: {},
+    isCheck: false,
+    imagelist: [],
+    imageshowlist: [],
+    imgbase: "",
+    starSrc: "../../images/score.png",
+    isFlag: 0,
+    isFlag2: 0,
+    isFlag3: 0,
+    commentLength: 0,
+    isNiming: 0,
+    commentContent: '',
+    scores: ['', '', '', '', ''],
+    score: 4,
+    is_anonymous: false,
+    imgs: []
 
   },
 
@@ -19,7 +30,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
 
+    this.setData({
+      order_no: options.orderno,
+      order_goods_id: options.ordergoodid,
+    })
+    console.log(options)
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    r.req(u + '/api/Order/commentGoods', {
+      order_no: options.orderno,
+      order_goods_id: options.ordergoodid,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      that.setData({
+        commentOrder: res.data,
+
+      })
+      console.log(res.data)
+    })
   },
 
   /**
@@ -70,54 +103,102 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-imgDelete1: function (e) {
-    let that = this;
-    let index = e.currentTarget.dataset.deindex;
-    let imgbox = this.data.imgbox;
-    imgbox.splice(index, 1)
-    that.setData({
-      imgbox: imgbox
-    });
+  changeStar: function (e) {
+    this.setData({
+      isFlag: e.currentTarget.dataset.index
+    })
   },
-  // 上传图片 &&&
-  addPic1: function (e) {
-    var imgbox = this.data.imgbox;
-    console.log(imgbox)
-    var picid = e.currentTarget.dataset.pic;
-    console.log(picid)
-    var that = this;
-    var n = 3;
-    if (3 > imgbox.length > 0) {
-      n = 3 - imgbox.length;
-    } else if (imgbox.length == 3) {
-      n = 1;
+  changeStar2: function (e) {
+    this.setData({
+      isFlag2: e.currentTarget.dataset.index
+    })
+  },
+  changeStar3: function (e) {
+    this.setData({
+      isFlag3: e.currentTarget.dataset.index
+    })
+  },
+
+
+
+  textareaInput: function (e) {
+    this.setData({
+      commentLength: e.detail.value.length,
+      commentContent: e.detail.value
+    })
+  },
+  changeIscheck: function () {
+    if (this.data.isNiming == 0) {
+      this.setData({
+        isNiming: 1
+      })
+    } else {
+      this.setData({
+        isNiming: 0
+      })
     }
+    this.setData({
+      isCheck: !this.data.isCheck
+    })
+  },
+
+
+  addPhoto: function () {
+    let that = this;
     wx.chooseImage({
-      count: n, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      count: 3,
+      sizeType: ['original'],
+      sourceType: ['album', 'camera'],
       success: function (res) {
-        // console.log(res.tempFilePaths)
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
-
-        if (imgbox.length == 0) {
-          imgbox = tempFilePaths
-        } else if (3 > imgbox.length) {
-          imgbox = imgbox.concat(tempFilePaths);
-
-        } else {
-          imgbox[picid] = tempFilePaths[0];
-        }
         that.setData({
-          imgbox: imgbox
-        });
+          imgbase: wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
+        })
+        var url = app.globalData.url + '/api/Index/uploadImg'
+        var data = {
+          img_str: 'data:image/png;base64,' + that.data.imgbase + '',
+          path: 'comment'
+        }
+        myrequest.post(url, data, 'POST').then(function (res) {
+          if (that.data.imagelist.length < 3) {
+            that.data.imagelist.push(
+              res.data.pic
+            )
+            that.data.imageshowlist.push('http://lvcheng.123bingo.cn' + res.data.pic)
+            that.setData({
+              imagelist: that.data.imagelist,
+              imageshowlist: that.data.imageshowlist
+            })
+          }
+        })
+      }
+    })
+  },
+  submit: function (e) {
+    var that = this;
+    r.req(u + '/api/Order/commentOrder', {
+      order_goods_id: that.data.order_goods_id,
+      order_no: that.data.order_no,
+      desc_star: parseInt(this.data.isFlag) + 1,
+      content: this.data.commentContent,
+      slide_img: this.data.imagelist,
+      is_name: this.data.isNiming,
+      quality_star: parseInt(this.data.isFlag2) + 1,
+      service_star: parseInt(this.data.isFlag3) + 1,
+
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      console.log(res)
+      if (res.status == 1) {
+        wx.showToast({
+          title: '评价成功',
+          icon: 'success',
+          duration: 1000
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '../orderer/order',
+          })
+        }, 1000)
       }
     })
   }
-
-
-
-
-})

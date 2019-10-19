@@ -17,7 +17,8 @@
           </view>
 
           <view class="order-con" wx:for="{{item.goods_list}}" wx:key="{{index2}}" wx:for-item="item2" wx:for-index="index2">
-            <image src="{{item2.goods_pic}}" lazy-load="true"></image>
+            <view class="list_two">
+                   <image src="{{item2.goods_pic}}" lazy-load="true"></image>
             <view class="o-con">
               <view class="o-name">{{item2.goods_name}}</view>
               <view class="o-mes">
@@ -28,8 +29,10 @@
                 </view>
               </view>
             </view>
+            </view>
+        
             <view class="func">
-              <view bindtap="addevaluation" wx:if="{{item.order_btn.comment_btn==1}}" data-orderGoodsid="{{item2.order_goods_id}}" data-orderno="{{item.order_no}}">评价</view>
+              <view bindtap="addevaluation" wx:if="{{item.order_btn.comment_btn==1}}" data-orderGoodsid="{{item2.order_goods_id}}" data-orderno="{{item.order_no}}" data-type="{{item2.volunteer_type}}">评价</view>
             </view>
           </view>
         </view>

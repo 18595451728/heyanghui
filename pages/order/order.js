@@ -263,11 +263,18 @@ Page({
   },
 // 添加评论
   addevaluation:function(e){
-    // app.globalData.commentNo = e.currentTarget.dataset.orderno,
-    // app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
-    wx.navigateTo({
-      url: '/pages/addcomment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
-    })
+
+    if (e.currentTarget.dataset.type==2){
+      wx.navigateTo({
+        url: '/pages/addcomment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/pay/Comment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
+      })
+    }
+
+  
   },
  
 })
