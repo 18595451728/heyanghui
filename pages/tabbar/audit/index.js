@@ -128,9 +128,11 @@ Page({
     })
   },
   goodsdetail: function (e) {
-    var id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/details/details?id=' + id,
-    })
+    var id = e.currentTarget.dataset.id,num=e.currentTarget.dataset.num
+    if(num!=0){
+      wx.navigateTo({
+        url: '/pages/details/details?id=' + id,
+      })
+    }
   }
 })

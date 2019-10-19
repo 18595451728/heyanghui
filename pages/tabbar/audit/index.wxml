@@ -35,7 +35,7 @@
 
   </view>
   <view class="center">
-    <view class="center_item" wx:for='{{goodslist}}' data-id='{{item.id}}' wx:key='{{index}}' bindtap="goodsdetail">
+    <view class="center_item" wx:for='{{goodslist}}' data-id='{{item.id}}' data-num='{{item.audit_num}}' wx:key='{{index}}' bindtap="goodsdetail">
       <view class="center_item_left">
         <image class="center_item_left_img" src="{{item.goods_logo}}">
         </image>
@@ -58,7 +58,7 @@
           <text class="join_before">
                 ¥ {{item.price}}
               </text>
-          <view class="join" bindtap="gotobuy">
+          <view class="{{item.audit_num==0?'grey':''}} join">
             参与审核
           </view>
         </view>

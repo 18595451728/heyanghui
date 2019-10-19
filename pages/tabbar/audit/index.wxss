@@ -212,7 +212,9 @@
   border-radius: 50rpx;
   margin-top: 15rpx;
 }
-
+.join.grey{
+  background: #9C9C9C
+}
 .join_after {
   font-size: 22rpx;
   font-family: PingFangSC;
