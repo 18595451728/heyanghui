@@ -163,7 +163,7 @@ Page({
             that.data.imagelist.push(
               res.data.pic
             )
-            that.data.imageshowlist.push('http://lvcheng.123bingo.cn' + res.data.pic)
+            that.data.imageshowlist.push(u + res.data.pic)
             that.setData({
               imagelist: that.data.imagelist,
               imageshowlist: that.data.imageshowlist
@@ -200,6 +200,8 @@ Page({
           })
         }, 1000)
       }
+      
     })
   }
 })
+
