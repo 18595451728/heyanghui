@@ -155,35 +155,56 @@ this.changeArea();
     })
   },
   submit(){
-    let that=this;
+    var TEL_REGEXP = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
 
-        r.req(u + '/api/User/setInfo', { 
-          token: wx.getStorageSync('token') ,
-          nickname:that.data.user.nickname,
-          telephone:that.data.user.telephone,
-          sex:parseInt(that.data.sexindex)+1, 
-          email:"",
-          head_img:that.data.user.head_img,
-          birth:that.data.date,
-          province_id:that.data.province_id,
-          city_id:that.data.city_id,
-          district_id:that.data.district_id,
-          detail:that.data.user.detail
-        }, 'post').then((res) => {
-   
-          if(res.status==1){
-            that.setData({
-              areaId:0
+    if(this.data.user.nickname==''|| this.data.user.telephone==''  || this.data.province_id=='' || this.data.user.detail==''){
+      wx.showModal({
+        title:'提示',
+        content:'请完整填写信息',
+        showCancel:false
+      })
+    }else if(TEL_REGEXP.test(this.data.user.telephone)!=true){
+      wx.showModal({
+        title:'提示',
+        content:'请输入正确格式的手机号',
+        showCancel:false
+      })
+    }else {
+      let that=this;
+      r.req(u + '/api/User/setInfo', { 
+        token: wx.getStorageSync('token') ,
+        nickname:that.data.user.nickname,
+        telephone:that.data.user.telephone,
+        sex:parseInt(that.data.sexindex)+1, 
+        email:"",
+        head_img:that.data.user.head_img,
+        birth:that.data.date,
+        province_id:that.data.province_id,
+        city_id:that.data.city_id,
+        district_id:that.data.district_id,
+        detail:that.data.user.detail
+      }, 'post').then((res) => {
+ 
+        if(res.status==1){
+          that.setData({
+            areaId:0
+          })
+          that.getArea();
+          wx.showToast({
+            title:'修改成功',
+            icon:'success',
+            duration:1500
+          })
+          setTimeout(function() {
+            wx.reLaunch({
+              url: '/pages/mine/mine',
             })
-            that.getArea();
-            wx.showToast({
-              title:'修改成功',
-              icon:'success',
-              duration:1500
-            })
-          }
-        })
-      
+          },1500)
+        }
+      })
+    
+    }
+
   },
   chooseImg(){
     let that=this;

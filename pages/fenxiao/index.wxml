@@ -6,12 +6,12 @@
   <view class="item2">
     <text style="margin-top:50rpx;">可提现佣金</text>
     <view class="allmoney">¥
-      <text style="font-size: 36rpx; ">10000.00</text>
+      <text style="font-size: 36rpx; ">{{yongjin}}</text>
     </view>
   </view>
   <view class="item3">
-    <text>今日收益：25534.00元</text>
-    <text>累计收益：25534.00元</text>
+   
+    <text>累计收益：{{moneyTotal}}元</text>
   </view>
 </view>
 <view class="kongxi">
@@ -19,16 +19,16 @@
 <view class="title">
   收益明细
 </view>
-<view class="type">
+<view class="type" wx:if="{{false}}">
   <view wx:for="{{type}}" class="typeitem {{index==selectindex?'active':''}}" data-index="{{index}}" bindtap="choose">
     <text>佣金</text>
     <text>{{item}}</text>
   </view>
 </view>
 <view class="msg" wx:for="{{list}}">
-  <text>131****2468</text>
+  <text>{{item.username}}</text>
   <view class="msgdata">
-    <text style="color:#EB544D">+400</text>
-    <text class="time">2019-05-11 10:40</text>
+    <text style="color:#EB544D">+{{item.money}}</text>
+    <text class="time">{{item.pay_time}}</text>
   </view>
 </view>
