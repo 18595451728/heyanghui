@@ -68,3 +68,9 @@ page {
   text-align: center;
   font-size: 30rpx;
 }
+.more{
+text-align: center;
+color: #474747;
+font-size: 28rpx;
+padding-bottom: 20rpx;
+}

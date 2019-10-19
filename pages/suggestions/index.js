@@ -11,7 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
+    currentPage:1,
+    total:-1,
+    tip:'没有更多了'
   },
 
   /**
@@ -60,7 +63,15 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    this.setData({
+      currentPage:this.data.currentPage<this.data.total ? this.data.currentPage+1 : 1,
+      tip:(this.data.currentPage)==this.data.total ? '没有更多了' : '下拉查看更多',
+    })
 
+    if(this.data.currentPage<this.data.total){
+      this.init();
+    }
+   
   },
 
   /**
@@ -74,12 +85,14 @@ Page({
     r.req(u + '/api/User/suggestList', { 
       token:wx.getStorageSync('token'),
       list_row:10,
-      page:1
+      page:that.data.currentPage
     },'post').then(res=>{
-    that.setData({
-      list:res.data.list
-    })
-
+        that.setData({
+          list:that.data.list.length==0 ? res.data.list : that.data.list.concat(res.data.list),
+          tip:res.data.pageCount==1 ? '没有更多了' : '下拉查看更多',
+          total:res.data.pageCount
+        })
+       
     })
   }
 })
