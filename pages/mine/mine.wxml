@@ -4,27 +4,29 @@
 
   <view class="t-con" wx:if='{{haslogin}}'>
     <image src="{{user.head_img}}" class="headimg"></image>
-    <view class="usermes" >
+    <view class="usermes">
       <view>{{user.nickname}}</view>
       <view bindtap="huiyuan">会员：{{user.user_level||0}}</view>
     </view>
-    
+
   </view>
 
 
-  <view class="t-con" wx:else>
+  <view class="t-con cc" wx:else>
+    <view class="c-left">
       <image src="/images/head.jpg" class="headimg"></image>
-      <view class="usermes" >
+      <view class="usermes">
         <view>游客</view>
-      </view>  
-      <view class="login">
-
-          <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">登录</button>
       </view>
     </view>
-      <!-- <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button> -->
+    <view class="login">
 
-    
+      <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">登录</button>
+    </view>
+  </view>
+  <!-- <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button> -->
+
+
 </view>
 
 

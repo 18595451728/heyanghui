@@ -26,14 +26,26 @@ page {
   padding-left: 27rpx;
   box-sizing: border-box;
 }
-
+.t-con.cc{
+  padding: 0 27rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.c-left{
+  width: 252rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .headimg {
   width: 156rpx;
   height: 156rpx;
-  margin-right: 68rpx;
   border-radius: 50%;
+  margin-right: 68rpx;
 }
-
+.t-con.cc .headimg{
+  margin-right: 0
+}
 .usermes view:first-child {
   font-size: 35rpx;
   color: #fff;
@@ -41,8 +53,9 @@ page {
 }
 
 .usermes view:last-child {
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #fff;
+  margin-bottom: 0;
 }
 
 .u-top {
@@ -226,8 +239,7 @@ page {
   font-size: 26rpx;
   float: right;
   color:#fff;
-  margin-left: 200rpx;
-  margin-bottom: 20rpx;
+
   
 
 }

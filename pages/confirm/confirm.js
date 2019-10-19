@@ -11,7 +11,8 @@ Page({
     currenCoupon:'',
     jine:'',
     user:'',
-    isChoose:false
+    isChoose:false,
+    isShow:true
   },
 
   /**
@@ -56,7 +57,6 @@ Page({
   },
   sendOrder: function () {
     var t = this
-    console.log(t.data.currenCoupon.cou_id)
     if(!this.data.address){
       wx.showToast({
         title: '请先选择收货地址',
@@ -70,7 +70,7 @@ Page({
       source: 0, 
       remark: this.data.remark,
       pay_integral:t.data.isChoose==true ? parseInt(t.data.integral_one_buy) : 0,
-      coupon_id:t.data.currenCoupon.cou_id
+      coupon_id: t.data.coupon_list.length== 0 ? '' : t.data.currenCoupon.cou_id
 
     }, 'post').then((res) => {
       console.log(res)
@@ -138,7 +138,7 @@ Page({
       this.getCoupon();
  
     }else{
-      console.log("空的")
+
       this.setData({
         currenCoupon:'',
         realpay:this.data.jine
@@ -146,7 +146,7 @@ Page({
     }
       
 
-
+    this.getinfo();
  
   },
 
@@ -192,6 +192,15 @@ Page({
       that.setData({
         user:res.data.user
       })
+      if (that.data.user.integral < that.data.integral_one_buy) {
+        that.setData({
+          isShow:false
+        })
+      }else{
+        that.setData({
+          isShow: true
+        })
+      }
     })
   },
   address: function () {
@@ -212,7 +221,7 @@ Page({
     let that=this;
     r.req(u + '/api/Order/cartOrder', { 
       token:wx.getStorageSync('token'),
-      cart_type:1
+      cart_type: that.data.cart_type
     },'post').then(res=>{
         that.setData({
          currenCoupon:res.data.coupon_list[parseInt(wx.getStorageSync('couponIndex'))]
@@ -226,9 +235,9 @@ Page({
     r.req(u + '/api/Order/orderBuy', { 
       token:wx.getStorageSync('token'),
       pay_integral:that.data.isChoose==true ? parseInt(that.data.integral_one_buy) : 0,
-      coupon_id:that.data.currenCoupon.cou_id,
+      coupon_id: that.data.coupon_list.length == 0 ? '' : that.data.currenCoupon.cou_id,
       address_id:that.data.address.id,
-      cart_type:1
+      cart_type: that.data.cart_type
     },'post').then(res=>{
       console.log(res)
       that.setData({
@@ -242,6 +251,7 @@ Page({
         isChoose:e.detail.value
       })
       this.getPrice();
+
   }
 
 })
