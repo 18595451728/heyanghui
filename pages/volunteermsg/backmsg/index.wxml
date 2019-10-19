@@ -1,6 +1,6 @@
 <view class="content">
   <image src="/images/back_logo.jpg"></image>
   <text style="margin-top:55rpx;">提交成功</text>
-  <text class="msg">等待审核通过</text>
+  <text class="msg">{{status}}</text>
   <view class="bto" bindtap="gotohome">返回首页</view>
 </view>

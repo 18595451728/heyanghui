@@ -7,13 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasaddress: !0
+    hasaddress: !0,
+    currenCoupon:'',
+    jine:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
     var that = this, cart_type = options.cart_type
     r.req(u + '/api/Order/cartOrder', { cart_type: cart_type, token: wx.getStorageSync('token') }, 'post').then((res) => {
       console.log(res)
@@ -29,8 +33,14 @@ Page({
         total_num: res.data.total_num,
         cart_type: cart_type,
         coupon_list: res.data.coupon_list,
-        integral_exchange: res.data.integral_exchange
+        integral_exchange: res.data.integral_exchange,
+        realpay:allprice.toFixed(2),
+        jine:allprice.toFixed(2)
       })
+      
+
+    
+
     })
   },
   remark: function (e) {
@@ -49,7 +59,12 @@ Page({
       })
       return false;
     }
-    r.req(u + '/api/Order/addOrder', { cart_type: this.data.cart_type, address_id: this.data.address.id, token: wx.getStorageSync('token'), source: 0, remark: this.data.remark }, 'post').then((res) => {
+    r.req(u + '/api/Order/addOrder', { cart_type: this.data.cart_type, 
+      address_id: this.data.address.id, 
+      token: wx.getStorageSync('token'), 
+      source: 0, 
+      remark: this.data.remark 
+    }, 'post').then((res) => {
       console.log(res)
       var order_no = res.data.order_no
       r.req(u + '/api/pay/toPay', { order_no: order_no,token:wx.getStorageSync('token')},'post').then((rs)=>{
@@ -98,14 +113,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+
     var address = wx.getStorageSync('address')
+
     if(address){
-      console.log(111111)
+
       this.setData({
         address:address
       })
       wx.setStorageSync('address', '')
     }
+
+
+    if(wx.getStorageSync('couponIndex')!='-1'){
+      this.getCoupon();
+ 
+    }else{
+      console.log("空的")
+      this.setData({
+        currenCoupon:'',
+        realpay:this.data.jine
+      })
+    }
+      
+
+
+ 
   },
 
   /**
@@ -119,7 +153,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.setStorageSync('couponIndex','-1')
   },
 
   /**
@@ -147,5 +181,41 @@ Page({
     wx.navigateTo({
       url: '/pages/address/index',
     })
+  },
+  chooseCoupon(){
+    if(this.data.coupon_list.length!=0){
+      wx.navigateTo({
+        url: '/pages/couponChoose/index',
+      })
+    }
+
+  },
+  getCoupon(){
+    let that=this;
+    r.req(u + '/api/Order/cartOrder', { 
+      token:wx.getStorageSync('token'),
+      cart_type:1
+    },'post').then(res=>{
+        that.setData({
+         currenCoupon:res.data.coupon_list[parseInt(wx.getStorageSync('couponIndex'))]
+        })
+        that.getPrice();   
+    })
+  },
+  getPrice(){
+    let that=this;
+    r.req(u + '/api/Order/orderBuy', { 
+      token:wx.getStorageSync('token'),
+      pay_integral:that.data.integral_exchange,
+      coupon_id:that.data.currenCoupon.cou_id,
+      address_id:that.data.address.id,
+      cart_type:1
+    },'post').then(res=>{
+      console.log(res)
+      that.setData({
+        realpay:res.data.order_amount
+      })
+    })
   }
+
 })

@@ -1,13 +1,13 @@
 // pages/volunteer/index.js
 const app = getApp()
-var r = require('../../utils/request.js'), u = app.globalData.url
+var r = require('../../utils/request.js'), u = app.globalData.url, WxParse = require('../../wxParse/wxParse.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   
+
   },
 
   /**
@@ -15,15 +15,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    r.req(u + '/api/Index/volunteerInfo', { token: wx.getStorageSync('token') },  'post').then(res => {
+    r.req(u + '/api/Index/volunteerInfo', { token: wx.getStorageSync('token') }, 'post').then(res => {
       console.log(res)
       that.setData({
         contentbox: res.data.content
       })
-      WxParse.wxParse('article', 'html', res.data.data.about_1.content, that, 0);
+      WxParse.wxParse('article', 'html', res.data.content, that, 0);
 
       console.log(res.data.content)
-  })
+    })
   },
 
   /**
@@ -74,9 +74,16 @@ Page({
   onShareAppMessage: function () {
 
   },
-  agree:function(){
-    wx.navigateTo({
-      url: '/pages/volunteermsg/index'
+  agree: function () {
+    r.req(u + '/api/User/volunteerStatus', { token: wx.getStorageSync('token') }, 'post').then(res => {
+      var status = res.data.audit_status
+      console.log(res)
+      status == -1 ? wx.navigateTo({
+        url: '/pages/volunteermsg/index'
+      }) : wx.navigateTo({
+        url: '/pages/volunteermsg/backmsg/index'
+      })
     })
+
   }
 })

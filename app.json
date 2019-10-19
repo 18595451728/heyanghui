@@ -1,8 +1,14 @@
 {
   "pages": [
+
     "pages/pay/Comment/index",
     "pages/volunteer/index",
     "pages/mine/mine",
+
+
+    "pages/details/details",
+
+
     "pages/fenxiao/index",
     "pages/supplier/backmsg_success/index",
     "pages/supplier/backmsg/index",
@@ -37,7 +43,9 @@
     "pages/userserver/index",
     "pages/coupon/index",
     "pages/evaluationlist/index",
-    "pages/tabbar/classify/index"
+    "pages/tabbar/classify/index",
+
+    "pages/couponChoose/index"
   ],
   "permission": {
     "scope.userLocation": {

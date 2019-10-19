@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    yongjin:'',
+    jine:''
   },
 
   /**
@@ -65,19 +66,63 @@ Page({
   onShareAppMessage: function () {
 
   },
+  allSubmit(){
+    this.setData({
+      jine:this.data.yongjin
+    })
+    this.submit();
+  },
   submit:function(){
-    wx.navigateTo({
-      url: '/pages/pay/CashWithdrawal/index',
+    let that=this;
+    if(this.data.jine>this.data.yongjin){
+      wx.showModal({
+        title:'提示',
+        content:'提现金额超过可提现最大额度',
+        showCancel:false,
+        success:function(res){
+          if(res){
+
+            that.setData({
+              jine:''
+            })
+          }
+        }
+      })
+    }else if(this.data.jine==''){
+      wx.showModal({
+        title:'提示',
+        content:'提现金额不能为空',
+        showCancel:false
+      })
+    }
+    else{
+
+      r.req(u + '/api/Withdraw/withdraw', { 
+        token:wx.getStorageSync('token'),
+        type:2,
+        money:that.data.jine
+      },'post').then(res=>{
+        wx.navigateTo({
+        url: '/pages/pay/CashWithdrawal/index',
+      })
+      }) 
+    }
+
+  },
+  cashInput(e){
+
+    this.setData({
+      jine:e.detail.value
     })
   },
   init(){
-    var that =this
-    r.req(u + '/api/Withdraw/withdraw', { 
+    var that =this;
+    r.req(u + '/api/User/userInfo', { 
       token:wx.getStorageSync('token'),
-      type:1,
-      money:1
     },'post').then(res=>{
-      console.log(res)
-    })
+      that.setData({
+        yongjin:res.data.user.distribut_money
+      })
+    }) 
   }
 })

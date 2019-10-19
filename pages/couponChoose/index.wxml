@@ -1,0 +1,28 @@
+<!--pages/edit_people/index.wxml-->
+<view style='height:100vh;'>
+    <view class='tab'>
+      <view>
+        <text bindtap="return">{{tip}}</text>
+      </view>
+    </view>
+    <scroll-view scroll-y class='list'>
+      <view class='item' wx:for="{{list}}" bindtap="choose" data-index="{{index}}">
+        <view class='left' wx:if="{{item.coupon_type==2}}">
+          {{(item.deduct)*10}}
+          <view class="zhekou"> <text>%</text>
+          <text>OFF</text></view>  
+        </view>
+        <view class='left' wx:if="{{item.coupon_type==1}}">
+          <text class="mone_fuhao">￥</text>   {{item.deduct}}
+        </view>
+  
+        <view class='right' style="border:{{index==is_index ? '1rpx solid #000' : ''}}">
+          <view class="jieshi_quan">{{item.title}}</view>
+          <view class='state' wx:if="{{tabIndex==1}}">
+            2019.06.01 - 2019.09.01
+          </view>
+        </view>
+      </view>
+  
+    </scroll-view>
+  </view>

@@ -1,10 +1,15 @@
+<import src="../../wxParse/wxParse.wxml" />
 <view class="content">
   <text class="title">志愿者申请须知</text>
-  <view class="msgitem">
+  <view>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+
+  <!-- <view class="msgitem">
     <text>{{contentbox}}</text>
     <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     <text>1.1 乙方须据实填写《用户入网登记表》，并保证所提供的入网资料真实、准确。 </text>
-  </view>
+  </view> -->
 </view>
 <view class="caozuo">
   <text>确定并同意协议内容</text>

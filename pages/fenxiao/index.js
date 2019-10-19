@@ -9,7 +9,9 @@ Page({
   data: {
     type: ["今日收益", "昨日收益", "全部收益"],
     selectindex: 0,
-    list:['','','','']
+    list:[],
+    moneyTotal:'',
+    yongjin:''
   },
 
   /**
@@ -17,7 +19,7 @@ Page({
    */
   onLoad: function(options) {
     this.init();
-    // this.getYongjin();
+    this.getYongjin();
   },
 
   /**
@@ -80,21 +82,34 @@ Page({
     })
   },
   init(){
-    var that =this
+    var that =this;
+    var count=0;
     r.req(u + '/api/User/shareList', { 
       token:wx.getStorageSync('token'),
       list_row:10,
       page:1
     },'post').then(res=>{
       console.log(res)
+
+      res.data.list.forEach(function(item,index){
+        count=count+parseFloat(item.money)
+      })
+      that.setData({
+        list:res.data.list,
+        moneyTotal:count
+      })
     })
   },
   getYongjin(){
-    var that =this
-    r.req(u + '/api/User/userMoney', { 
-      token:wx.getStorageSync('token')
+    var that =this;
+    r.req(u + '/api/User/userInfo', { 
+      token:wx.getStorageSync('token'),
     },'post').then(res=>{
       console.log(res)
-    })
+
+      that.setData({
+        yongjin:res.data.user.distribut_money
+      })
+    })  
   }
 })

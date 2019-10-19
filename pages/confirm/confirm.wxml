@@ -53,15 +53,17 @@
       <text>商品金额</text><text>￥{{allprice}}</text>
     </view>
     <view>
-      <text>优惠券</text><text>{{coupon_list.length==0?'暂无可用':'选择优惠券 >'}}</text>
+      <text>优惠券</text>
+      <text bindtap="chooseCoupon" wx:if="{{currenCoupon==''}}">{{coupon_list.length==0?'暂无可用':'选择优惠券 >'}}</text>
+      <text bindtap="chooseCoupon" wx:if="{{currenCoupon!=''}}">已选择 {{currenCoupon.title}}</text>
     </view>
     <view>
-      <text>积分</text><text>-￥0.30</text>
+      <text>积分</text><text>-￥{{integral_exchange}}</text>
     </view>
   </view>
   <view class="c-bot">
     <view></view>
-    <view>实付款：<text>50.00</text></view>
+    <view>实付款：<text>{{realpay}}</text></view>
   </view>
 </view>
 
@@ -69,7 +71,7 @@
 <view class="jiesuan">
   <view class="j-left">
     <view>共{{total_num}}件商品</view>
-    <view>合计：<text>￥120.00</text></view>
+    <view>合计：<text>￥{{realpay}}</text></view>
   </view>
   <view class="j-right" bindtap='sendOrder'>提交订单</view>
 </view>

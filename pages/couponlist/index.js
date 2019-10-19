@@ -1,19 +1,21 @@
 // pages/coupon/index.js
-const app = getApp()
+var app=new getApp(); 
+var r = require('../../utils/request.js'), u = app.globalData.url
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabIndex: 1,
+    tabIndex: 3,
     list: [],
   },
   tabFun(e) {
-    this.getList(e.currentTarget.dataset.index)
     this.setData({
       tabIndex: e.currentTarget.dataset.index
     })
+    this.init();
   },
   /**
    * 生命周期函数--监听页面加载
@@ -23,7 +25,7 @@ Page({
      
   },
   onLoad: function (options) {
-   
+   this.init();
   },
 
   /**
@@ -73,5 +75,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  init(){
+    var that =this;
+
+    r.req(u + '/api/User/couponList', { 
+      token:wx.getStorageSync('token'),
+      coupon_type:parseInt(that.data.tabIndex)
+    },'post').then(res=>{
+      console.log(res)
+      that.setData({
+        list:res.data.list
+      })
+    })
   }
 })

@@ -62,7 +62,36 @@ App({
     wx.hideTabBar();
   },
   editTabbar: function () {
-    let tabbar = this.globalData.tabBar;
+    let tabbar = {
+      backgroundColor: "#fcfcfc",
+      color: "#979795",
+      selectedColor: "#000000",
+      list: [{
+        "pagePath": "/pages/home/index",
+        "iconPath": "icon/home_off.png",
+        "selectedIconPath": "icon/home_on.png",
+        "text": "主页"
+      },
+        {
+          "pagePath": "/pages/tabbar/classify/index",
+          "iconPath": "icon/classify_off.png",
+          "selectedIconPath": "icon/classify_on.png",
+          "text": "分类"
+      },
+        {
+          "pagePath": "/pages/tabbar/shopcart/index",
+          "iconPath": "icon/cart_off.png",
+          "selectedIconPath": "icon/cart_on.png",
+          "text": "购物车"
+      },
+        {
+          "pagePath": "/pages/tabbar/audit/index",
+          "iconPath": "icon/audit_off.png",
+          "selectedIconPath": "icon/audit_on.png",
+          "text": "商品审核"
+      }
+      ]
+    };
     let currentPages = getCurrentPages();
     let _this = currentPages[currentPages.length - 1];
     let pagePath = _this.route;
@@ -78,9 +107,16 @@ App({
       tabbar.list[i].selected = false;
       (tabbar.list[i].pagePath == pagePath) && (tabbar.list[i].selected = true);
     }
+
+    var token = wx.getStorageSync('token')
+    if(!token){
+      tabbar.list.splice(3,1)
+    }
+
     _this.setData({
       tabbar: tabbar
     });
+    console.log(this.globalData.tabBar)
   },
   getSystemInfo: function () {
     let t = this;
