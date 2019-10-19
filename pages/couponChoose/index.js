@@ -33,7 +33,8 @@ Page({
     this.init();
     if(wx.getStorageSync('couponIndex')!='-1'){
         this.setData({
-          is_index:parseInt(wx.getStorageSync('couponIndex'))
+          is_index:parseInt(wx.getStorageSync('couponIndex')),
+          tip:'确定'
         })
     }
   },
