@@ -1,23 +1,22 @@
 {
   "pages": [
 
-    "pages/details/details",
-        "pages/mine/mine",
-    "pages/fenxiao/index",
-      "pages/supplier/backmsg_success/index",
-        "pages/supplier/backmsg/index",
-        "pages/supplier/index",
-    
-   "pages/tabbar/home/index",
-    "pages/wuliu/index",
-
-
-  
-    "pages/pay/InvitePrizes/index",
-    "pages/volunteer/index",
-
-    "pages/order/reorder",
     "pages/pay/Comment/index",
+    "pages/volunteer/index",
+    "pages/mine/mine",
+
+
+    "pages/details/details",
+
+
+    "pages/fenxiao/index",
+    "pages/supplier/backmsg_success/index",
+    "pages/supplier/backmsg/index",
+    "pages/supplier/index",
+    "pages/tabbar/home/index",
+    "pages/wuliu/index",
+    "pages/pay/InvitePrizes/index",
+    "pages/order/reorder",
     "pages/home/index",
     "pages/pay/member/index",
     "pages/shopDetail/shopDetail",

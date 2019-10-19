@@ -14,7 +14,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    this.setData({
+      order_no: options.orderno,
+      order_goods_id: options.ordergoodid,
+    })
+    r.req(u + '/api/Order/refundGoods', {
+      order_goods_id: options.ordergoodid,
+      token: wx.getStorageSync('token')
+    }, 'post').then((res) => {
+      wx.hideLoading();
+      that.setData({
+        refundGoods: res.data,
+      })
+      console.log(res.data)
+      })
   },
 
   /**
@@ -65,9 +79,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-  goserver:function(){
+  goserver:function(e){
+    var that = this
+    console.log(e.currentTarget.dataset.type)
     wx.navigateTo({
-      url: 'server/index',
+      url: 'server/index?ordergoodid=' + that.data.order_goods_id + '&fundtype=' + e.currentTarget.dataset.type,
     })
   }
 })

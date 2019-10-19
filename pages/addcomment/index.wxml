@@ -2,6 +2,7 @@
   <view class="goods">
     <image src="{{commentOrder.goods_pic}}"></image>
     <text class="goodstitle">{{commentOrder.goods_name}}</text>
+  
   </view>
 
 
@@ -116,9 +117,13 @@
 
 
       <view class="niming" bindtap="changeIscheck">
-        <image class="" src="{{isCheck==true ? '/images/gous.png' : '/images/check_on.png' }}" style="width: 100%;height:100%">
+       <!-- <image class="" src="{{isCheck==true ? '/images/gous.png' : '/images/check_on.png' }}" style="width: 100%;height:100%"></image> -->
+        <image class="" src="{{isCheck==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" style="width: 100%;height:100%">
 
         </image>
+
+
+
       </view>
 
       <text>匿名</text>

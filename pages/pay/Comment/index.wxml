@@ -1,111 +1,138 @@
-<view class="comment">
-  <view class="comment_main">
-    <view class="comment_main_one">
-      <view class="comment_main_one_img">
-        <image src="/images/comment_main_one_img.png"></image>
-      </view>
-      <view class="comment_main_one_text">
-        <text>九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
-      </view>
-    </view>
-
-    <view class="comment_main_two">
-      <view class="comment_main_two_box">
-        <text class="comment_main_two_box_zhishu">效果指数</text>
-        <view class="comment_main_two_box_xx">
-          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
-            <image src="{{index<one?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
-          </view>
-         
-        </view>
-        <text class="comment_main_two_box_pinjia">良好</text>
-      </view>
-
-      <view class="comment_main_two_box">
-        <text class="comment_main_two_box_zhishu">安全指数</text>
-        <view class="comment_main_two_box_xx">
-          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
-            <image src="{{index<two?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
-          </view>
-         
-        </view>
-        <text class="comment_main_two_box_pinjia">及格</text>
-      </view>
-
-      <view class="comment_main_two_box">
-        <text class="comment_main_two_box_zhishu">外观指数</text>
-        <view class="comment_main_two_box_xx">
-          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
-            <image src="{{index<three?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
-          </view>
-         
-        </view>
-        <text class="comment_main_two_box_pinjia">很好</text>
-      </view>
-
-      <view class="comment_main_two_box">
-        <text class="comment_main_two_box_zhishu">使用方便</text>
-        <view class="comment_main_two_box_xx">
-          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
-            <image src="{{index<four?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
-          </view>
-         
-        </view>
-        <text class="comment_main_two_box_pinjia">优秀</text>
-      </view>
-
-      <view class="comment_main_two_box">
-        <text class="comment_main_two_box_zhishu">描述相符</text>
-        <view class="comment_main_two_box_xx">
-          <view wx:for="{{list}}" class="comment_main_two_box_xxmum">
-            <image src="{{index<five?'/images/comment_main_two_box__activewei.png':'/images/comment_main_two_box_xxwei.png'}}"></image>
-          </view>
-         
-        </view>
-        <text class="comment_main_two_box_pinjia">中等</text>
-      </view>
-    </view>
-
-    <view class="comment_main_three_input">
-       <textarea placeholder-class="place-holder"  placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" name="introduction"  bindinput='limit' value="{{text}}"/>
-    </view>
-
-
-
-    <view class="comment_main_four">
-       <view class='up-pic'>
-          <view class='flex pic-box'>
-            <block wx:key="imgbox" wx:for="{{imgbox}}">
-              <view class='ap-box'>
-                <view class='add-pic'>
-                  <image class='add-pic' src='{{item}}'></image>
-                 
-                </view>
-              </view>
-            </block>
-            <view class='add-pic' bindtap='addPic1' wx:if="{{imgbox.length<9}}">
-              <image class='img' src='/images/up-pic.png'></image>  
-                <text class="tianja">添加照片</text>
-            </view>
-          </view>
-         </view>
-
-    </view>
-
-    <view class="comment_main_five">
-       <view class="comment_main_five_left">
-          <view class="comment_main_five_img">
-              <image src="/images/comment_main_five_img.png"></image>
-          </view>
-          <text class="comment_main_five_img_ninming">匿名</text>
-       </view>
-       <text class="comment_main_five_img_xisnhi">你写的评论会以匿名的形式展现</text>
-    </view>
-
-
-  </view>
-  <view class="comment_main_six"></view>
-  <view class="comment_main_seven"></view>
+<view class="content">
+  <view class="goods">
+    <image src="{{commentOrder.goods_pic}}"></image>
+    <text class="goodstitle">{{commentOrder.goods_name}}</text>
   
-  <view class="CashWithdrawal_main_three">发布</view>
+  </view>
+
+
+
+  <view class="score">
+    <text style="margin-right:20rpx;">整体评论</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+
+    <image class="star" src="{{ isFlag>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar">
+    </image>
+    <text class="pingyu">很好</text>
+  </view>
+
+
+
+
+
+
+
+  <view class="score">
+    <text style="margin-right:20rpx;">整体评论</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+    <image class="star" src="{{ isFlag2>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar2">
+    </image>
+    <text class="pingyu">很好</text>
+  </view>
+
+
+  <view class="score">
+    <text style="margin-right:20rpx;">整体评论</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+
+    <image class="star" src="{{ isFlag3>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar3">
+    </image>
+    <text class="pingyu">很好</text>
+  </view>
+
+  <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" bindinput="textareaInput"></textarea>
+  <view class="images">
+
+
+    <!-- <image src="/images/choose_img.png" bindtap="addPhoto"></image> -->
+
+
+    <view class="images" bindtap="addPhoto">
+      <image class="" src="/images/choose_img.png">
+      </image>
+
+    </view>
+
+
+    <view class="addImage  addImage2" wx:for="{{imageshowlist}}" wx:key='{{index}}'>
+      <image class="imgs" src="{{item}}" style="width: 100%;height:100%;margin: 0">
+      </image>
+    </view>
+    <!-- <image class='imgs' src='{{item}}' wx:for='{{imgs}}'></image> -->
+  </view>
+
+  <view class="xingshi">
+    <view class="checkitem">
+      <!-- <view class="niming" bindtap="checkanonymous" bindtap="changeIscheck" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;box-sizing:border-box'}}">
+        <image wx:if="{{is_anonymous}}" src="/images/check_on.png"></image>
+      </view> -->
+
+
+      <view class="niming" bindtap="changeIscheck">
+       <!-- <image class="" src="{{isCheck==true ? '/images/gous.png' : '/images/check_on.png' }}" style="width: 100%;height:100%"></image> -->
+        <image class="" src="{{isCheck==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" style="width: 100%;height:100%">
+
+        </image>
+
+
+
+      </view>
+
+      <text>匿名</text>
+    </view>
+    <text style="color:#9F9F9F">你写的评论会以匿名的形式展现</text>
+  </view>
+</view>
+<view class="kongxi">
+</view>
+<view class="bto" bindtap='submit'>
+  发布
 </view>

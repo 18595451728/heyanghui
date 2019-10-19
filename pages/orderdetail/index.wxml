@@ -23,7 +23,8 @@
   </view>
 
   <view class="goods" wx:for="{{goodsList}}" wx:key="{{index}}" wx:for-item="item2" >
-    <image src="{{item2.goods_pic}}"></image>
+    <view class="goods_itembes">
+        <image src="{{item2.goods_pic}}"></image>
     <view class="goodsmsg">
       <text>{{item2.goods_name}}</text>
       <view class="goodsnum">
@@ -31,6 +32,12 @@
         <text style="color:#3B3B3B">X{{item2.goods_num}}</text>
       </view>
     </view>
+    
+    </view>
+   
+    <view class="caozuoitem" style="background-color:#B2AFA3" data-orderno="{{order.order_no}}" data-ordergoodsid="{{item2.order_goods_id}}" catchtap="refund"  wx:if="{{order.order_btn.return_btn==1}}">
+    我要退款
+  </view>
   </view>
   <view class="zongji">
     商品小计：
@@ -93,7 +100,5 @@
   <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="payOrder"  wx:if="{{order.order_btn.pay_btn==1}}">
     去支付
   </view>
-<view class="caozuoitem" style="background-color:#B2AFA3" data-orderno="{{order.order_no}}" catchtap="refund"  wx:if="{{order.order_btn.return_btn==1}}">
-    我要退款
-  </view>
+
 </view>

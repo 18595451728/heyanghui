@@ -1,14 +1,14 @@
 <view class="content">
-  <image src="/images/goodsimg.png"></image>
-  <text class="goodsmsg">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+  <image src="{{refundGoods.goods_pic}}"></image>
+  <text class="goodsmsg">{{refundGoods.goods_name}}</text>
 </view>
 <view class="kongxi">
 </view>
-<view class="item" bindtap="goserver">
+<view class="item" bindtap="goserver" data-type="2">
   <view class="itemmsg">
     <image class="tuiimg" src="/images/tui.png"></image>
     <view class="msgitem">
-      <text>我要退货（无需退货）</text>
+      <text>我要退款（无需退货）</text>
       <text class="msgtwo">没收到货，或与卖家协商同意不退货只退款</text>
     </view>
   </view>
@@ -16,7 +16,7 @@
 </view>
 <view class="line">
 </view>
-<view class="item" bindtap="goserver">
+<view class="item" bindtap="goserver" data-type="1">
   <view class="itemmsg">
     <image class="tuiimg" src="/images/tui2.png"></image>
     <view class="msgitem">
