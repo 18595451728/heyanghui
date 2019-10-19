@@ -20,16 +20,12 @@ Page({
       order_no: options.orderno,
       token: wx.getStorageSync('token')
     }, 'post').then((res) => {
-<<<<<<< HEAD
       that.setData({
        expressList: res.data,
        express_data: res.data.express_data,
         phone: res.data.express_tel
       })
       console.log(res.data)
-=======
- console.log(res)
->>>>>>> ebb68081e5634e402f291c3acd95f5a964d82374
     })
   },
 

@@ -10,7 +10,6 @@
   <view class="order_content">
     <view class="orderlist" wx:if="{{orderList.length>0}}">
       <view class="order_item" wx:for="{{orderList}}">
-<<<<<<< HEAD
         <view wx:key="{{index}}" bindtap="lookDetail" data-orderno="{{item.order_no}}" data-status="{{item.order_status_desc}}">
           <view class="order-title">
             <text>订单编号：{{item.order_no}}</text>
@@ -27,23 +26,6 @@
                 <view class="price">合计：
                   <text>{{item2.goods_price}}</text>
                 </view>
-=======
-         <view wx:key="{{index}}" bindtap="lookDetail" data-orderno="{{item.order_no}}" data-status="{{item.order_status_desc}}">
-        <view class="order-title">
-          <text>订单编号：{{item.order_no}}</text>
-          <text> {{item.order_status_desc}}</text>
-        </view>
-        
-        <view class="order-con" wx:for="{{item.goods_list}}" wx:key="{{index2}}" wx:for-item="item2" wx:for-index="index2">
-          <image src="{{item2.goods_pic}}" lazy-load="true"></image>
-          <view class="o-con">
-            <view class="o-name">{{item2.goods_name}}</view>
-            <view class="o-mes">
-              <view class="intro">{{item2.goods_desc}}</view>
-              <view class="num">X{{item2.goods_num}}</view>
-              <view class="price">合计：
-                <text>{{item2.goods_price}}</text>
->>>>>>> ebb68081e5634e402f291c3acd95f5a964d82374
               </view>
             </view>
             <view class="func">

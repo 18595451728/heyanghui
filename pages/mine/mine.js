@@ -14,7 +14,6 @@ Page({
       path: '/pages/order/order?=status' + 0
     },{
       icon: '/images/o2.png',
-<<<<<<< HEAD
         name: '待付款',
         path: '/pages/order/order?status=' + 1
     }, {
@@ -28,21 +27,6 @@ Page({
     }, {
         icon: '/images/o5.png',
         name: '待评价',
-=======
-      name: '待付款',
-        path: '/pages/order/order?status=' + 1
-    }, {
-      icon: '/images/o3.png',
-      name: '待收货',
-        path: '/pages/order/order?status=' + 2
-    }, {
-      icon: '/images/o4.png',
-      name: '待评价',
-        path: '/pages/order/order?status=' + 3
-    }, {
-        icon: '/images/o5.png',
-        name: '退款维权',
->>>>>>> ebb68081e5634e402f291c3acd95f5a964d82374
         path: '/pages/order/order?status=' + 4
     }],
   },

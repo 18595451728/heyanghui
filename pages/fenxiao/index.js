@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function(options) {
     this.init();
-    this.getYongjin();
+    // this.getYongjin();
   },
 
   /**
@@ -91,7 +91,7 @@ Page({
   },
   getYongjin(){
     var that =this
-    r.req(u + '/api/User/shareList', { 
+    r.req(u + '/api/User/userMoney', { 
       token:wx.getStorageSync('token')
     },'post').then(res=>{
       console.log(res)
