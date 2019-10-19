@@ -27,7 +27,10 @@ Page({
    */
   onLoad: function(options) {
 
-
+    this.init();
+    this.setData({
+      areaId: 0
+    })
   },
 
   /**
@@ -171,6 +174,7 @@ this.changeArea();
       })
     }else {
       let that=this;
+
       r.req(u + '/api/User/setInfo', { 
         token: wx.getStorageSync('token') ,
         nickname:that.data.user.nickname,
@@ -190,16 +194,12 @@ this.changeArea();
             areaId:0
           })
           that.getArea();
-          wx.showToast({
-            title:'修改成功',
-            icon:'success',
-            duration:1500
-          })
+
           setTimeout(function() {
             wx.reLaunch({
               url: '/pages/mine/mine',
             })
-          },1500)
+          },0)
         }
       })
     
@@ -269,7 +269,7 @@ this.changeArea();
           that.setData({
             region:[0]
           })
-          console.log(that.data.provinceName)
+        
         }
       })
     })

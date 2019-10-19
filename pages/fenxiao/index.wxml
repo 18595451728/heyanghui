@@ -1,5 +1,5 @@
 <view class="header">
-  <image class="bg" src="/images/fenxiao_bg.png"></image>
+  <image class="bg" src="{{u}}/static/common/images/4.png"></image>
   <view class="item1" bindtap="gotixian">
     提现 >
   </view>

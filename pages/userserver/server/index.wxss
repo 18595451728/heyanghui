@@ -134,6 +134,7 @@ page {
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 20rpx;
+  align-items: flex-end;
 }
 
 .img {

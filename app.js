@@ -129,7 +129,7 @@ App({
   globalData: {
     systemInfo: null, //客户端设备信息
     userInfo: null,
-    url: 'http://www.heyanghui.com',
+    url: 'https://heyanghui.com',
     token: '',
     is_login: false,
     tabBar: {

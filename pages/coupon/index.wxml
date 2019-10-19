@@ -1,5 +1,5 @@
 <view class="content">
-  <image src="/images/couponbg.png"></image>
+  <image src="{{u}}/static/common/images/3.png"></image>
   <view class="userinfo">
     <image style="width: 116rpx;height: 116rpx; border-radius: 50%;" src="/images/InvitePrizes_img.png"></image>
     <text>180****9455</text>
