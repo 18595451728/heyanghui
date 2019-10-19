@@ -108,8 +108,8 @@ App({
       (tabbar.list[i].pagePath == pagePath) && (tabbar.list[i].selected = true);
     }
 
-    var token = wx.getStorageSync('token')
-    if(!token){
+    var volunteer = wx.getStorageSync('volunteer')
+    if(!volunteer){
       tabbar.list.splice(3,1)
     }
 

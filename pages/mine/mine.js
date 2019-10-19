@@ -79,6 +79,9 @@ Page({
         user:res.data.user,
         countList: res.data.countList
       })
+      if (res.data.user.user_identity==2){
+        wx.setStorageSync('volunteer', !0)
+      }
     })
   },
   /**
