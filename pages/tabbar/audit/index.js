@@ -79,7 +79,7 @@ Page({
     r.req(u + '/api/Goods/goodsList', {
       list_row: 10,
       page: 1,
-      is_auidt: 1
+      is_audit: 1
     }, 'post').then(res => {
       console.log(res)
       that.setData({
