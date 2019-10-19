@@ -141,7 +141,11 @@ page {
   height: 210rpx;
   padding: 30rpx 0 0 0;
 }
-
+.images image.imgs{
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+}
 .modal-mask {
   width: 100%;
   height: 100%;

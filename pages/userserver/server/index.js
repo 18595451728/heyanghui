@@ -10,7 +10,8 @@ Page({
     checkServer: "请选择",
     checkReceive: "请选择",
     isReceive: false,
-    imagelist:'',
+    imagelist:[],
+    imageshowlist:[],
     images: ["", '', '', '', ''],
     showmodal: false,
    

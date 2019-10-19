@@ -1,6 +1,6 @@
 {
   "pages": [
-
+"pages/home/index",
     "pages/pay/Comment/index",
     "pages/volunteer/index",
     "pages/mine/mine",
@@ -17,7 +17,7 @@
     "pages/wuliu/index",
     "pages/pay/InvitePrizes/index",
     "pages/order/reorder",
-    "pages/home/index",
+    
     "pages/pay/member/index",
     "pages/shopDetail/shopDetail",
     "pages/pay/CashWithdrawal/index",

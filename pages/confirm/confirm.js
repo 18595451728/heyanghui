@@ -21,7 +21,10 @@ Page({
   onLoad: function (options) {
 
 
-    var that = this, cart_type = options.cart_type
+    var that = this, cart_type = options.cart_type,sh=options.sh
+    that.setData({
+      sh:sh
+    })
     r.req(u + '/api/Order/cartOrder', { cart_type: cart_type, token: wx.getStorageSync('token') }, 'post').then((res) => {
       console.log(res)
       var allprice = 0

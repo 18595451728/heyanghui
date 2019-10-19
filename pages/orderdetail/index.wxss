@@ -121,7 +121,8 @@ text-align: center;
 font-size: 25rpx;
 float: right;
 margin-top: 20rpx;
-
+color: white;
+margin-left: 20rpx;
 }
 
 .goods image {
