@@ -1,6 +1,6 @@
 // pages/pay/Comment/index.js
 const app = getApp()
-var r = require('../../utils/request.js'), u = app.globalData.url
+var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -12,10 +12,12 @@ Page({
     imagelist: [],
     imageshowlist: [],
     imgbase: "",
-    starSrc: "../../images/score.png",
+    starSrc: "../../../images/score.png",
     isFlag: 0,
     isFlag2: 0,
     isFlag3: 0,
+    isFlag4: 0,
+    isFlag5: 0,
     commentLength: 0,
     isNiming: 0,
     commentContent: '',
@@ -49,7 +51,6 @@ Page({
       wx.hideLoading();
       that.setData({
         commentOrder: res.data,
-
       })
       console.log(res.data)
     })
@@ -118,8 +119,16 @@ Page({
       isFlag3: e.currentTarget.dataset.index
     })
   },
-
-
+  changeStar4: function (e) {
+    this.setData({
+      isFlag4: e.currentTarget.dataset.index
+    })
+  },
+  changeStar5: function (e) {
+    this.setData({
+      isFlag5: e.currentTarget.dataset.index
+    })
+  },
 
   textareaInput: function (e) {
     this.setData({
@@ -153,17 +162,17 @@ Page({
         that.setData({
           imgbase: wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
         })
-        var url = app.globalData.url + '/api/Index/uploadImg'
+        var url = u + '/api/Index/uploadImg'
         var data = {
           img_str: 'data:image/png;base64,' + that.data.imgbase + '',
           path: 'comment'
         }
-        myrequest.post(url, data, 'POST').then(function (res) {
+        r.req(url, data, 'POST').then(function (res) {
           if (that.data.imagelist.length < 3) {
             that.data.imagelist.push(
               res.data.pic
             )
-            that.data.imageshowlist.push('http://lvcheng.123bingo.cn' + res.data.pic)
+            that.data.imageshowlist.push('http://www.heyanghui.com' + res.data.pic)
             that.setData({
               imagelist: that.data.imagelist,
               imageshowlist: that.data.imageshowlist
@@ -202,3 +211,5 @@ Page({
       }
     })
   }
+
+})

@@ -169,17 +169,17 @@ Page({
         that.setData({
           imgbase: wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
         })
-        var url = app.globalData.url + '/api/Index/uploadImg'
+        var url = u + '/api/Index/uploadImg'
         var data = {
           img_str: 'data:image/png;base64,' + that.data.imgbase + '',
           path: 'comment'
         }
-        myrequest.post(url, data, 'POST').then(function (res) {
+        r.req(url, data, 'POST').then(function (res) {
           if (that.data.imagelist.length < 3) {
             that.data.imagelist.push(
               res.data.pic
             )
-            that.data.imageshowlist.push('http://lvcheng.123bingo.cn' + res.data.pic)
+            that.data.imageshowlist.push('http://www.heyanghui.com' + res.data.pic)
             that.setData({
               imagelist: that.data.imagelist,
               imageshowlist: that.data.imageshowlist

@@ -6,87 +6,133 @@
   </view>
 
 
+<view class="score_box">
+  <view class="score">
+    <text style="margin-right:20rpx;">效果指数</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+    <image class="star" src="{{ isFlag>=0 ? '../../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=1 ? '../../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=2 ? '../../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=3 ? '../../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=4 ? '../../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar">
+    </image>
+    <text class="pingyu">{{isFlag==0?'差':isFlag==1?'及格':isFlag==2?'中等':isFlag==3?'良好':isFlag==4?'优秀':''}}</text>
+  </view>
 
   <view class="score">
-    <text style="margin-right:20rpx;">整体评论</text>
+    <text style="margin-right:20rpx;">安全指数</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+    <image class="star" src="{{ isFlag2>=0 ? '../../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=1 ? '../../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=2 ? '../../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=3 ? '../../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=4 ? '../../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar2">
+    </image>
+    <text class="pingyu">{{isFlag2==0?'差':isFlag2==1?'及格':isFlag2==2?'中等':isFlag2==3?'良好':isFlag2==4?'优秀':''}}</text>
+  </view>
+
+  <view class="score">
+    <text style="margin-right:20rpx;">外观指数</text>
     <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
 
 
 
 
 
-    <image class="star" src="{{ isFlag>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar">
+    <image class="star" src="{{ isFlag3>=0 ? '../../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar3">
     </image>
 
-    <image class="star" src="{{ isFlag>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar">
+    <image class="star" src="{{ isFlag3>=1 ? '../../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar3">
     </image>
 
-    <image class="star" src="{{ isFlag>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar">
+    <image class="star" src="{{ isFlag3>=2 ? '../../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar3">
     </image>
 
-    <image class="star" src="{{ isFlag>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar">
+    <image class="star" src="{{ isFlag3>=3 ? '../../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar3">
     </image>
 
-    <image class="star" src="{{ isFlag>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar">
+    <image class="star" src="{{ isFlag3>=4 ? '../../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar3">
     </image>
-    <text class="pingyu">很好</text>
+    <text class="pingyu">{{isFlag3==0?'差':isFlag3==1?'及格':isFlag3==2?'中等':isFlag3==3?'良好':isFlag3==4?'优秀':''}}</text>
   </view>
 
-
-
-
-
-
-
   <view class="score">
-    <text style="margin-right:20rpx;">整体评论</text>
-    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
-
-
-
-
-    <image class="star" src="{{ isFlag2>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar2">
-    </image>
-
-    <image class="star" src="{{ isFlag2>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar2">
-    </image>
-
-    <image class="star" src="{{ isFlag2>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar2">
-    </image>
-
-    <image class="star" src="{{ isFlag2>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar2">
-    </image>
-
-    <image class="star" src="{{ isFlag2>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar2">
-    </image>
-    <text class="pingyu">很好</text>
-  </view>
-
-
-  <view class="score">
-    <text style="margin-right:20rpx;">整体评论</text>
+    <text style="margin-right:20rpx;">使用方便</text>
     <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
 
 
 
 
 
-    <image class="star" src="{{ isFlag3>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar3">
+    <image class="star" src="{{ isFlag4>=0 ? '../../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar4">
     </image>
 
-    <image class="star" src="{{ isFlag3>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar3">
+    <image class="star" src="{{ isFlag4>=1 ? '../../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar4">
     </image>
 
-    <image class="star" src="{{ isFlag3>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar3">
+    <image class="star" src="{{ isFlag4>=2 ? '../../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar4">
     </image>
 
-    <image class="star" src="{{ isFlag3>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar3">
+    <image class="star" src="{{ isFlag4>=3 ? '../../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar4">
     </image>
 
-    <image class="star" src="{{ isFlag3>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar3">
+    <image class="star" src="{{ isFlag4>=4 ? '../../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar4">
     </image>
-    <text class="pingyu">很好</text>
+    <text class="pingyu">{{isFlag4==0?'差':isFlag4==1?'及格':isFlag4==2?'中等':isFlag4==3?'良好':isFlag4==4?'优秀':''}}</text>
   </view>
+
+
+
+
+  <view class="score">
+    <text style="margin-right:20rpx;">描述相符</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+
+    <image class="star" src="{{ isFlag5>=0 ? '../../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar5">
+    </image>
+
+    <image class="star" src="{{ isFlag5>=1 ? '../../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar5">
+    </image>
+
+    <image class="star" src="{{ isFlag5>=2 ? '../../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar5">
+    </image>
+
+    <image class="star" src="{{ isFlag5>=3 ? '../../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar5">
+    </image>
+
+    <image class="star" src="{{ isFlag5>=4 ? '../../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar5">
+    </image>
+    <text class="pingyu">{{isFlag5==0?'差':isFlag5==1?'及格':isFlag5==2?'中等':isFlag5==3?'良好':isFlag5==4?'优秀':''}}</text>
+  </view>
+
+</view>
+
+
 
   <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" bindinput="textareaInput"></textarea>
   <view class="images">
@@ -95,18 +141,18 @@
     <!-- <image src="/images/choose_img.png" bindtap="addPhoto"></image> -->
 
 
-    <view class="images" bindtap="addPhoto">
+    <view bindtap="addPhoto">
       <image class="" src="/images/choose_img.png">
       </image>
 
     </view>
-
-
-    <view class="addImage  addImage2" wx:for="{{imageshowlist}}" wx:key='{{index}}'>
+    <!-- <view class="addImage" wx:for="{{imageshowlist}}" wx:key='{{index}}'>
       <image class="imgs" src="{{item}}" style="width: 100%;height:100%;margin: 0">
       </image>
-    </view>
-    <!-- <image class='imgs' src='{{item}}' wx:for='{{imgs}}'></image> -->
+    </view> -->
+
+    <image class='imgs' src='{{item}}' wx:for='{{imageshowlist}}'></image>
+
   </view>
 
   <view class="xingshi">
@@ -114,6 +160,7 @@
       <!-- <view class="niming" bindtap="checkanonymous" bindtap="changeIscheck" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;box-sizing:border-box'}}">
         <image wx:if="{{is_anonymous}}" src="/images/check_on.png"></image>
       </view> -->
+
 
 
       <view class="niming" bindtap="changeIscheck">
