@@ -188,13 +188,16 @@ Page({
     r.req(u + '/api/Order/commentOrder', {
       order_goods_id: that.data.order_goods_id,
       order_no: that.data.order_no,
-      desc_star: parseInt(this.data.isFlag) + 1,
+      desc_star: parseInt(this.data.isFlag5) + 1,    //描述
       content: this.data.commentContent,
       slide_img: this.data.imagelist,
       is_name: this.data.isNiming,
-      quality_star: parseInt(this.data.isFlag2) + 1,
-      service_star: parseInt(this.data.isFlag3) + 1,
+      quality_star: parseInt(this.data.isFlag) + 1,    //效果
+      service_star: parseInt(this.data.isFlag3) + 1,    //外观
+      safe_star: parseInt(this.data.isFlag2) + 1,      //安全
 
+      use_star: parseInt(this.data.isFlag4) + 1,      //使用
+   
       token: wx.getStorageSync('token')
     }, 'post').then((res) => {
       console.log(res)

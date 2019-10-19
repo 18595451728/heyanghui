@@ -77,13 +77,30 @@ Page({
   },
 
   // 添加评论
-  addevaluation: function () {
-    app.globalData.commentNo = e.currentTarget.dataset.orderno,
-      app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
+  // addevaluation: function () {
+  //   app.globalData.commentNo = e.currentTarget.dataset.orderno,
+  //     app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
+  //     wx.navigateTo({
+  //       url: '/pages/addcomment/index',
+  //     })
+  // },
+
+
+  addevaluation: function (e) {
+
+    if (e.currentTarget.dataset.type == 2) {
       wx.navigateTo({
-        url: '/pages/addcomment/index',
+        url: '/pages/addcomment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
       })
+    } else {
+      wx.navigateTo({
+        url: '/pages/pay/Comment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
+      })
+    }
+
+
   },
+
   // 去付款
   payOrder: function (e) {
     var order = e.currentTarget.dataset.no
@@ -144,6 +161,8 @@ Page({
       url: '/pages/userserver/index?ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
     })
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
