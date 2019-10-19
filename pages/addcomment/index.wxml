@@ -99,7 +99,7 @@
     <!-- <image src="/images/choose_img.png" bindtap="addPhoto"></image> -->
 
 
-    <view class="images" bindtap="addPhoto">
+    <view bindtap="addPhoto">
       <image class="" src="/images/choose_img.png">
       </image>
 
