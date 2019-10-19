@@ -2,7 +2,7 @@
 <view style='height:100vh;'>
     <view class='tab'>
       <view>
-        <text bindtap="return">{{tip}}</text>
+        <text bindtap="return" style="color:{{tip=='确定' ? 'red' : ''}}">{{tip}}</text>
       </view>
     </view>
     <scroll-view scroll-y class='list'>

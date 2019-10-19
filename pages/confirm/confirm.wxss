@@ -248,3 +248,6 @@ page{
   background: #ea4b43;
   font-size: 30rpx;
 }
+.jifen{
+  height:auto;
+}

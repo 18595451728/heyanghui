@@ -18,7 +18,7 @@
 
   <view class='menmber_box'>
     <view class="textarea_box">
-      <textarea placeholder-class='textarea-text' placeholder="您可以投诉吐槽我们或者提供一些建议与看法！">
+      <textarea placeholder-class='textarea-text' placeholder="您可以投诉吐槽我们或者提供一些建议与看法！" bindblur="suggest">
       </textarea>
       <text class="num_word">0/1000</text>
     </view>
@@ -52,7 +52,7 @@
   </view>
 
 
-  <view class="feedback">提交</view>
+  <view class="feedback" bindtap="submit">提交</view>
 
 
 </view>

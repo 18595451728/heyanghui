@@ -9,7 +9,9 @@ Page({
   data: {
     hasaddress: !0,
     currenCoupon:'',
-    jine:''
+    jine:'',
+    user:'',
+    isChoose:false
   },
 
   /**
@@ -34,6 +36,7 @@ Page({
         cart_type: cart_type,
         coupon_list: res.data.coupon_list,
         integral_exchange: res.data.integral_exchange,
+        integral_one_buy:res.data.integral_one_buy,
         realpay:allprice.toFixed(2),
         jine:allprice.toFixed(2)
       })
@@ -42,6 +45,8 @@ Page({
     
 
     })
+
+    this.getinfo();
   },
   remark: function (e) {
     console.log(e.detail.value)
@@ -51,7 +56,7 @@ Page({
   },
   sendOrder: function () {
     var t = this
-    console.log(this.data.address)
+    console.log(t.data.currenCoupon.cou_id)
     if(!this.data.address){
       wx.showToast({
         title: '请先选择收货地址',
@@ -63,7 +68,10 @@ Page({
       address_id: this.data.address.id, 
       token: wx.getStorageSync('token'), 
       source: 0, 
-      remark: this.data.remark 
+      remark: this.data.remark,
+      pay_integral:t.data.isChoose==true ? parseInt(t.data.integral_one_buy) : 0,
+      coupon_id:t.data.currenCoupon.cou_id
+
     }, 'post').then((res) => {
       console.log(res)
       var order_no = res.data.order_no
@@ -176,6 +184,16 @@ Page({
   onShareAppMessage: function () {
 
   },
+  getinfo:function(){
+    var t = wx.getStorageSync('token'),that=this
+    r.req(u + '/api/User/userInfo', {
+      token: t
+    }, 'post').then(res => {
+      that.setData({
+        user:res.data.user
+      })
+    })
+  },
   address: function () {
     wx.setStorageSync('chooseaddress', !0)
     wx.navigateTo({
@@ -204,9 +222,10 @@ Page({
   },
   getPrice(){
     let that=this;
+    console.log(that.data.isChoose)
     r.req(u + '/api/Order/orderBuy', { 
       token:wx.getStorageSync('token'),
-      pay_integral:that.data.integral_exchange,
+      pay_integral:that.data.isChoose==true ? parseInt(that.data.integral_one_buy) : 0,
       coupon_id:that.data.currenCoupon.cou_id,
       address_id:that.data.address.id,
       cart_type:1
@@ -216,6 +235,13 @@ Page({
         realpay:res.data.order_amount
       })
     })
+  },
+  changeChoose(e){
+    console.log(e.detail.value)
+      this.setData({
+        isChoose:e.detail.value
+      })
+      this.getPrice();
   }
 
 })

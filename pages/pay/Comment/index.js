@@ -172,7 +172,8 @@ Page({
             that.data.imagelist.push(
               res.data.pic
             )
-            that.data.imageshowlist.push('http://www.heyanghui.com' + res.data.pic)
+
+            that.data.imageshowlist.push(u + res.data.pic)
             that.setData({
               imagelist: that.data.imagelist,
               imageshowlist: that.data.imageshowlist
@@ -209,7 +210,13 @@ Page({
           })
         }, 1000)
       }
+      
     })
   }
+<<<<<<< HEAD
 
 })
+=======
+})
+
+>>>>>>> fb088f06729a8746690043c0e7d8b459ad5a4670

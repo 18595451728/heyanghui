@@ -1,4 +1,6 @@
 // pages/service_centre/index.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   goMember: function(event) {
@@ -73,5 +75,6 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+ 
 })

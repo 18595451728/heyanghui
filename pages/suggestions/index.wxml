@@ -1,24 +1,16 @@
 <!--pages/suggestions/index.wxml-->
 <view class="sugges_page">
   <view class="sugges_box">
-    <view class="list_sugges">
+    <view class="list_sugges" wx:for="{{list}}">
       <view class="describe">
-        <text>您的描述</text>
-        <text class="time">2019.08.23 18:23</text>
+        <text>我</text>
+        <text class="time">{{item.create_time}}</text>
       </view>
 
-      <text class="des_content">我退货成功的衣服什么时候可以把钱推给我！！!</text>
-      <view class="button_solue">商家暂未回复</view>
+      <text class="des_content">{{item.msg}}</text>
+      <view class="button_solue">{{item.reply==null ? '商家暂未回复' : item.reply}}</view>
     </view>
-    <view class="list_sugges">
-      <view class="describe">
-        <text>您的描述</text>
-        <text class="time">2019.08.23 18:23</text>
-      </view>
-
-      <text class="des_content">我退货成功的衣服什么时候可以把钱推给我！！!</text>
-      <view class="button_solue">正在处理，请您稍等1-2小时</view>
-    </view>
+    <view class="more">{{tip}}</view>
 
   </view>
   <view class="feedback" bindtap="goFeedback">立即反馈</view>
