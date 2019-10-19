@@ -1,4 +1,4 @@
-const app = getApp()
+const app = getApp(),u=app.globalData.url,r=require('../../../utils/request.js')
 Page({
 
   /**
@@ -40,6 +40,13 @@ Page({
       })
 
     }
+    // if (index == 3) {
+    //   this.setData({
+    //     sorts: this.data.sorts == '5' ? '6' : '5',
+    //     showpp: false,
+    //   })
+
+    // }
     if (index == 3) {
       this.setData({
         sorts: this.data.sorts == '5' ? '6' : '5',
@@ -47,21 +54,38 @@ Page({
       })
 
     }
-    if (index == 4) {
-      this.setData({
-        sorts: this.data.sorts == '7' ? '8' : '7',
-        showpp: false,
-      })
 
-    }
+    this.getgoodlist();
   },
-
+  getgoodlist: function () {
+    var that = this
+    r.req(u + '/api/Goods/goodsList', {
+      list_row: 10,
+      page: 1,
+      sorts: this.data.sorts
+    }, 'post').then(function (res) {
+      console.log(res)
+      that.setData({
+        goodslist: res.data.list
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that= this
+    r.req(u +'/api/Goods/goodsList',{
+      list_row:10,
+      page:1,
+      is_auidt:1
+    },'post').then(res=>{
+      console.log(res)
+      that.setData({
+        goodslist:res.data.list
+      })
+    })
   },
 
   /**
@@ -104,8 +128,9 @@ Page({
     })
   },
   goodsdetail: function (e) {
+    var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/shopDetail/shopDetail',
+      url: '/pages/details/details?id='+id,
     })
   }
 })

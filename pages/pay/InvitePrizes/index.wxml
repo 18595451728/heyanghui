@@ -11,7 +11,7 @@
     </view>
 
     <view class="InvitePrizes_main_three">
-       <view>邀请好友</view>
+       <button open-type='share'>邀请好友</button>
        <view>发送朋友圈</view>
     </view>
 

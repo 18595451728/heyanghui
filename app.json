@@ -1,7 +1,7 @@
 {
   "pages": [
 
-    
+    "pages/details/details",
         "pages/mine/mine",
     "pages/fenxiao/index",
       "pages/supplier/backmsg_success/index",

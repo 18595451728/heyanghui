@@ -1,3 +1,5 @@
+@import "../../wxParse/wxParse.wxss";
+
 page {
   background-color: #f0f1f4;
 }
@@ -20,8 +22,18 @@ page {
   font-weight: 500;
   color: rgba(119, 119, 119, 1);
   line-height: 35rpx;
+  padding: 0 50rpx 50rpx;
+  box-sizing: border-box;
+  
 }
-
+.content>view{
+  overflow-y: scroll;
+}
+.content>view::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
 .title {
   font-size: 30rpx;
   font-family: PingFangSC;
@@ -30,7 +42,14 @@ page {
   margin-top: 74rpx;
   margin-bottom: 71rpx;
 }
-
+.wxParse-p{
+  font-size: 26rpx;
+  color: #777;
+  line-height: 45rpx;
+}
+.wxParse-p:nth-child(2n){
+  margin-bottom: 30rpx;
+}
 .msgitem{
   width: 500rpx;
   display: flex;

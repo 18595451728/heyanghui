@@ -1,4 +1,7 @@
 // pages/volunteermsg/backmsg/index.js
+const app = getApp(),
+  u = app.globalData.url,
+  r = require('../../../utils/request.js')
 Page({
 
   /**
@@ -12,7 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    r.req(u +'/api/User/volunteerStatus',{token:wx.getStorageSync('token')},'post').then(res=>{
+      console.log(res.data.audit_status)
+      var status = res.data.audit_status
+      status == 0 ? that.setData({ status: '审核中' }) : status == 1 ? that.setData({ status: '已通过' }) : that.setData({ status: '已驳回' })
+    })
   },
 
   /**
