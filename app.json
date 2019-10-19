@@ -1,11 +1,13 @@
 {
   "pages": [
+
+    "pages/tabbar/home/index",
         "pages/mine/mine",
     "pages/fenxiao/index",
       "pages/supplier/backmsg_success/index",
         "pages/supplier/backmsg/index",
         "pages/supplier/index",
-    "pages/tabbar/home/index",
+    
    
     "pages/wuliu/index",
 

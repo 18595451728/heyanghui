@@ -21,10 +21,10 @@ Page({
   onLoad: function (options) {
     var that = this,id=options.id,share=options.share,sharetoken=options.token,token=wx.getStorageSync('token')
     if(share){
-      wx.setStorageSync('sharetoken', sharetoken)
+      
     }
     var d = { goods_id: id, token: wx.getStorageSync('token') }
-    share ? token ? d = { goods_id: id, token: wx.getStorageSync('token'), c_token: sharetoken}:'':''
+    share ? token ? d = { goods_id: id, token: wx.getStorageSync('token'), c_token: sharetoken } : wx.setStorageSync('sharetoken', sharetoken):''
     console.log(options,id)
       that.setData({
         goodsid:id
