@@ -1,4 +1,4 @@
-const app = getApp(),u=app.globalData.url,r=require('../../../utils/request.js')
+const app = getApp(), u = app.globalData.url, r = require('../../../utils/request.js')
 Page({
 
   /**
@@ -74,16 +74,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    var that= this
-    r.req(u +'/api/Goods/goodsList',{
-      list_row:10,
-      page:1,
-      is_auidt:1
-    },'post').then(res=>{
+  onLoad: function (options) {
+    var that = this
+    r.req(u + '/api/Goods/goodsList', {
+      list_row: 10,
+      page: 1,
+      is_auidt: 1
+    }, 'post').then(res => {
       console.log(res)
       that.setData({
-        goodslist:res.data.list
+        goodslist: res.data.list
       })
     })
   },
@@ -91,38 +91,38 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     app.editTabbar();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
-  gotobuy:function(){
+  gotobuy: function () {
     wx.navigateTo({
       url: '/pages/confirm/confirm',
     })
@@ -130,7 +130,7 @@ Page({
   goodsdetail: function (e) {
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/details/details?id='+id,
+      url: '/pages/details/details?id=' + id,
     })
   }
 })

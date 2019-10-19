@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+
   },
 
   /**
@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    r.req(u + '/api/Index/volunteerInfo', { token: wx.getStorageSync('token') },  'post').then(res => {
+    r.req(u + '/api/Index/volunteerInfo', { token: wx.getStorageSync('token') }, 'post').then(res => {
       console.log(res)
       that.setData({
         contentbox: res.data.content
@@ -23,7 +23,7 @@ Page({
       WxParse.wxParse('article', 'html', res.data.content, that, 0);
 
       console.log(res.data.content)
-  })
+    })
   },
 
   /**
@@ -74,8 +74,8 @@ Page({
   onShareAppMessage: function () {
 
   },
-  agree:function(){
-    r.req(u + '/api/User/volunteerStatus', { token:wx.getStorageSync('token')},'post').then(res=>{
+  agree: function () {
+    r.req(u + '/api/User/volunteerStatus', { token: wx.getStorageSync('token') }, 'post').then(res => {
       var status = res.data.audit_status
       console.log(res)
       status == -1 ? wx.navigateTo({
@@ -84,6 +84,6 @@ Page({
         url: '/pages/volunteermsg/backmsg/index'
       })
     })
-    
+
   }
 })

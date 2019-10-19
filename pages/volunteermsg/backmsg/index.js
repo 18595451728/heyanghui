@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    r.req(u +'/api/User/volunteerStatus',{token:wx.getStorageSync('token')},'post').then(res=>{
+    r.req(u + '/api/User/volunteerStatus', { token: wx.getStorageSync('token') }, 'post').then(res => {
       console.log(res.data.audit_status)
       var status = res.data.audit_status
       status == 0 ? that.setData({ status: '审核中' }) : status == 1 ? that.setData({ status: '已通过' }) : that.setData({ status: '已驳回' })
@@ -71,7 +71,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  gotohome:function(){
+  gotohome: function () {
     wx.switchTab({
       url: '/pages/home/index',
     })
