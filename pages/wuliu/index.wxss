@@ -84,7 +84,7 @@
 
 .item_one {
   height: 100%;
-  width: 80rpx;
+  width: 150rpx;
   display: flex;
   flex-direction: column;
   align-items: center;

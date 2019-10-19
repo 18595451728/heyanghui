@@ -11,6 +11,9 @@ Page({
     sexindex:0,
     region: [],
     date: '',
+<<<<<<< HEAD
+    user:''
+=======
     user:'',
     imgbase:'',
     provinceName:'',
@@ -20,14 +23,25 @@ Page({
     province_id:'',
     city_id:'',
     district_id:''
+>>>>>>> ebb68081e5634e402f291c3acd95f5a964d82374
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+<<<<<<< HEAD
+    var that =this
+    r.req(u + '/api/User/userInfo', { token:wx.getStorageSync('token')},'post').then(res=>{
+      console.log(res)
+      that.setData({
+        user:res.data.user
+      })
+    })
+=======
 
 
+>>>>>>> ebb68081e5634e402f291c3acd95f5a964d82374
   },
 
   /**

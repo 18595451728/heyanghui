@@ -1,7 +1,8 @@
 <view class="content">
   <text class="title">志愿者申请须知</text>
-  <view wx:for="{{msg}}" class="msgitem">
-    <text>一、登记资料及产品安装 </text>
+  <view class="msgitem">
+    <text>{{contentbox}}</text>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     <text>1.1 乙方须据实填写《用户入网登记表》，并保证所提供的入网资料真实、准确。 </text>
   </view>
 </view>

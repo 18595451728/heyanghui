@@ -1,18 +1,29 @@
 // pages/volunteer/index.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     msg:["","","",""]
+   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    r.req(u + '/api/Index/volunteerInfo', { token: wx.getStorageSync('token') },  'post').then(res => {
+      console.log(res)
+      that.setData({
+        contentbox: res.data.content
+      })
+      WxParse.wxParse('article', 'html', res.data.data.about_1.content, that, 0);
 
+      console.log(res.data.content)
+  })
   },
 
   /**

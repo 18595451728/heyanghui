@@ -1,5 +1,5 @@
 <view class="content">
-  <view class="wuliu" bindtap="goLogistics" data-orderno="{{order.order_no}}" wx:if="{{order.order_btn.cancel_btn!=0}}">
+  <view class="wuliu" bindtap="goLogistics" data-orderno="{{order.order_no}}" wx:if="{{order.order_btn.shipping_btn==1}}">
     <image src="/images/wuliu.png"></image>
     <view class="wuliumsg">
       <text>卖家已发货</text>

@@ -19,16 +19,16 @@ Page({
         status: 1
       },
       {
+        name: "待发货",
+        status: 2
+      },
+      {
         name: "待收货",
         status: 3
       },
       {
         name: "待评价",
         status: 4
-      },
-      {
-        name: "退款维权",
-        status: 6
       },
 
     ],
@@ -166,6 +166,12 @@ Page({
     })
     this.onReady();
   },
+  // 查看物流
+  see_wuliu: function (event) {
+    wx.navigateTo({
+      url: '/pages/wuliu/index?orderno=' + event.currentTarget.dataset.orderno
+    })
+  }, 
   // 取消订单
   cancelOrder: function (e) {
     var that = this
@@ -256,11 +262,11 @@ Page({
     })
   },
 // 添加评论
-  addevaluation:function(){
-    app.globalData.commentNo = e.currentTarget.dataset.orderno,
-    app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
+  addevaluation:function(e){
+    // app.globalData.commentNo = e.currentTarget.dataset.orderno,
+    // app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
     wx.navigateTo({
-      url: '/pages/addcomment/index',
+      url: '/pages/addcomment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
     })
   },
  

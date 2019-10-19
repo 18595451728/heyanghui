@@ -1,23 +1,126 @@
 <view class="content">
   <view class="goods">
-    <image src="/images/goodsimg.png"></image>
-    <text class="goodstitle">九蒸九晒黑芝麻丸 | 道家制造工艺，手作辟谷蜜丸。</text>
+    <image src="{{commentOrder.goods_pic}}"></image>
+    <text class="goodstitle">{{commentOrder.goods_name}}</text>
   </view>
+
+
+
   <view class="score">
     <text style="margin-right:20rpx;">整体评论</text>
-    <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen'></image>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+
+    <image class="star" src="{{ isFlag>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar">
+    </image>
+
+    <image class="star" src="{{ isFlag>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar">
+    </image>
     <text class="pingyu">很好</text>
   </view>
-  <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" bindblur='evaluate'></textarea>
-  <view class="images">
-    <image src="/images/choose_img.png" bindtap='addimg'></image>
-    <image class='imgs' src='{{item}}' wx:for='{{imgs}}'></image>
+
+
+
+
+
+
+
+  <view class="score">
+    <text style="margin-right:20rpx;">整体评论</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+    <image class="star" src="{{ isFlag2>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar2">
+    </image>
+
+    <image class="star" src="{{ isFlag2>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar2">
+    </image>
+    <text class="pingyu">很好</text>
   </view>
+
+
+  <view class="score">
+    <text style="margin-right:20rpx;">整体评论</text>
+    <!-- <image wx:for="{{scores}}" src="{{index<score?'/images/score_on.png':'/images/score.png'}}" data-index='{{index}}' bindtap='dafen' bindtap="changeStar"></image> -->
+
+
+
+
+
+    <image class="star" src="{{ isFlag3>=0 ? '../../images/score_on.png' :starSrc }}" data-index="0" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=1 ? '../../images/score_on.png' :starSrc }}" data-index="1" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=2 ? '../../images/score_on.png' :starSrc }}" data-index="2" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=3 ? '../../images/score_on.png' :starSrc }}" data-index="3" bindtap="changeStar3">
+    </image>
+
+    <image class="star" src="{{ isFlag3>=4 ? '../../images/score_on.png' :starSrc }}" data-index="4" bindtap="changeStar3">
+    </image>
+    <text class="pingyu">很好</text>
+  </view>
+
+  <textarea placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" bindinput="textareaInput"></textarea>
+  <view class="images">
+
+
+    <!-- <image src="/images/choose_img.png" bindtap="addPhoto"></image> -->
+
+
+    <view class="images" bindtap="addPhoto">
+      <image class="" src="/images/choose_img.png">
+      </image>
+
+    </view>
+
+
+    <view class="addImage  addImage2" wx:for="{{imageshowlist}}" wx:key='{{index}}'>
+      <image class="imgs" src="{{item}}" style="width: 100%;height:100%;margin: 0">
+      </image>
+    </view>
+    <!-- <image class='imgs' src='{{item}}' wx:for='{{imgs}}'></image> -->
+  </view>
+
   <view class="xingshi">
     <view class="checkitem">
-      <view class="niming" bindtap="checkanonymous" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;box-sizing:border-box'}}">
+      <!-- <view class="niming" bindtap="checkanonymous" bindtap="changeIscheck" style="{{is_anonymous?'':'border:1rpx solid #999;border-radius: 50%;box-sizing:border-box'}}">
         <image wx:if="{{is_anonymous}}" src="/images/check_on.png"></image>
+      </view> -->
+
+
+      <view class="niming" bindtap="changeIscheck">
+        <image class="" src="{{isCheck==true ? '/images/gous.png' : '/images/check_on.png' }}" style="width: 100%;height:100%">
+
+        </image>
       </view>
+
       <text>匿名</text>
     </view>
     <text style="color:#9F9F9F">你写的评论会以匿名的形式展现</text>
@@ -25,6 +128,6 @@
 </view>
 <view class="kongxi">
 </view>
-<view class="bto" bindtap='bto'>
+<view class="bto" bindtap='submit'>
   发布
 </view>

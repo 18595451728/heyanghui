@@ -1,22 +1,23 @@
 <view class="header">
   <view class="header_one">
-    <image class="icon1" src="/images/wuliu_icon1.png"></image>
+    <image class="icon1" src="{{expressList.express_logo}}"></image>
     <view class="headermsg">
-      <text>承运公司</text>
-      <text class="name">顺丰快递</text>
+      <!-- <text>承运公司</text> -->
+      <text class="name">{{expressList.express_name}}</text>
     </view>
   </view>
   <view class="header_two">
-    <image class="icon2" src="/images/wuliu_icon2.png"></image>
+    <image class="icon2" src="/images/wuliu_icon2.png" data-tel="{{expressList.express_tel}}" mode='widthFix' bindtap="tapTel"></image>
     <image class="icon5" src="/images/wuliu_icon5.png"></image>
   </view>
 </view>
 <view class="msg">
   <text class="title">物流状态</text>
-  <view class="msgitem" wx:for="{{list}}">
+
+  <view class="msgitem" wx:for="{{express_data}}">
     <view class="item_one">
-      <text>07-17</text>
-      <text>20:05</text>
+      <text>{{item.AcceptTime}}</text>
+      <!-- <text>20:05</text> -->
     </view>
     <view class="item_two">
       <view class="yuandian" style="{{index==0||index==1?'background-color:#f7bdba;':'background: rgba(223, 223, 223, 1);'}}">
@@ -26,11 +27,15 @@
       </view>
     </view>
     <view class="item_three" style="{{index==0||index==1?'color:#EB544D':''}}">
-      <text>派送中</text>
-      <text class="msgcontent">[菜鸟驿站]您已在杭州，正在派送</text>
+      <!-- <text>派送中</text> -->
+      <text class="msgcontent">{{item.AcceptStation}}</text>
     </view>
+  
   </view>
+
+
+
 </view>
-<view class="bto">
+<view class="bto" bindtap="sureOrder" data-orderno="{{item.order_no}}">
   确定收货
 </view>

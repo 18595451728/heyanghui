@@ -1,4 +1,6 @@
 // pages/userserver/index.js
+const app = getApp()
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
