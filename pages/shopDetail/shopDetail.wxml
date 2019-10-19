@@ -174,7 +174,7 @@
   <view class="dibu_guige_top">
     <view class="dibu_guige_top1">
       <view class="dibu_guige_top11">
-        <image class="" src="{{thumbpic  || '/images/zanwu.jpg'}}">
+        <image class="" src="{{thumbpic  || list.goods_logo}}">
 
         </image>
       </view>

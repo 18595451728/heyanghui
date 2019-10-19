@@ -60,19 +60,29 @@ Page({
   // 取消订单
   cancelOrder: function (e) {
     var that = this
-    r.req(u + '/api/Order/cancelOrder', {
-      order_no: e.currentTarget.dataset.orderno,
-      token: wx.getStorageSync('token')
-    }, 'post').then((res) => {
-      wx.hideLoading();
-      wx.showModal({
-        title: '取消成功',
-        icon: 'success',
-        duration: 1000
-      })
-      that.onReady();
-      console.log(data)
+
+
+    wx.showModal({
+      title: '提示',
+      content: '确定取消',
+      success:function(rs){
+        if(rs.confirm){
+          console.log(1111)
+          r.req(u + '/api/Order/cancelOrder', {
+            order_no: e.currentTarget.dataset.orderno,
+            token: wx.getStorageSync('token')
+          }, 'post').then((res) => {
+            console.log(res)
+            if(res.status==1){
+              wx.navigateBack({
+                
+              })
+            }
+          })
+        }
+      }
     })
+
 
   },
 
