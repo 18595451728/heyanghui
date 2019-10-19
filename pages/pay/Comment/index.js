@@ -1,6 +1,6 @@
 // pages/pay/Comment/index.js
 const app = getApp()
-var r = require('../../utils/request.js'), u = app.globalData.url
+var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -163,7 +163,7 @@ Page({
             that.data.imagelist.push(
               res.data.pic
             )
-            that.data.imageshowlist.push('http://lvcheng.123bingo.cn' + res.data.pic)
+            that.data.imageshowlist.push(u + res.data.pic)
             that.setData({
               imagelist: that.data.imagelist,
               imageshowlist: that.data.imageshowlist
@@ -200,5 +200,10 @@ Page({
           })
         }, 1000)
       }
+      
     })
   }
+})
+
+
+  
