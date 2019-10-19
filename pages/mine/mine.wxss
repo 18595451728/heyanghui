@@ -217,3 +217,28 @@ page {
   width: 25rpx;
   height: 26rpx
 }
+.login{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #eb544d;
+  font-size: 26rpx;
+  float: right;
+  color:#fff;
+  margin-left: 200rpx;
+  margin-bottom: 20rpx;
+  
+
+}
+.bottom{
+  display: inline-block;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #eb544d;
+  font-size: 26rpx;
+  float: right;
+  color:#fff;
+}

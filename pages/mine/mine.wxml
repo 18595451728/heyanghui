@@ -1,6 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <view class="top">
   <image src="/images/minebg.jpg" class="minebg"></image>
+
   <view class="t-con" wx:if='{{haslogin}}'>
     <image src="{{user.head_img}}" class="headimg"></image>
     <view class="usermes" >
@@ -9,10 +10,26 @@
     </view>
     
   </view>
+
+
   <view class="t-con" wx:else>
-      <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button>
+      <image src="/images/head.jpg" class="headimg"></image>
+      <view class="usermes" >
+        <view>游客</view>
+      </view>  
+      <view class="login">
+
+          <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">登录</button>
+      </view>
     </view>
+      <!-- <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button> -->
+
+    
 </view>
+
+
+
+
 <view class="u-top">
   <view data-id="0" bindtap="myintegral">
     <text>{{user.integral || 0}}</text>
