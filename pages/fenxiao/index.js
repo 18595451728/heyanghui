@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    u:u,
     type: ["今日收益", "昨日收益", "全部收益"],
     selectindex: 0,
     list:[],
