@@ -13,7 +13,7 @@
     </view>
   </view>
   <view class="item">
-    <text class="title">手机号</text>
+    <text class="title">手机号手机号</text>
     <view class="itemmsg">
       <input type="number" placeholder="{{user.telephone}}" bindblur="inputTel" maxlength="11"></input>
     </view>
