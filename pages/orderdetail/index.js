@@ -86,9 +86,34 @@ Page({
   },
   // 去付款
   payOrder: function (e) {
-    wx.navigateTo({
-      url: '/pages/confirm/confirm?orderid=' + e.currentTarget.dataset.orderno,
+    var order = e.currentTarget.dataset.no
+    r.req(u + '/api/pay/toPay', {
+      token: wx.getStorageSync('token'),
+      order_no: e.currentTarget.dataset.orderno
+    }, 'post').then(function (res) {
+      console.log(res)
+      r.req(u + '/api/Pay/wxPay', {
+        order_no: e.currentTarget.dataset.orderno,
+        token: wx.getStorageSync('token')
+      }, 'post').then(re => {
+        console.log(re)
+        wx.requestPayment({
+          timeStamp: re.data.timeStamp.toString(),
+          nonceStr: re.data.nonceStr,
+          package: re.data.package,
+          signType: re.data.signType,
+          paySign: re.data.paySign,
+          success: function (cc) {
+            console.log(cc)
+          }
+        })
+      })
     })
+    // wx.navigateTo({
+    //   url: '/pages/confirm/confirm?orderid=' + e.currentTarget.dataset.orderno,
+    // })
+
+
   },
 
   // 确认收货

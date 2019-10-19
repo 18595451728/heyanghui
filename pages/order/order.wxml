@@ -21,7 +21,7 @@
           <view class="o-con">
             <view class="o-name">{{item2.goods_name}}</view>
             <view class="o-mes">
-              <view class="intro">古法秘制，补肾食疗。</view>
+              <view class="intro">{{item2.goods_desc}}</view>
               <view class="num">X{{item2.goods_num}}</view>
               <view class="price">合计：
                 <text>{{item2.goods_price}}</text>

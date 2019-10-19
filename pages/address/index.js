@@ -161,5 +161,11 @@ Page({
       });
       console.log(res.data.list);
     })
-  }
+  },
+  inputName(e){
+    this.setData({
+
+    })
+  },
+
 })

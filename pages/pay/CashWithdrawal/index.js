@@ -1,4 +1,6 @@
 // pages/pay/CashWithdrawal/index.js
+const app = getApp()
+var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -67,5 +69,6 @@ Page({
     wx.reLaunch({
       url: '/pages/mine/mine',
     })
-  }
+  },
+
 })

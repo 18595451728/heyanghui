@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 23,
 			"list": [
 				{
 					"id": -1,
@@ -201,6 +201,12 @@
 					"name": "志愿者",
 					"pathName": "pages/volunteer/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分销",
+					"pathName": "pages/fenxiao/index",
 					"scene": null
 				}
 			]

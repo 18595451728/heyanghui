@@ -135,28 +135,33 @@ page {
   color: #373737;
   margin-top: 10rpx;
 }
-
-.o1 {
+.msgitem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.msgitem:nth-child(1) image {
   width: 52rpx;
   height: 49rpx;
 }
 
-.o2 {
+.msgitem:nth-child(2) image {
   width: 48rpx;
   height: 42rpx;
 }
 
-.o3 {
+.msgitem:nth-child(3) image {
   width: 46rpx;
   height: 51rpx;
 }
 
-.o4 {
+.msgitem:nth-child(4) image {
   width: 50rpx;
   height: 43rpx;
 }
 
-.o5 {
+.msgitem:nth-child(5) image {
   width: 44rpx;
   height: 42rpx;
 }

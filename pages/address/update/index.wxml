@@ -1,27 +1,27 @@
 <view class="content">
   <view class="item">
     <text class="title">头像</text>
-    <view class="itemmsg">
-      <image class="defaultlogo" src="/images/default_logo.png"></image>
+    <view class="itemmsg" >
+      <image class="defaultlogo" bindtap="chooseImg" src="{{user.head_img}}"></image>
       <image class="right" src="/images/right.png"></image>
     </view>
   </view>
   <view class="item">
     <text class="title">姓名</text>
     <view class="itemmsg">
-      <input placeholder="请填写姓名"></input>
+      <input placeholder="{{user.nickname}}" bindblur="inputName" maxlength="12"></input>
     </view>
   </view>
   <view class="item">
     <text class="title">手机号</text>
     <view class="itemmsg">
-      <input type="number" placeholder="请填写手机号"></input>
+      <input type="number" placeholder="{{user.telephone}}" bindblur="inputTel" maxlength="11"></input>
     </view>
   </view>
   <view class="item">
     <text class="title">性别</text>
     <view class="itemmsg">
-      <picker class="sexpick" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker class="sexpick" bindchange="bindPickerChange"  range="{{array}}">
         <view>
           {{array[sexindex]}}
         </view>
@@ -51,7 +51,7 @@
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
         <view class="picker">
           <block wx:if="{{region.length>0}}">
-            {{region[0]}}，{{region[1]}}，{{region[2]}}
+            {{provinceName}}，{{cityName}}，{{districtName}}
           </block>
           <block wx:else>
             请选择
@@ -64,10 +64,10 @@
   <view class="item">
     <text class="title">详细地址</text>
     <view class="itemmsg">
-      <input placeholder="请填写详细地址"></input>
+      <input placeholder="请填写详细地址" bindblur="inputAddress" value="{{user.detail}}"></input>
     </view>
   </view>
 </view>
-<view class="bto">
+<view class="bto" bindtap="submit">
   确认
 </view>

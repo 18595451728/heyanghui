@@ -1,4 +1,6 @@
 // pages/pay/CashWithdrawalone/index.js
+const app = getApp()
+var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -12,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.init();
   },
 
   /**
@@ -66,6 +68,16 @@ Page({
   submit:function(){
     wx.navigateTo({
       url: '/pages/pay/CashWithdrawal/index',
+    })
+  },
+  init(){
+    var that =this
+    r.req(u + '/api/Withdraw/withdraw', { 
+      token:wx.getStorageSync('token'),
+      type:1,
+      money:1
+    },'post').then(res=>{
+      console.log(res)
     })
   }
 })

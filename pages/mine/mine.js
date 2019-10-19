@@ -7,7 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    haslogin:!1
+    haslogin:!1,
+    item: [{
+      icon: '/images/o1.png',
+      name: '全部',
+      path: '/pages/order/order?=status' + 0
+    },{
+      icon: '/images/o2.png',
+      name: '待付款',
+        path: '/pages/order/order?status=' + 1
+    }, {
+      icon: '/images/o3.png',
+      name: '待收货',
+        path: '/pages/order/order?status=' + 2
+    }, {
+      icon: '/images/o4.png',
+      name: '待评价',
+        path: '/pages/order/order?status=' + 3
+    }, {
+        icon: '/images/o5.png',
+        name: '退款维权',
+        path: '/pages/order/order?status=' + 4
+    }],
   },
 
   /**
@@ -22,6 +43,7 @@ Page({
   },
   bindGetUserInfo: function (e) {
     var that = this
+    console.log(e.detail.userInfo)
     if (e.detail.userInfo) {
       console.log(e.detail.userInfo)
       l.login(function (t) {
@@ -107,14 +129,36 @@ Page({
   onShareAppMessage: function () {
 
   },
-  myorder:function(e){
+  gotodetail:function(e){
     wx.navigateTo({
       url: '/pages/order/order'
     })
   },
+
+  myorder: function (e) {
+    var path = e.currentTarget.dataset.path
+    wx.removeStorage({
+      key: 'coupon',
+      success: function (res) {
+        console.log(res)
+      },
+    })
+    if (path != '') {
+      wx.navigateTo({
+        url: path,
+      })
+    }
+  },
+
   mycoupon:function(){
     wx.navigateTo({
       url: '/pages/couponlist/index'
+    })
+  },
+  myintegral: function (e) {
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/fenxiao/index?id=' + id
     })
   },
   mymoney:function(e){

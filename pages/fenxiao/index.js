@@ -1,4 +1,6 @@
 // pages/fenxiao/index.js
+var app=new getApp(); 
+var r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -14,7 +16,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.init();
+    this.getYongjin();
   },
 
   /**
@@ -65,10 +68,33 @@ Page({
   onShareAppMessage: function() {
 
   },
+  gotixian: function () {
+    wx.navigateTo({
+      url: '/pages/pay/CashWithdrawalone/index',
+    })
+  },
   choose: function(e) {
     var index = e.currentTarget.dataset.index
     this.setData({
       selectindex: index
+    })
+  },
+  init(){
+    var that =this
+    r.req(u + '/api/User/shareList', { 
+      token:wx.getStorageSync('token'),
+      list_row:10,
+      page:1
+    },'post').then(res=>{
+      console.log(res)
+    })
+  },
+  getYongjin(){
+    var that =this
+    r.req(u + '/api/User/shareList', { 
+      token:wx.getStorageSync('token')
+    },'post').then(res=>{
+      console.log(res)
     })
   }
 })

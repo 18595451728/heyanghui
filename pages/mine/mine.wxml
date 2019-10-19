@@ -14,7 +14,7 @@
     </view>
 </view>
 <view class="u-top">
-  <view data-id="0" bindtap="mymoney">
+  <view data-id="0" bindtap="myintegral">
     <text>{{0}}</text>
     <text>积分</text>
   </view>
@@ -31,14 +31,20 @@
 <view class="order">
   <view class="order-title">
     <view>我的订单</view>
-    <view data-id='0' bindtap="myorder">
+    <view data-id='0' bindtap="gotodetail">
       <text>查看全部订单</text>
       <image src="/images/arrow-right.png" class="arrow-right"></image>
     </view>
   </view>
   <image src="/images/line.png" class="line"></image>
   <view class="status">
-    <view bindtap="myorder">
+
+    <view wx:for="{{item}}" class="msgitem" data-path="{{item.path}}" bindtap="myorder">
+      <image src="{{item.icon}}" class="icon"></image>
+      <text class="">{{item.name}}</text>
+    </view>
+
+    <!-- <view bindtap="myorder">
       <image src="/images/o1.png" class="o1"></image>
       <text>待付款</text>
     </view>
@@ -57,7 +63,7 @@
     <view bindtap="myorder">
       <image src="/images/o5.png" class="o5"></image>
       <text>退款维权</text>
-    </view>
+    </view> -->
   </view>
 
 

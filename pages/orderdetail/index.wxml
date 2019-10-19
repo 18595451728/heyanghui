@@ -27,7 +27,7 @@
     <view class="goodsmsg">
       <text>{{item2.goods_name}}</text>
       <view class="goodsnum">
-        <text>古法秘制，补肾食疗。</text>
+        <text>{{item2.goods_desc}}</text>
         <text style="color:#3B3B3B">X{{item2.goods_num}}</text>
       </view>
     </view>

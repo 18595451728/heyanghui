@@ -20,7 +20,6 @@ Page({
       token: wx.getStorageSync('token')
     }, 'post').then((res) => {
  console.log(res)
-
     })
   },
 
