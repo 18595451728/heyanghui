@@ -109,7 +109,8 @@ Page({
       console.log(res)
 
       that.setData({
-        yongjin:res.data.user.distribut_money
+        yongjin:res.data.user.distribut_money,
+        shouyi: res.data.user.distribut_total
       })
     })  
   }

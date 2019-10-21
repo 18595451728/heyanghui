@@ -210,9 +210,10 @@ Page({
           icon: 'success',
           duration: 1000
         })
+
         setTimeout(() => {
           wx.navigateTo({
-            url: '../orderer/order',
+            url: '/pages/order/order',
           })
         }, 1000)
       }

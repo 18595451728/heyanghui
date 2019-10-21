@@ -66,11 +66,10 @@
 
   <view class="itemmsg" wx:for="{{options3}}" bindtap="receiveChoose" data-index="{{index}}" wx:key="{{index}}">
     <text> {{item.value}}</text>
-    <!-- <view class="checkimg">
-      <image class="" src="{{isReceive==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}' style="width: 100%;height:100%">
 
-      </image>
-    </view> -->
+      <!-- <image class="checkimg" src="{{isReceive==false ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}'>
+      </image> -->
+
 
 
 
@@ -87,7 +86,6 @@
     <text> {{item.value}}</text>
     <!-- <view class="checkimg">
       <image class="" src="{{isReceive==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}' style="width: 100%;height:100%"></image>
-
     </view> -->
   </view>
   <view class="cloose" bindtap="hideModal">

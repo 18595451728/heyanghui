@@ -192,7 +192,7 @@ Page({
       // 改变view里面的Wx：if
       showwuliu: true,
       showmodal: true,
-      isReceive: !this.data.isReceive
+      // isReceive: !this.data.isReceive
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动 滑动时间
     setTimeout(function() {
@@ -220,11 +220,11 @@ Page({
 
   receiveChoose: function (e) {
     this.setData({
-      isReceive: !this.data.isReceive,
       checkReceive: this.data.options3[e.currentTarget.dataset.index].value,
-      receiveIndex: e.currentTarget.dataset.index
+      receiveIndex: e.currentTarget.dataset.index,
+      isReceive: !this.data.isReceive
     })
-
+    console.log(this.data.isReceive)
   },
 
   tksm: function (e) {
