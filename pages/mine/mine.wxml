@@ -42,7 +42,7 @@
     <text>钱包</text>
   </view>
   <view bindtap="mycoupon">
-    <text>{{countList.coupon_num||0}}</text>
+    <text>{{list.length}}</text>
     <text>优惠券</text>
   </view>
 </view>

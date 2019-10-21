@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    haslogin: !1,
+
+    haslogin:!1,
+    list:[],
     item: [{
       icon: '/images/o1.png',
       name: '全部',
@@ -36,9 +38,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    var that = this,
-      haslogin = wx.getStorageSync('haslogin')
+
+  onLoad: function (options) {
+    this.init();
+    var that=this,haslogin=wx.getStorageSync('haslogin')
     that.setData({
       haslogin: haslogin
     })
@@ -238,7 +241,8 @@ Page({
 
     
   },
-  fuwu: function() {
+
+fuwu: function() {
     this.data.haslogin ?
       wx.navigateTo({
         url: '/pages/service_centre/index'
@@ -246,7 +250,18 @@ Page({
         title: '请先登录',
         icon: 'none'
       })
+  },
+  init() {
+    var that = this;
 
-    
+    r.req(u + '/api/User/couponList', {
+      token: wx.getStorageSync('token'),
+      coupon_type: 3
+    }, 'post').then(res => {
+      console.log(res)
+      that.setData({
+        list: res.data.list
+      })
+    })
   }
 })
