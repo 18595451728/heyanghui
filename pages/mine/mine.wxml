@@ -33,11 +33,11 @@
 
 
 <view class="u-top">
-  <view data-id="0" bindtap="myintegral">
+  <view bindtap="myintegral">
     <text>{{user.integral || 0}}</text>
     <text>积分</text>
   </view>
-  <view data-id="1" bindtap="mymoney">
+  <view bindtap="mymoney">
     <text>{{countList.wallet||0}}</text>
     <text>钱包</text>
   </view>

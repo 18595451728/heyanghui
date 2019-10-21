@@ -78,10 +78,13 @@ Page({
     r.req(u + '/api/User/volunteerStatus', { token: wx.getStorageSync('token') }, 'post').then(res => {
       var status = res.data.audit_status
       console.log(res)
-      status == -1 ? wx.navigateTo({
+      res.status == 1 ? status == -1 ? wx.navigateTo({
         url: '/pages/volunteermsg/index'
       }) : wx.navigateTo({
         url: '/pages/volunteermsg/backmsg/index'
+      }):wx.showToast({
+        title: res.msg,
+        icon:'none'
       })
     })
 
