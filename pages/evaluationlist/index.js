@@ -1,4 +1,5 @@
 // pages/evaluationlist/index.js
+const app = getApp(), r = require('../../utils/request.js'), u = app.globalData.url
 Page({
 
   /**
@@ -6,15 +7,26 @@ Page({
    */
   data: {
     scores:['','','','',''],
+    type:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var id = options.id
+    this.setData({
+      id:id
+    })
+    this.init(0);
   },
-
+  choosecomment:function(e){
+    var type=e.currentTarget.dataset.type
+    this.setData({
+      type:type
+    })
+    this.init(type)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -62,5 +74,27 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  init:function(e){
+    var that =this
+    r.req(u +'/api/Goods/goodsComment',{
+      list_row:10,
+      page:1,
+      is_pic:0,
+      goods_id:this.data.id,
+      rate:e
+    },'post').then(function(res){
+      console.log(res)
+      if(res.status==1){
+        that.setData({
+          data:res.data
+        })
+        e==0?that.setData({
+          all: res.data.totalCount
+        }) : e == 1 ? that.setData({
+          goodcomment: res.data.totalCount
+        }):''
+      }
+    })  
   }
 })

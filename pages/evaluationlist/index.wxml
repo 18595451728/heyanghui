@@ -1,24 +1,24 @@
 <view class="header">
-  <view class="all">全部 1</view>
-  <view class="item">好评 1</view>
+  <view class="item {{type==0?' all':''}}" data-type='0' bindtap='choosecomment'>全部 {{all}}</view>
+  <view class="item {{type==1?' all':''}}" data-type='1' bindtap='choosecomment'>好评 {{goodcomment}}</view>
 </view>
 
-<view class="list">
+<view class="list" wx:for='{{data.list}}'>
   <view class="listheader">
-    <image class="userlogo" src="/images/user_logo.png"></image>
+    <image class="userlogo" src="{{item.user_logo}}"></image>
     <view class="headermsg">
       <view class="phone">
-        <text>1*********7</text>
-        <text style="color:#868686">2018-08-24</text>
+        <text>{{item.user_name}}</text>
+        <text style="color:#868686">{{item.add_time}}</text>
       </view>
       <view>
-        <image wx:for="{{scores}}" class="scores" src="/images/scores.png"></image>
+        <image wx:for="{{item.desc_star}}" class="scores" src="/images/scores.png"></image>
       </view>
     </view>
   </view>
-  <text class="usermsg">此用户没有填写评价</text>
+  <text class="usermsg">{{item.content}}</text>
   <view class="foot">
-    <text class="title">九蒸九晒黑芝麻丸</text>
+    <text class="title">{{item.goods_name}}</text>
     <view class="footitem">
       <view class="itemmsg">
         <text>1</text>

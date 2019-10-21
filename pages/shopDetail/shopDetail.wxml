@@ -128,14 +128,14 @@
   </view>
 </view>
 <view class="dibu">
-  <view class="dibu1">
+  <button open-type='contact' class="dibu1">
     <image class="dibu_logo" src="/images/j-kefu.png">
 
     </image>
     <view class="dibu_text">
       客服
     </view>
-  </view>
+  </button>
   <view class="dibu2" bindtap="shopcart">
     <image class="dibu_logo" src="/images/che.png">
 
@@ -231,10 +231,14 @@
       </view>
     </view>
   </view>
-  <view class="dibu_guige_bottom">
+  <view class="dibu_guige_bottom" wx:if='{{haslogin}}'>
     <view class="dibu_guige_bottom1" bindtap='addcart' data-type='0'>加入购物车</view>
 
     <view class="dibu_guige_bottom2" bindtap="addcart" data-type='1'>立即购买</view>
+  </view>
+  <view class="dibu_guige_bottom" wx:else>
+    <button class='dibu_guige_bottom1' data-id='0' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">加入购物车</button>
+    <button class='dibu_guige_bottom2' data-id='1' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">立即购买</button>
   </view>
 </view>
 
