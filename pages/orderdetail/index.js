@@ -60,30 +60,57 @@ Page({
   // 取消订单
   cancelOrder: function (e) {
     var that = this
-    r.req(u + '/api/Order/cancelOrder', {
-      order_no: e.currentTarget.dataset.orderno,
-      token: wx.getStorageSync('token')
-    }, 'post').then((res) => {
-      wx.hideLoading();
-      wx.showModal({
-        title: '取消成功',
-        icon: 'success',
-        duration: 1000
-      })
-      that.onReady();
-      console.log(data)
+
+
+    wx.showModal({
+      title: '提示',
+      content: '确定取消',
+      success:function(rs){
+        if(rs.confirm){
+          console.log(1111)
+          r.req(u + '/api/Order/cancelOrder', {
+            order_no: e.currentTarget.dataset.orderno,
+            token: wx.getStorageSync('token')
+          }, 'post').then((res) => {
+            console.log(res)
+            if(res.status==1){
+              wx.navigateBack({
+                
+              })
+            }
+          })
+        }
+      }
     })
+
 
   },
 
   // 添加评论
-  addevaluation: function () {
-    app.globalData.commentNo = e.currentTarget.dataset.orderno,
-      app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
+  // addevaluation: function () {
+  //   app.globalData.commentNo = e.currentTarget.dataset.orderno,
+  //     app.globalData.commentGoodsid = e.currentTarget.dataset.ordergoodsid,
+  //     wx.navigateTo({
+  //       url: '/pages/addcomment/index',
+  //     })
+  // },
+
+
+  addevaluation: function (e) {
+
+    if (e.currentTarget.dataset.type == 2) {
       wx.navigateTo({
-        url: '/pages/addcomment/index',
+        url: '/pages/addcomment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
       })
+    } else {
+      wx.navigateTo({
+        url: '/pages/pay/Comment/index?orderno=' + e.currentTarget.dataset.orderno + '&ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
+      })
+    }
+
+
   },
+
   // 去付款
   payOrder: function (e) {
     var order = e.currentTarget.dataset.no
@@ -144,6 +171,8 @@ Page({
       url: '/pages/userserver/index?ordergoodid=' + e.currentTarget.dataset.ordergoodsid,
     })
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -122,7 +122,7 @@ Page({
           })
         } else {
           wx.navigateTo({
-            url: '/pages/confirm/confirm?cart_type=1',
+            url: '/pages/confirm/confirm?cart_type=1&sh=1',
           })
         }
       } else {

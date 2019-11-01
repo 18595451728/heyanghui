@@ -1,5 +1,5 @@
 // pages/shopDetail/shopDetail.js
-const app = getApp(), r = require('../../utils/request.js'), u = app.globalData.url
+const app = getApp(), r = require('../../utils/request.js'), u = app.globalData.url, l = require('../../utils/login.js')
 Page({
 
   /**
@@ -19,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this,id=options.id,share=options.share,sharetoken=options.token,token=wx.getStorageSync('token')
+    var that = this, id = options.id, share = options.share, sharetoken = options.token, token = wx.getStorageSync('token')
     if(share){
       
     }
@@ -27,7 +27,8 @@ Page({
     share ? token ? d = { goods_id: id, token: wx.getStorageSync('token'), c_token: sharetoken } : wx.setStorageSync('sharetoken', sharetoken):''
     console.log(options,id)
       that.setData({
-        goodsid:id
+        goodsid:id,
+        haslogin : wx.getStorageSync('haslogin')
       })
     r.req(u + '/api/Goods/goodsDetail', d, 'post').then(res => {
       console.log(res)
@@ -64,6 +65,44 @@ Page({
       })
     })
   },
+
+  bindGetUserInfo: function (e) {
+    var that = this
+    console.log(e.detail.userInfo)
+    if (e.detail.userInfo) {
+      console.log(e.detail.userInfo)
+      l.login(function (t) {
+        console.log(t)
+        wx.setStorageSync('token', t)
+        wx.setStorageSync('haslogin', !0)
+        that.setData({
+          haslogin: !0
+        })
+        wx.showToast({
+          title: '登录成功',
+          icon:'none'
+        })
+        setTimeout(function(){
+          var id= e.currentTarget.dataset.id
+          that.addcart(id)
+        },1000)
+      });
+    } else {
+      wx.showModal({
+        title: '警告',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”')
+          }
+        }
+      })
+    }
+  },
+
+
   changeSlide:function(e){
     this.setData({
       current: e.detail.current + 1
@@ -102,7 +141,7 @@ Page({
     return arr;
   },
   addcart:function(e){
-    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid,a=new Array(),type=e.currentTarget.dataset.type;
+    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid, a = new Array(), type = e.currentTarget? e.currentTarget.dataset.type: e;
     for(var i in s){
       a.push(s[i].list[s[i].cid].item_id)
     }
@@ -233,7 +272,7 @@ Page({
   },
   evaluationlist: function () {
     wx.navigateTo({
-      url: '/pages/evaluationlist/index',
+      url: '/pages/evaluationlist/index?id='+this.data.list.id,
     })
   },
   gotobuy:function(){

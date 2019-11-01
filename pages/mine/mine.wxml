@@ -4,43 +4,45 @@
 
   <view class="t-con" wx:if='{{haslogin}}'>
     <image src="{{user.head_img}}" class="headimg"></image>
-    <view class="usermes" >
+    <view class="usermes">
       <view>{{user.nickname}}</view>
       <view bindtap="huiyuan">会员：{{user.user_level||0}}</view>
     </view>
-    
+
   </view>
 
 
-  <view class="t-con" wx:else>
+  <view class="t-con cc" wx:else>
+    <view class="c-left">
       <image src="/images/head.jpg" class="headimg"></image>
-      <view class="usermes" >
+      <view class="usermes">
         <view>游客</view>
-      </view>  
-      <view class="login">
-
-          <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">登录</button>
       </view>
     </view>
-      <!-- <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button> -->
+    <view class="login">
 
-    
+      <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">登录</button>
+    </view>
+  </view>
+  <!-- <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">点击登录</button> -->
+
+
 </view>
 
 
 
 
 <view class="u-top">
-  <view data-id="0" bindtap="myintegral">
+  <view bindtap="myintegral">
     <text>{{user.integral || 0}}</text>
     <text>积分</text>
   </view>
-  <view data-id="1" bindtap="mymoney">
+  <view bindtap="mymoney">
     <text>{{countList.wallet||0}}</text>
     <text>钱包</text>
   </view>
   <view bindtap="mycoupon">
-    <text>{{countList.coupon_num||0}}</text>
+    <text>{{list.length}}</text>
     <text>优惠券</text>
   </view>
 </view>

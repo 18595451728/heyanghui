@@ -16,7 +16,7 @@
 
   </view>
   <scroll-view scroll-y class='list'>
-    <view class='item' wx:for="{{list}}">
+    <view class='item' wx:for="{{list}}" wx:if="{{list.length!=0}}">
       <view class='left' wx:if="{{item.coupon_type==2}}">
         {{(item.deduct)*10}}
         <view class="zhekou"> <text>%</text>
@@ -33,6 +33,6 @@
         </view>
       </view>
     </view>
-
+  <view wx:if="{{list.length==0}}" class="noyouhui">暂无优惠券</view>
   </scroll-view>
 </view>

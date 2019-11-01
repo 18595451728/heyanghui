@@ -129,19 +129,24 @@ page {
   line-height: 40rpx;
 }
 
-.imageslist {
+.images {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 20rpx;
+  align-items: flex-end;
 }
 
 .img {
   width: 210rpx;
   height: 210rpx;
-  padding: 30rpx 0 0 30rpx;
+  padding: 30rpx 0 0 0;
 }
-
+.images image.imgs{
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+}
 .modal-mask {
   width: 100%;
   height: 100%;
@@ -209,6 +214,6 @@ page {
 .checkimg {
   width: 30rpx;
   height: 30rpx;
-  border: 2rpx solid rgba(178, 175, 163, 1);
-  border-radius: 50%;
+  /* border: 2rpx solid rgba(178, 175, 163, 1);
+  border-radius: 50%; */
 }

@@ -26,7 +26,7 @@
 
         <view class="center_item_right_price">
           ￥
-          <text class="price">{{item.cost_price}}</text>
+          <text class="price">{{item.price}}</text>
           <image class="cart" src="/images/cart.png">
 
           </image>

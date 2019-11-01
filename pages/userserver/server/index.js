@@ -2,7 +2,6 @@
 const app = getApp()
 var r = require('../../../utils/request.js'), u = app.globalData.url
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -11,13 +10,14 @@ Page({
     checkServer: "请选择",
     checkReceive: "请选择",
     isReceive: false,
-
+    imagelist:[],
+    imageshowlist:[],
     images: ["", '', '', '', ''],
     showmodal: false,
    
     showwuliu: false,
     showreason: false,
-
+    imageshowlist: [],
     options1: [
       {
         value: "多拍/拍错/不想要",
@@ -192,7 +192,7 @@ Page({
       // 改变view里面的Wx：if
       showwuliu: true,
       showmodal: true,
-      isReceive: !this.data.isReceive
+      // isReceive: !this.data.isReceive
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动 滑动时间
     setTimeout(function() {
@@ -220,11 +220,11 @@ Page({
 
   receiveChoose: function (e) {
     this.setData({
-      isReceive: !this.data.isReceive,
       checkReceive: this.data.options3[e.currentTarget.dataset.index].value,
-      receiveIndex: e.currentTarget.dataset.index
+      receiveIndex: e.currentTarget.dataset.index,
+      isReceive: !this.data.isReceive
     })
-
+    console.log(this.data.isReceive)
   },
 
   tksm: function (e) {
@@ -240,6 +240,39 @@ Page({
   cc: function () {
     console.log("失去焦点")
   },
+
+  addPhoto: function () {
+    let that = this;
+    wx.chooseImage({
+      count: 3,
+      sizeType: ['original'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        that.setData({
+          imgbase: wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64")
+        })
+        var url = u + '/api/Index/uploadImg'
+        var data = {
+          img_str: 'data:image/png;base64,' + that.data.imgbase + '',
+          path: 'comment'
+        }
+        r.req(url, data, 'POST').then(function (res) {
+          if (that.data.imagelist.length < 3) {
+            that.data.imagelist.push(
+              res.data.pic
+            )
+            that.data.imageshowlist.push('http://www.heyanghui.com' + res.data.pic)
+            that.setData({
+              imagelist: that.data.imagelist,
+              imageshowlist: that.data.imageshowlist
+            })
+          }
+        })
+      }
+    })
+  },
+
+
   submit: function (e) {
     r.req(u + '/api/Order/applyAfterSales', {
       refund_type: this.data.refund_type,
@@ -269,4 +302,8 @@ Page({
     })
 
   },
+
+
+ 
+
 })

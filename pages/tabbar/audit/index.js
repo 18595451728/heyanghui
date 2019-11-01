@@ -62,7 +62,8 @@ Page({
     r.req(u + '/api/Goods/goodsList', {
       list_row: 10,
       page: 1,
-      sorts: this.data.sorts
+      sorts: this.data.sorts,
+      is_audit:1
     }, 'post').then(function (res) {
       console.log(res)
       that.setData({

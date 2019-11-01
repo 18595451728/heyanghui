@@ -369,13 +369,22 @@ swiper, swiper image {
   font-weight: 500;
   color: rgba(96, 96, 96, 1);
   text-align: center;
+  line-height: 30rpx;
 }
 
 .dibu1, .dibu2 {
   width: 15%;
   height: 100%;
+  float: left;
 }
-
+.dibu1{
+  border-radius: 0;
+  background: #fff;
+  padding: 0
+}
+.dibu1::after{
+  border: none;
+}
 .dibu3, .dibu4 {
   width: 35%;
   height: 100%;
@@ -636,15 +645,27 @@ swiper, swiper image {
   height: 100%;
   background: rgba(239, 142, 96, 1);
   float: left;
+  border-radius: 0;
+  color: white;
+  font-size: 28rpx;
+  line-height: 100rpx;
 }
-
+.dibu_guige_bottom1::after{
+  border: none;
+}
 .dibu_guige_bottom2 {
   width: 50%;
   height: 100%;
   background: rgba(235, 84, 77, 1);
   float: left;
+  border-radius: 0;
+  color: white;
+  font-size: 28rpx;
+  line-height: 100rpx;
 }
-
+.dibu_guige_bottom2::after{
+  border: none;
+}
 .zhegai {
   width: 100%;
   height: 100%;

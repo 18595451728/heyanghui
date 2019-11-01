@@ -43,11 +43,18 @@
 </view>
 <view class="images">
   <text class="title">上传凭证</text>
-  <view class="imageslist">
-    <image wx:for="{{images}}" class="img" style="{{index==0||index==3?'padding-left:10rpx':''}}" src="/images/goods.png"></image>
-    <block wx:if="{{images.length<6}}">
+  <view class="images">
+
+    <view bindtap="addPhoto" class="img">
+      <image class="" src="/images/choose_img.png" class="img">
+      </image>
+
+    </view>
+        <image class='imgs' src='{{item}}' wx:for='{{imageshowlist}}'></image>
+    <!-- <block wx:if="{{images.length<6}}">
       <image class="img" style="{{images.length==0||images.length==3?'padding-left:10rpx':''}}" src="/images/choose_img2.png"></image>
-    </block>
+    </block> -->
+
   </view>
 </view>
 <view class="bto" bindtap="submit">
@@ -59,11 +66,10 @@
 
   <view class="itemmsg" wx:for="{{options3}}" bindtap="receiveChoose" data-index="{{index}}" wx:key="{{index}}">
     <text> {{item.value}}</text>
-    <view class="checkimg">
-      <image class="" src="{{isReceive==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}' style="width: 100%;height:100%">
 
-      </image>
-    </view>
+      <!-- <image class="checkimg" src="{{isReceive==false ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}'>
+      </image> -->
+
 
 
 
@@ -78,10 +84,9 @@
   <text class="wuliutitle">退款原因</text>
   <view class="itemmsg" wx:for="{{options1}}" bindtap="tklyChoose" data-index="{{index}}" wx:key="{{index}}" blur="cc">
     <text> {{item.value}}</text>
-    <view class="checkimg">
+    <!-- <view class="checkimg">
       <image class="" src="{{isReceive==true ? '/images/w-gou.png' : '/images/w-nogou.png' }}" data-index='{{index}}' style="width: 100%;height:100%"></image>
-
-    </view>
+    </view> -->
   </view>
   <view class="cloose" bindtap="hideModal">
     关闭
