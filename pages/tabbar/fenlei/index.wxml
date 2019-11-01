@@ -1,0 +1,16 @@
+<tabbar tabbar="{{tabbar}}"></tabbar>
+<view class="main">
+    <view class="main_left">
+        <view class="main_left_item {{is_index==index ? 'active':'' }}" wx:for="{{class}}" data-index="{{index}}" bindtap="changeIndex" data-id="{{item.id}}">
+            {{item.classname}}
+
+            <view class="red" wx:if="{{is_index==index}}"></view>
+        </view>
+    </view>
+    <view class="main_right" wx:if="{{goodslist.length!=0}}">
+        <view class="main_right_item" wx:for="{{goodslist}}" bindtap="goClass">
+            <image src="{{item.goods_logo}}"></image>
+            <view>{{item.goods_name}}</view>
+        </view>
+    </view>
+</view>

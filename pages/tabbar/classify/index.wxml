@@ -1,64 +1,93 @@
 <tabbar tabbar="{{tabbar}}"></tabbar>
-<view class="big">
-  <view class="tabTit box">
-    <view class="flex1{{!tab[0]?' active':''}}" data-id='0' data-index="0" bindtap="filterTab">
-      <text>默认</text>
-    </view>
 
-    <view class="flex1{{!tab[1]?' active':''}}" data-id='1' data-index="1" bindtap="filterTab">
-      <text>时间</text>
-      <image wx:if="{{sorts=='1'}}" src="/images/doucb-on.png"></image>
-      <image wx:if="{{sorts=='2'}}" src="/images/doucb-off.png"></image>
-      <image wx:if="{{sorts!='1'&sorts!='2'}}" src="/images/none.png"></image>
-    </view>
-
-    <view class="flex1{{!tab[2]?' active':''}}" data-id='2' data-index="2" bindtap="filterTab">
-      <text>价格</text>
-      <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png"></image>
-      <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png"></image>
-      <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png"></image>
-    </view>
-
-    <!-- <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
-      <text>分类</text>
-      <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
-      <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
-      <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
-    </view> -->
-
-    <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
-      <text>销量</text>
-      <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
-      <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
-      <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
-    </view>
-
-  </view>
-  <view class="center">
-    <view class="center_item" wx:for='{{goodslist}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="goodsdetail">
-      <view class="center_item_left">
-        <image class="center_item_left_img" src="{{item.goods_logo}}">
-        </image>
-        <image class="hot" src="/images/remai.png">
-
-        </image>
+  <view class="big">
+    <view class="tabTit box">
+      <view class="flex1{{!tab[0]?' active':''}}" data-id='0' data-index="0" bindtap="filterTab">
+        <text>默认</text>
       </view>
-      <view class="center_item_right">
-        <view class="center_item_right_title">
-          {{item.goods_name}}
-        </view>
-        <view class="center_item_right_title2">
-          {{item.goods_desc}}
-        </view>
+  
+      <view class="flex1{{!tab[1]?' active':''}}" data-id='1' data-index="1" bindtap="filterTab">
+        <text>时间</text>
+        <image wx:if="{{sorts=='1'}}" src="/images/doucb-on.png"></image>
+        <image wx:if="{{sorts=='2'}}" src="/images/doucb-off.png"></image>
+        <image wx:if="{{sorts!='1'&sorts!='2'}}" src="/images/none.png"></image>
+      </view>
+  
+      <view class="flex1{{!tab[2]?' active':''}}" data-id='2' data-index="2" bindtap="filterTab">
+        <text>价格</text>
+        <image wx:if="{{sorts=='3'}}" src="/images/doucb-on.png"></image>
+        <image wx:if="{{sorts=='4'}}" src="/images/doucb-off.png"></image>
+        <image wx:if="{{sorts!='3'&sorts!='4'}}" src="/images/none.png"></image>
+      </view>
+  
+      <!-- <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
+        <text>分类</text>
+        <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
+        <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
+        <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
+      </view> -->
+  
+      <view class="flex1{{!tab[3]?' active':''}}" data-id='3' data-index="3" bindtap="filterTab">
+        <text>销量</text>
+        <image wx:if="{{sorts=='5'}}" src="/images/doucb-on.png"></image>
+        <image wx:if="{{sorts=='6'}}" src="/images/doucb-off.png"></image>
+        <image wx:if="{{sorts!='5'&sorts!='6'}}" src="/images/none.png"></image>
+      </view>
+  
+      <view class="flex1">
+        <image src='{{fenleiSrc}}' class="fenlei" bindtap="change_fenlei"></image>
+      </view>
+    </view>
+    <view class="center_out" style="background: {{is_active ? '#F0F1F5' : '#fff'}};">
 
-        <view class="center_item_right_price">
-          ￥
-          <text class="price">{{item.cost_price}}</text>
-          <image class="cart" src="/images/cart.png">
-
+      <view class="{{is_active ? 'center2' : 'center'}}">
+        <view class="center_item" wx:for='{{goodslist}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="goodsdetail"  wx:if="{{is_active==false}}">
+          <view class="center_item_left">
+            <image class="center_item_left_img" src="{{item.goods_logo}}">
+            </image>
+            <image class="hot" src="/images/remai.png">
+    
+            </image>
+          </view>
+          <view class="center_item_right">
+            <view class="center_item_right_title">
+              {{item.goods_name}}
+            </view>
+            <view class="center_item_right_title2">
+              {{item.goods_desc}}
+            </view>
+    
+            <view class="center_item_right_price">
+              ￥
+              <text class="price">{{item.cost_price}}</text>
+              <image class="cart" src="/images/cart.png">
+    
+              </image>
+            </view>
+          </view>
+        </view>
+    
+        <view class="center2_item" wx:for='{{goodslist}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="goodsdetail" wx:if="{{is_active}}" >
+          <image src="{{item.goods_logo}}" class="center_item_img"></image>
+          <image class="hot2" src="/images/remai.png">
+    
           </image>
+          <view class="center2_item_title">
+            {{item.goods_name}}
+          </view>
+          <view class="center2_item_price">
+            <view class="center2_item_price_left">
+              <text>￥</text>
+              <text>{{item.cost_price}}</text>
+            </view>
+            <view class="center2_item_price_right">
+              <image src="/images/cart.png" class="cart2"></image>
+            </view>
+          </view>
         </view>
       </view>
+
     </view>
+
   </view>
-</view>
+

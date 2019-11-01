@@ -1,11 +1,12 @@
 // pages/pay/InvitePrizes/index.js
+const app =new getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    invite: app.globalData.imgUrl +'/static/common/images/InvitePrizes_main_one_banner.png'
   },
 
   /**

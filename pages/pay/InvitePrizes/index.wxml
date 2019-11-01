@@ -1,6 +1,6 @@
 <view class="InvitePrizes">
     <view class="InvitePrizes_main_one">
-        <image src="/images/InvitePrizes_main_one_banner.png"></image>
+        <image src="{{invite}}"></image>
     </view>
     <view class="InvitePrizes_main_two">
         <view class="InvitePrizes_main_two_img">

@@ -11,7 +11,10 @@ Page({
     selectindex: 0,
     list:[],
     moneyTotal:'',
-    yongjin:''
+    yongjin:'',
+    shenfen:1,  //0 v2  1 v4
+    is_index:0,
+    fenxiao_img: app.globalData.imgUrl +'/static/common/images/fenxiao_bg.png'
   },
 
   /**
@@ -111,5 +114,10 @@ Page({
         yongjin:res.data.user.distribut_money
       })
     })  
+  },
+  chooseItem(e){
+    this.setData({
+      is_index:e.currentTarget.dataset.index
+    })
   }
 })

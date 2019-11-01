@@ -1,34 +1,68 @@
 <view class="header">
-  <image class="bg" src="/images/fenxiao_bg.png"></image>
-  <view class="item1" bindtap="gotixian">
+  <image class="bg" src="{{fenxiao_img}}"></image>
+  <view class="item1" bindtap="gotixian" wx:if="{{false}}">
     提现 >
   </view>
   <view class="item2">
-    <text style="margin-top:50rpx;">可提现佣金</text>
-    <view class="allmoney">¥
-      <text style="font-size: 36rpx; ">{{yongjin}}</text>
+    <text style="margin-top:50rpx;">{{shenfen==0 ? '可使用积分' : '可使用绩点'}}</text>
+    <view class="allmoney">
+      <text style="font-size: 36rpx; ">10000.00</text>
     </view>
   </view>
   <view class="item3">
    
-    <text>累计收益：{{moneyTotal}}元</text>
+    <text>今日{{shenfen==0 ? '积分' : '绩点'}}：25534.00</text>
+    <text>累计{{shenfen==0 ? '积分' : '绩点'}}：25534.00</text>
   </view>
+
 </view>
 <view class="kongxi">
 </view>
 <view class="title">
-  收益明细
-</view>
-<view class="type" wx:if="{{false}}">
-  <view wx:for="{{type}}" class="typeitem {{index==selectindex?'active':''}}" data-index="{{index}}" bindtap="choose">
-    <text>佣金</text>
-    <text>{{item}}</text>
+  <view class="title_left">
+      <text style="color:{{is_index==0 ? '#EB544D' : ''}}"  bindtap="chooseItem" data-index="0" class="jfmx">
+          {{shenfen==0 ? '积分明细' : '绩点明细'}}
+        </text> 
+        <text style="color:{{is_index==1 ? '#EB544D' : ''}}" bindtap="chooseItem" data-index="1">团队成员</text>
   </view>
+
+  <view class="title_right" wx:if="{{shenfen==1}}">
+    A1成员
+    <image src="/images/sanjiao.png" class="sanjiao"></image>
+  </view>
+
 </view>
-<view class="msg" wx:for="{{list}}">
+
+<view class="msg" wx:for="{{list}}" wx:if="{{false}}">
   <text>{{item.username}}</text>
   <view class="msgdata">
     <text style="color:#EB544D">+{{item.money}}</text>
     <text class="time">{{item.pay_time}}</text>
   </view>
+</view>
+
+<view class="jifen" wx:if="{{is_index==0}}">
+  <view class="jifen_title">
+    <view>{{shenfen==0 ? '商品名称' : '绩点明细'}}</view>
+    <view>{{shenfen==0 ? '所获积分' : '所获绩点'}}</view>
+    <view>收益日期</view>
+  </view>
+  <view class="jifen_item" wx:for="{{5}}">
+    <view class="jifen1">九蒸九晒黑芝麻丸</view>
+    <view class="jifen2">+400</view>
+    <view class="shouyi">
+      <text>2019-05-11</text>
+      <text> 10:40</text>
+    </view>   
+  </view>
+</view>
+
+<view class="team" wx:if="{{is_index==1}}" wx:for="{{5}}">
+    <view class="team_item">
+      <view class="team_item1">
+        <text>尹浩</text>
+        <text>131****2468</text>
+      </view>
+      <view>加入时间：2019-05-11 10:40</view>
+    </view>
 </view>

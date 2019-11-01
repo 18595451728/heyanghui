@@ -1,12 +1,11 @@
-// pages/coupon/index.js
-const app = new getApp();
+// pages/tarbbar/fenlei/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    coupon_bg: app.globalData.url +'/static/common/images/couponbg.png'
+
   },
 
   /**

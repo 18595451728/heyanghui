@@ -74,13 +74,42 @@
 }
 
 .title {
+  width: 94%;
+  margin:0 auto;
   font-size: 26rpx;
   font-family: PingFangSC;
   font-weight: 600;
   color: rgba(55, 55, 55, 1);
   padding: 50rpx 0 40rpx 25rpx;
+  display: flex;
+  align-items: center;
 }
+.title_left>text{
+  display: inline-block;
+  position: relative;
+  line-height: 10rpx;
+}
+.title_left{
+  float: left;
 
+}
+.title_right{
+  float: right;
+  width:156rpx;
+  height:47rpx;
+  line-height: 47rpx;
+  text-align: center;
+  background:rgba(238,238,238,1);
+  border-radius:24rpx;
+
+  font-size:24rpx;
+font-family:SourceHanSansCN;
+font-weight:500;
+color:rgba(102,102,102,1);
+
+margin-left: 300rpx;
+
+}
 .type {
   width: 700rpx;
   height: 100rpx;
@@ -134,4 +163,102 @@
 }
 .time{
   font-size: 20rpx;
+}
+.jifen_title{
+  width: 94%;
+  height:57rpx;
+  margin:0rpx auto 25rpx;
+  background:rgba(240,241,244,1);
+  border-radius:5rpx;
+
+  display: flex;
+}
+.jifen_title>view{
+  flex: 1;
+  font-size:24rpx;
+  font-family:SourceHanSansCN;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  text-align: center;
+  line-height: 57rpx;
+}
+.jfmx{
+  position: relative;
+  margin-right: 30rpx;
+}
+.jfmx::after{
+  content:'';
+  display: block;
+  position: absolute;
+  width:3rpx;
+  height:23rpx;
+  background: rgba(152,152,152,1);
+  right: -14rpx;
+  top:6rpx;
+}
+.jifen_item{
+  width: 90%;
+  height: auto;
+  margin:10rpx auto 0;
+  padding-bottom: 10rpx;
+  border-bottom: 5rpx solid #F1F1F1;
+  display: flex;
+}
+.jifen_item view{
+  flex: 1;
+  text-align: center;
+
+  
+
+  line-height:10rpx;
+  line-height:70rpx;
+}
+.jifen1{
+  font-size:22rpx;
+  font-family:SourceHanSansCN;
+  font-weight:500;
+  color:rgba(97,97,97,1);
+}
+.jifen2{
+  font-size: 24rpx;
+  font-family:SourceHanSansCN;
+  font-weight:500;
+  color:rgba(235,84,77,1);
+}
+.shouyi{
+  font-size:20rpx;
+  font-family:SourceHanSansCN;
+  font-weight:500;
+  color:rgba(97,97,97,1);
+}
+.shouyi>text{
+  display: block;
+  line-height: 35rpx;
+}
+.team_item{
+  width: 90%;
+  height: auto;
+  padding-bottom: 30rpx;
+  border-bottom: 4rpx solid #F1F1F1;
+  display: flex;
+
+  margin:34rpx auto 0;
+}
+.team_item>view{
+  flex: 1;
+  font-size:24rpx;
+  font-family:SourceHanSansCN;
+  font-weight:500;
+  color:rgba(97,97,97,1);
+}
+.team_item1>text:nth-child(1){
+  margin-right: 20rpx;
+}
+.sanjiao{
+  width:16rpx;
+  height:8rpx;
+  background:rgba(102,102,102,1);
+  vertical-align: text-top;
+  background: #EEEEEE;
+  margin-top: 15rpx;
 }

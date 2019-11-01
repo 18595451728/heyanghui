@@ -65,7 +65,7 @@ App({
     let tabbar = {
       backgroundColor: "#fcfcfc",
       color: "#979795",
-      selectedColor: "#000000",
+      selectedColor: "#EB544D",
       list: [{
         "pagePath": "/pages/home/index",
         "iconPath": "icon/home_off.png",
@@ -73,7 +73,7 @@ App({
         "text": "主页"
       },
         {
-          "pagePath": "/pages/tabbar/classify/index",
+          "pagePath": "/pages/tabbar/fenlei/index",
           "iconPath": "icon/classify_off.png",
           "selectedIconPath": "icon/classify_on.png",
           "text": "分类"
@@ -130,6 +130,7 @@ App({
     systemInfo: null, //客户端设备信息
     userInfo: null,
     url: 'http://www.heyanghui.com',
+    imgUrl:'http://www.heyanghui.com',
     token: '',
     is_login: false,
     tabBar: {
@@ -143,7 +144,7 @@ App({
         "text": "主页"
       },
       {
-        "pagePath": "/pages/tabbar/classify/index",
+        "pagePath": "/pages/tabbar/fenlei/index",
         "iconPath": "icon/classify_off.png",
         "selectedIconPath": "icon/classify_on.png",
         "text": "分类"

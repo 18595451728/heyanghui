@@ -9,7 +9,9 @@ Page({
     tab: [false, true, true, true,true],
     page: 1,
     sorts: 0,
-    showpp: false
+    showpp: false,
+    is_active:false,
+    fenleiSrc:'/images/fenlei_change.jpg'
   },
   // 选项卡
   filterTab: function (e) {
@@ -95,7 +97,7 @@ getgoodlist:function(){
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    app.editTabbar();
+    // app.editTabbar();
   },
 
   /**
@@ -139,6 +141,14 @@ getgoodlist:function(){
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/shopDetail/shopDetail?id='+id
+    })
+  },
+  change_fenlei(){
+    this.setData({
+      is_active:!this.data.is_active,
+    })
+    this.setData({
+      fenleiSrc:this.data.is_active ? '/images/fenlei_change2.jpg' : '/images/fenlei_change.jpg'
     })
   }
 })

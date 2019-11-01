@@ -1,6 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <view class="top">
-  <image src="/images/minebg.jpg" class="minebg"></image>
+  <image src="{{minebg}}" class="minebg"></image>
 
   <view class="t-con" wx:if='{{haslogin}}'>
     <image src="{{user.head_img}}" class="headimg"></image>
@@ -98,6 +98,7 @@
     <image src="/images/arrow-right.png" class="arrow-right"></image>
   </view>
   <image class="line" src="/images/line.png"></image>
+
   <view class="u1" bindtap="fuwu">
     <view>
       <view class="icon">
@@ -108,6 +109,7 @@
     <image src="/images/arrow-right.png" class="arrow-right"></image>
   </view>
   <image class="line" src="/images/line.png"></image>
+
   <view class="u1" bindtap="usermsg">
     <view>
       <view class="icon">
@@ -118,6 +120,20 @@
     <image src="/images/arrow-right.png" class="arrow-right"></image>
   </view>
   <image class="line" src="/images/line.png"></image>
+
+
+  <view class="u1" bindtap="myteam">
+    <view>
+      <view class="icon">
+        <image src="/images/u3.png" class="p4"></image>
+      </view>
+      <text>我的团队</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-right"></image>
+  </view>
+  <image class="line" src="/images/line.png"></image>
+
+
   <view class="u1" bindtap="myshare">
     <view>
       <view class="icon">
@@ -128,6 +144,9 @@
     <image src="/images/arrow-right.png" class="arrow-right"></image>
   </view>
   <image class="line" src="/images/line.png"></image>
+
+
+
   <view class="u1">
     <view>
       <view class="icon">

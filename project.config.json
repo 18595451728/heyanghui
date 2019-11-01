@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 30,
 			"list": [
 				{
 					"id": -1,
@@ -50,8 +50,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "分类",
+					"id": 1,
+					"name": "二级分类",
 					"pathName": "pages/tabbar/classify/index",
 					"query": "",
 					"scene": null
@@ -234,6 +234,27 @@
 				{
 					"id": -1,
 					"name": "领取优惠券",
+					"pathName": "pages/coupon/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "一级分类",
+					"pathName": "pages/tabbar/fenlei/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mine/mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/coupon/index",
 					"pathName": "pages/coupon/index",
 					"query": "",
 					"scene": null

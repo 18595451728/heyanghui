@@ -45,7 +45,8 @@
     "pages/evaluationlist/index",
     "pages/tabbar/classify/index",
 
-    "pages/couponChoose/index"
+    "pages/couponChoose/index",
+    "pages/tabbar/fenlei/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -71,7 +72,7 @@
         "selectedIconPath": "components/tabbarComponent/icon/home_on.png"
       },
       {
-        "pagePath": "pages/tabbar/classify/index",
+        "pagePath": "pages/tabbar/fenlei/index",
         "text": "分类",
         "iconPath": "components/tabbarComponent/icon/classify_off.png",
         "selectedIconPath": "components/tabbarComponent/icon/classify_on.png"

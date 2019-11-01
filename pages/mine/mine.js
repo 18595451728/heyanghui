@@ -8,6 +8,7 @@ Page({
    */
   data: {
     haslogin:!1,
+    minebg: app.globalData.imgUrl +'/static/common/images/minebg.jpg',
     item: [{
       icon: '/images/o1.png',
       name: '全部',
@@ -198,6 +199,11 @@ Page({
   fuwu:function(){
     wx.navigateTo({
       url: '/pages/service_centre/index'
+    })
+  },
+  myteam(){
+    wx.navigateTo({
+      url: '/pages/fenxiao/index'
     })
   }
 })
