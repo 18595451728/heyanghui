@@ -141,7 +141,7 @@ Page({
     return arr;
   },
   addcart:function(e){
-    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid, a = new Array(), type = e.currentTarget? e.currentTarget.dataset.type: e;
+    var t = this, c = t.data.count, s = t.data.spec, g = t.data.goodsid, a = new Array(), type = this.data.type;
     for(var i in s){
       a.push(s[i].list[s[i].cid].item_id)
     }
@@ -260,7 +260,12 @@ Page({
       is_peisong:this.data.is_peisong==true ? false : true
     })
   },
-  guige(){
+  guige(e){
+    if(e.currentTarget.dataset.type){
+      this.setData({
+        type:e.currentTarget.dataset.type
+      })
+    }
     this.setData({
       is_guige:this.data.is_guige==true ? false : true
     })

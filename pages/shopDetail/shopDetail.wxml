@@ -144,10 +144,10 @@
       购物车
     </view>
   </view>
-  <view class="dibu3" bindtap='guige'>
+  <view class="dibu3" bindtap='guige' data-type='0'>
     加入购物车
   </view>
-  <view class="dibu4" bindtap="guige">
+  <view class="dibu4" bindtap="guige" data-type='1'>
     立即购买
   </view>
 </view>
@@ -232,9 +232,7 @@
     </view>
   </view>
   <view class="dibu_guige_bottom" wx:if='{{haslogin}}'>
-    <view class="dibu_guige_bottom1" bindtap='addcart' data-type='0'>加入购物车</view>
-
-    <view class="dibu_guige_bottom2" bindtap="addcart" data-type='1'>立即购买</view>
+    <view class="dibu_guige_bottom2" bindtap="addcart">确定</view>
   </view>
   <view class="dibu_guige_bottom" wx:else>
     <button class='dibu_guige_bottom1' data-id='0' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">加入购物车</button>

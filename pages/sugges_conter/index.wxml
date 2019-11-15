@@ -1,7 +1,7 @@
 <!--pages/sugges_conter/index.wxml-->
 <view class="member_page">
 
-  <view class="menmber_box">
+  <!-- <view class="menmber_box">
     <view class="list_member">
       <view class="sugg_txt">
         <text>投诉/建议</text>类型</view>
@@ -13,7 +13,7 @@
       <image src="/images/prev_fangxiang.png"></image>
     </view>
 
-  </view>
+  </view> -->
 
 
   <view class='menmber_box'>

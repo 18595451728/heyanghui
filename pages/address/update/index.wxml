@@ -15,7 +15,7 @@
   <view class="item">
     <text class="title">手机号</text>
     <view class="itemmsg">
-      <input type="number" placeholder="{{user.telephone}}" bindblur="inputTel" maxlength="11"></input>
+      <input type="number" value="{{user.telephone}}" placeholder='请输入手机号' bindblur="inputTel" maxlength="11"></input>
     </view>
   </view>
   <view class="item">

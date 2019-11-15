@@ -44,7 +44,11 @@ Page({
         realpay:allprice.toFixed(2),
         jine:allprice.toFixed(2)
       })
-      
+      if(!res.data.address){
+        that.setData({
+          hasaddress:!1
+        })
+      }
 
     
 
@@ -178,9 +182,21 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    
   },
-
+  onPageScroll:function(e){
+    console.log(e)
+    if (e.scrollTop<85){
+      wx.setNavigationBarTitle({
+        title: '确认订单',
+      })
+    }else{
+      wx.setNavigationBarTitle({
+        title: this.data.address.address,
+      })
+    }
+    
+  },
   /**
    * 用户点击右上角分享
    */

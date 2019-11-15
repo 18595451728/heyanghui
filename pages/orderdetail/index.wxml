@@ -100,7 +100,7 @@
   <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="sureOrder"  wx:if="{{order.order_btn.receive_btn==1}}">
     确认收货
   </view>
-  <view class="caozuoitem" style="background-color:#EB544D" data-orderno="{{order.order_no}}" catchtap="cancelOrder"  wx:if="{{order.order_btn.cancel_btn==1}}">
+  <view class="caozuoitem" style="background-color:#ef8e60" data-orderno="{{order.order_no}}" catchtap="cancelOrder"  wx:if="{{order.order_btn.cancel_btn==1}}">
     取消订单  
   </view>
 

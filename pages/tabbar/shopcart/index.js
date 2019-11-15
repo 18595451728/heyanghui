@@ -132,9 +132,13 @@ Page({
         
       }
     } else {
-      wx.navigateTo({
-        url: '/pages/confirm/confirm?cart_type=0'
-      })
+      var cartlist = this.data.cartlist
+      if(cartlist.length !=0){
+        wx.navigateTo({
+          url: '/pages/confirm/confirm?cart_type=0'
+        })
+      }
+     
     }
   },
 
